@@ -43,14 +43,7 @@ Hopefully they can be useful to you as well.
 
 
 
-
-<div style="display: flex, flex-direction: row, color: rgb(255, 196, 0), " align="center" justify-content= "space-around" backgroundColor= "white">
-  <img height="170em" src= "https://github-readme-stats.vercel.app/api?username=webdevarif" />
-  <img height="170em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=webdevarif&layout=compact&langs_count=7&theme=white" />
-</div>
-
 ##
-
 
 <div align="center"> 
  	<a href = "mailto:rodrigo_vigil@yahoo.com.br">
@@ -67,8 +60,7 @@ Hopefully they can be useful to you as well.
  </a>
 </div>
 
-<br />
-
-<div align="center">
- <img src= "https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=webdevarif&theme=vue"/>
+<div style="display: flex, flex-direction: row, color: rgb(255, 196, 0), " align="center" justify-content= "space-around" backgroundColor= "white">
+  <img height="170em" src= "https://github-readme-stats.vercel.app/api?username=webdevarif" />
+  <img height="170em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=webdevarif&layout=compact&langs_count=7&theme=white" />
 </div>
