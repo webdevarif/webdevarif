@@ -37,6 +37,8 @@ Hopefully they can be useful to you as well.
 
 ##
 
+<br />
+
 <div align="center"> 
  	<a href = "mailto:rodrigo_vigil@yahoo.com.br">
       <img src="https://img.shields.io/badge/-Email-%23333?style=for-the-badge&logo=gmail&logoColor=white" target="_blank">
