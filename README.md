@@ -60,7 +60,7 @@ Hopefully they can be useful to you as well.
  </a>
 </div>
 
-<br /><br />
+<br />
 
 <div align="center">
  <img src= "https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=webdevarif&theme=vue"/>
