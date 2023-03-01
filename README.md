@@ -49,12 +49,16 @@ Hopefully they can be useful to you as well.
  <a href = "https://discord.com/channels/Rodrigo Cuervo#4004" target="_blank">
   <img src= "https://img.shields.io/badge/Discord-5865F2?style=for-the-badge&logo=discord&logoColor=white"> 
  </a>
+ <a href = "https://youtube.com/@WebDeveloperArif" target="_blank">
+  <img src= "https://img.shields.io/badge/youtube-FF0000?style=for-the-badge&logo=youtube&logoColor=white"> 
+ </a>
  <a href = "https://twitter.com/RodrigoCvigil" target="_blank">
   <img src= "https://img.shields.io/badge/Twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white"> 
  </a>
-<a href="https://wa.me/#?text=vk0x65?"><img src="https://img.shields.io/badge/WHATSAPP-25D366?&style=for-the-badge&logo=whatsapp&logoColor=white"/></a>&nbsp;&nbsp;
+<a href="https://wa.me/08801857323271?text=https://wa.me/08801857323271?text=Hi!%20I%20found%20you%20from%20Github%20Profile."><img src="https://img.shields.io/badge/whatsapp-25D366?&style=for-the-badge&logo=whatsapp&logoColor=white"/></a>&nbsp;&nbsp;
 
 <a href="https://wa.me/#?text=vk0x65?"><img src="https://img.shields.io/badge/skype-00A5EA?&style=for-the-badge&logo=skype&logoColor=white"/></a>&nbsp;&nbsp;
+
 <a href="https://github.com/vk0x65/vk0x65/blob/main/Ask/README.md"><img src="https://img.shields.io/badge/Ask%20me-anything-1abc9c.svg?style=for-the-badge"></a>&nbsp;&nbsp;
 
 </div>
