@@ -16,7 +16,7 @@ Hopefully they can be useful to you as well.
 - If you want to contact me, join my [Discord server](https://discordapp.com/users/3762) or tag me on [Twitter](https://twitter.com/webdevarif).
 
 ### Experts In
-[![HtmlSass](https://img.shields.io/badge/Html%20sass-DD4B25?style=for-the-badge&logo=css3&logoColor=white)](https://webdeveloperarif.com/blogs/)
+[![HtmlSass](https://img.shields.io/badge/Html5%20sass-DD4B25?style=for-the-badge&logo=css3&logoColor=white)](https://webdeveloperarif.com/blogs/)
 [![ReactJs](https://img.shields.io/badge/reactjs-00D1F7?style=for-the-badge&logo=react&logoColor=212121)](https://webdeveloperarif.com/blogs/)
 [![NextJs](https://img.shields.io/badge/nextjs-111111?style=for-the-badge&logo=react&logoColor=white)](https://webdeveloperarif.com/blogs/)
 [![Wordpress](https://img.shields.io/badge/wordpress-207196?style=for-the-badge&logo=wordpress&logoColor=white)](https://webdeveloperarif.com/blogs/)
