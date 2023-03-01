@@ -45,6 +45,21 @@ Hopefully they can be useful to you as well.
 
 
 
+<div align="center"> 
+ 	<a href = "mailto:rodrigo_vigil@yahoo.com.br">
+      <img src="https://img.shields.io/badge/-Email-%23333?style=for-the-badge&logo=gmail&logoColor=white" target="_blank">
+  </a>
+  <a href="https://www.linkedin.com/in/rodrigocvigil/" target="_blank">
+    <img src="https://img.shields.io/badge/-LinkedIn-%230077B5?style=for-the-badge&logo=linkedin&logoColor=white" target="_blank">
+  </a> 
+ <a href = "https://discord.com/channels/Rodrigo Cuervo#4004" target="_blank">
+  <img src= "https://img.shields.io/badge/Discord-5865F2?style=for-the-badge&logo=discord&logoColor=white"> 
+ </a>
+ <a href = "https://twitter.com/RodrigoCvigil" target="_blank">
+  <img src= "https://img.shields.io/badge/Twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white"> 
+ </a>
+</div>
+
 <div align="center">
  <img src= "https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=webdevarif&theme=vue"/>
 </div>
