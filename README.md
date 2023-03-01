@@ -1,6 +1,6 @@
 <p align="center">
-  <a href="https://tyrrrz.me/ukraine">
-    <img src="ukraine.png">
+  <a href="https://webdeveloperarif">
+    <img src="webdeveloperarif.png">
   </a>
 </p>
 
@@ -8,7 +8,7 @@
 
 ## 👋 Hi there!
 
-My name is **Oleksii** and I do open source for fun.
+My name is **Arif Hossin** and I do open source for fun.
 The projects you will find on this profile are just random things I've built at one point or another to make my life easier.
 Hopefully they can be useful to you as well.
 
@@ -27,6 +27,6 @@ Hopefully they can be useful to you as well.
 ### Stats
 
 <div>
-  <img height="135px" src="https://github-readme-stats.vercel.app/api?username=tyrrrz&theme=nord&show_icons=true&hide_title=true&hide_border=true&hide_rank=true&include_all_commits=true&count_private=true&line_height=21">
-  <img height="135px" src="https://github-readme-stats.vercel.app/api/top-langs/?username=tyrrrz&theme=nord&&hide_title=true&hide_border=true&layout=compact&langs_count=8">
+  <img height="135px" src="https://github-readme-stats.vercel.app/api?username=webdevarif&theme=nord&show_icons=true&hide_title=true&hide_border=true&hide_rank=true&include_all_commits=true&count_private=true&line_height=21">
+  <img height="135px" src="https://github-readme-stats.vercel.app/api/top-langs/?username=webdevarif&theme=nord&&hide_title=true&hide_border=true&layout=compact&langs_count=8">
 </div>
