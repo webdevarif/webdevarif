@@ -24,6 +24,14 @@ Hopefully they can be useful to you as well.
 [![Shopify](https://img.shields.io/badge/shopify-618F3C?style=for-the-badge&logo=shopify&logoColor=white)](https://webdeveloperarif.com/blogs/)
 
 
+### Stats
+
+<div>
+  <img height="135px" src="https://github-readme-stats.vercel.app/api?username=webdevarif&theme=nord&show_icons=true&hide_title=true&hide_border=true&include_all_commits=true&count_private=true&line_height=21">
+  
+  <img height="135px" src="https://github-readme-stats.vercel.app/api/top-langs/?username=webdevarif&theme=nord&&hide_title=true&hide_border=true&layout=compact&langs_count=8">
+</div>
+
 ### Socials
 
 [![Blog](https://img.shields.io/badge/blog-FFA500?style=for-the-badge&logo=rss&logoColor=white)](https://webdeveloperarif.com/blogs/)
@@ -32,11 +40,3 @@ Hopefully they can be useful to you as well.
 [![YouTube](https://img.shields.io/badge/youtube-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://youtube.com/@WebDeveloperArif)
 [![Facebook](https://img.shields.io/badge/facebook-129AF7?style=for-the-badge&logo=facebook&logoColor=white)](https://www.facebook.com/webdeveloperarifpg/)
 [![Linkedin](https://img.shields.io/badge/linkedin-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/arif-hossin/)
-
-### Stats
-
-<div>
-  <img height="135px" src="https://github-readme-stats.vercel.app/api?username=webdevarif&theme=nord&show_icons=true&hide_title=true&hide_border=true&include_all_commits=true&count_private=true&line_height=21">
-  
-  <img height="135px" src="https://github-readme-stats.vercel.app/api/top-langs/?username=webdevarif&theme=nord&&hide_title=true&hide_border=true&layout=compact&langs_count=8">
-</div>
