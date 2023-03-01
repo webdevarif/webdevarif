@@ -22,7 +22,7 @@ Hopefully they can be useful to you as well.
 [![Mastodon](https://img.shields.io/badge/mastodon-2A8BD2?style=for-the-badge&logo=mastodon&logoColor=white)](https://hachyderm.io/@webdevarif)
 [![YouTube](https://img.shields.io/badge/youtube-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://youtube.com/@WebDeveloperArif)
 [![Facebook](https://img.shields.io/badge/facebook-5865F2?style=for-the-badge&logo=facebook&logoColor=white)](https://www.facebook.com/webdeveloperarifpg/)
-[![Facebook](https://img.shields.io/badge/facebook-5865F2?style=for-the-badge&logo=facebook&logoColor=white)](https://img.shields.io/badge/linkedin-5865F2?style=for-the-badge&logo=linkedin&logoColor=white)
+[![Linkedin](https://img.shields.io/badge/linkedin-5865F2?style=for-the-badge&logo=linkedin&logoColor=white)](https://img.shields.io/badge/linkedin-5865F2?style=for-the-badge&logo=linkedin&logoColor=white)
 
 ### Stats
 
