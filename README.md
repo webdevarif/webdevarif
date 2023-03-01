@@ -15,6 +15,10 @@ Hopefully they can be useful to you as well.
 - To see the list of my most popular projects, [visit my website](https://webdeveloperarif.com/projects/).
 - If you want to contact me, join my [Discord server](https://discordapp.com/users/3762) or tag me on [Twitter](https://twitter.com/webdevarif).
 
+### Tools I use
+[![REACTJS](https://img.shields.io/badge/reactjs-00D1F7?style=for-the-badge&logo=react&logoColor=212121)](https://webdeveloperarif.com/blogs/)
+
+
 ### Socials
 
 [![Blog](https://img.shields.io/badge/blog-FFA500?style=for-the-badge&logo=rss&logoColor=white)](https://webdeveloperarif.com/blogs/)
@@ -27,6 +31,7 @@ Hopefully they can be useful to you as well.
 ### Stats
 
 <div>
-  <img height="135px" src="https://github-readme-stats.vercel.app/api?username=webdevarif&theme=nord&show_icons=true&hide_title=true&hide_border=true&hide_rank=true&include_all_commits=true&count_private=true&line_height=21">
+  <img height="135px" src="https://github-readme-stats.vercel.app/api?username=webdevarif&theme=nord&show_icons=true&hide_title=true&hide_border=true&include_all_commits=true&count_private=true&line_height=21">
+  
   <img height="135px" src="https://github-readme-stats.vercel.app/api/top-langs/?username=webdevarif&theme=nord&&hide_title=true&hide_border=true&layout=compact&langs_count=8">
 </div>
