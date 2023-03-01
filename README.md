@@ -21,8 +21,8 @@ Hopefully they can be useful to you as well.
 [![Twitter](https://img.shields.io/badge/twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white)](https://twitter.com/webdevarif)
 [![Mastodon](https://img.shields.io/badge/mastodon-2A8BD2?style=for-the-badge&logo=mastodon&logoColor=white)](https://hachyderm.io/@webdevarif)
 [![YouTube](https://img.shields.io/badge/youtube-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://youtube.com/@WebDeveloperArif)
-[![Facebook](https://img.shields.io/badge/facebook-5865F2?style=for-the-badge&logo=facebook&logoColor=white)](https://www.facebook.com/webdeveloperarifpg/)
-[![Linkedin](https://img.shields.io/badge/linkedin-5865F2?style=for-the-badge&logo=linkedin&logoColor=white)](https://img.shields.io/badge/linkedin-5865F2?style=for-the-badge&logo=linkedin&logoColor=white)
+[![Facebook](https://img.shields.io/badge/facebook-129AF7?style=for-the-badge&logo=facebook&logoColor=white)](https://www.facebook.com/webdeveloperarifpg/)
+[![Linkedin](https://img.shields.io/badge/linkedin-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/arif-hossin/)
 
 ### Stats
 
