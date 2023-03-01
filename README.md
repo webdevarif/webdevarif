@@ -54,7 +54,7 @@ Hopefully they can be useful to you as well.
  </a>
 <a href="https://wa.me/#?text=vk0x65?"><img src="https://img.shields.io/badge/WHATSAPP-25D366?&style=for-the-badge&logo=whatsapp&logoColor=white"/></a>&nbsp;&nbsp;
 
-<a href="https://wa.me/#?text=vk0x65?"><img src="https://img.shields.io/badge/skype-25D366?&style=for-the-badge&logo=skype&logoColor=white"/></a>&nbsp;&nbsp;
+<a href="https://wa.me/#?text=vk0x65?"><img src="https://img.shields.io/badge/skype-00A5EA?&style=for-the-badge&logo=skype&logoColor=white"/></a>&nbsp;&nbsp;
 <a href="https://github.com/vk0x65/vk0x65/blob/main/Ask/README.md"><img src="https://img.shields.io/badge/Ask%20me-anything-1abc9c.svg?style=for-the-badge"></a>&nbsp;&nbsp;
 
 </div>
