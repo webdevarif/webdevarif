@@ -52,6 +52,8 @@ Hopefully they can be useful to you as well.
  <a href = "https://twitter.com/RodrigoCvigil" target="_blank">
   <img src= "https://img.shields.io/badge/Twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white"> 
  </a>
+<a href="https://wa.me/#?text=vk0x65?"><img src="https://img.shields.io/badge/WHATSAPP-25D366?&style=for-the-badge&logo=whatsapp&logoColor=white"/></a>&nbsp;&nbsp;
+
 </div>
 
 <br />
