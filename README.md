@@ -54,6 +54,8 @@ Hopefully they can be useful to you as well.
  </a>
 <a href="https://wa.me/#?text=vk0x65?"><img src="https://img.shields.io/badge/WHATSAPP-25D366?&style=for-the-badge&logo=whatsapp&logoColor=white"/></a>&nbsp;&nbsp;
 
+<a href="https://wa.me/#?text=vk0x65?"><img src="https://img.shields.io/badge/skype-25D366?&style=for-the-badge&logo=skype&logoColor=white"/></a>&nbsp;&nbsp;
+
 </div>
 
 <br />
