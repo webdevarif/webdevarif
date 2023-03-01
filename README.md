@@ -16,7 +16,7 @@ Hopefully they can be useful to you as well.
 - If you want to contact me, join my [Discord server](https://discordapp.com/users/3762) or tag me on [Twitter](https://twitter.com/webdevarif).
 
 ### Experts In
-[REACTJS](https://img.shields.io/badge/reactjs-00D1F7?style=for-the-badge&logo=react&logoColor=212121)
+![REACTJS](https://img.shields.io/badge/reactjs-00D1F7?style=for-the-badge&logo=react&logoColor=212121)
 
 
 ### Socials
