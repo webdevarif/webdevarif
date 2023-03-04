@@ -60,6 +60,7 @@ Hopefully they can be useful to you as well.
   <img src="./assets/frontend/javascript.svg" alt="Web Developer Profile" />
   <img src="./assets/frontend/react.svg" alt="Web Developer Profile" />
   <img src="./assets/frontend/nextjs.svg" alt="Web Developer Profile" />
+  <img src="./assets/frontend/typescript.svg" alt="Web Developer Profile" />
 </p>
 
 ## Frameworks and Packages
