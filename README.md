@@ -42,6 +42,13 @@ Hopefully they can be useful to you as well.
   <img src="./assets/postman.svg" alt="Web Developer Profile" />
 </p>
 
+## Photoshop I use
+
+<p>
+  <img src="./assets/figma.svg" alt="Web Developer Profile" />
+  <img src="./assets/adobe-photoshop.svg" alt="Web Developer Profile" />
+</p>
+
 ## Frontend Development
 <p>
   <img src="./assets/vscode.svg" alt="Web Developer Profile" />
