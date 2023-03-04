@@ -72,7 +72,7 @@ Hopefully they can be useful to you as well.
 
 ## Database
 <p>
-  <img src="./assets/vscode.svg" alt="Web Developer Profile" />
+  <img src="./assets/postgresql.svg" alt="Web Developer Profile" />
   <img src="./assets/html.svg" alt="Web Developer Profile" />
   <img src="./assets/css.svg" alt="Web Developer Profile" />
   <img src="./assets/sass.svg" alt="Web Developer Profile" />
