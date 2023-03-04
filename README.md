@@ -73,7 +73,7 @@ Hopefully they can be useful to you as well.
 ## Database
 <p>
   <img src="./assets/postgresql.svg" alt="Web Developer Profile" />
-  <img src="./assets/postgresql.svg" alt="Web Developer Profile" />
+  <img src="./assets/mongodb.svg" alt="Web Developer Profile" />
 </p>
 
 
