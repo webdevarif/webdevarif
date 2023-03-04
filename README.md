@@ -15,12 +15,33 @@ Hopefully they can be useful to you as well.
 - To see the list of my most popular projects, [visit my website](https://webdeveloperarif.com/projects/).
 - If you want to contact me, join my [Discord server](https://discordapp.com/users/3762) or tag me on [Twitter](https://twitter.com/webdevarif).
 
-# 🚀 **Recent Projects**
+
+<div align="center">
+
+# 👨‍💻 **Patryk Rzucidło (@PTKDev)**
+
+I'm trying to get rich with free and open source software.
+
+[![](https://img.shields.io/badge/OS-ArchLinux-informational?style=flat&logo=linux&logoColor=white&color=AC4142)](https://www.archlinux.org/)
+[![](https://img.shields.io/badge/Code-JavaScript-informational?style=flat&logo=javascript&logoColor=white&color=AC4142)](https://developer.mozilla.org/it/docs/Web/JavaScript)
+[![](https://img.shields.io/badge/Editor-VSCode-informational?style=flat&logo=visual-studio-code&logoColor=white&color=AC4142)](https://code.visualstudio.com/)
+
+[![](https://img.shields.io/badge/-Facebook-informational?style=for-the-badge&logo=facebook&logoColor=white&color=3b5998)](https://facebook.com/ptkdev)
+[![](https://img.shields.io/badge/-Twitter-informational?style=for-the-badge&logo=twitter&logoColor=white&color=00aced)](https://twitter.com/ptkdev)
+[![](https://img.shields.io/badge/-Instagram-informational?style=for-the-badge&logo=instagram&logoColor=white&color=C13584)](https://instagram.com/ptkdev)
+[![](https://img.shields.io/badge/-Linkedin-informational?style=for-the-badge&logo=linkedin&logoColor=white&color=2867B2)](https://linkedin.com/in/ptkdev)
+[![](https://img.shields.io/badge/-Telegram-informational?style=for-the-badge&logo=telegram&logoColor=white&color=0088cc)](https://t.me/ptkdev)
+[![](https://img.shields.io/badge/-Discord-informational?style=for-the-badge&logo=discord&logoColor=white&color=7289da)](http://discord.ptkdev.io)
+[![](https://img.shields.io/badge/-BLOG-informational?style=for-the-badge&logo=hashnode&logoColor=white&color=2962FF)](https://ptkdev.io)
+[![](https://img.shields.io/badge/-Dev-informational?style=for-the-badge&logo=devto&logoColor=white&color=000000)](https://dev.to/ptkdev)
+
+<hr>
+
+# 🚀 **Projects**
 
 List of projects I made with love
 
 | Name | Category | Description | Links |
-
 | --- | :---: | --- | --- |
 | <a href="https://ptk.dev"><b>Portfolio</b></a> | [![](https://img.shields.io/badge/💻-%20Portfolio-informational?style=flat&logoColor=white&color=3498db)]() | 🧙‍♂️ My personal website | <table><tr><td> [![](https://img.shields.io/badge/-🌎-informational?style=flat&logoColor=black&color=white)](https://ptk.dev)  </td></tr></table> |
 | <a href="https://github.com/ptkdev/ptkdev-logger"><b>Logger</b></a> | [![](https://img.shields.io/badge/🔧-%20Tools-informational?style=flat&logoColor=white&color=9b59b6)]() | 🦒 Beautiful Logger for Node.js: the best alternative to the console.log statement | <table><tr><td> [![](https://img.shields.io/badge/--informational?style=flat&logo=github&logoColor=black&color=white)](https://github.com/ptkdev/ptkdev-logger) </td><td> [![](https://img.shields.io/badge/--informational?style=flat&logo=npm&logoColor=white&color=white)](https://npmjs.com/package/@ptkdev/logger) </td></tr></table> |
@@ -41,6 +62,53 @@ List of projects I made with love
 | <a href="https://t.me/gamebookchatbot"><b>GameBook Chat</b></a> | [![](https://img.shields.io/badge/🤖-%20Bot-informational?style=flat&logoColor=white&color=34495e)]() | 📚 Italian telegram bot for play to game books on telegram | <table><tr><td> [![](https://img.shields.io/badge/--informational?style=flat&logo=telegram&logoColor=black&color=white)](https://t.me/gamebookchatbot)  </td></tr></table> |
 | <a href="https://meingifs.pics/"><b>Me in Gifs</b></a> | [![](https://img.shields.io/badge/📱-%20App-informational?style=flat&logoColor=white&color=2ecc71)]() | 💅 Me in Gifs is an app to download wallpapers (templates) to beautify your Instagram Stories!  | <table><tr><td> [![](https://img.shields.io/badge/--informational?style=flat&logo=android&logoColor=a4c639&color=white)](https://play.google.com/store/apps/details?id=io.ptkdev.meingifs) </td><td> [![](https://img.shields.io/badge/--informational?style=flat&logo=apple&logoColor=black&color=white)](https://itunes.apple.com/app/me-in-gifs/id1360007187) </td><td> [![](https://img.shields.io/badge/-🌎-informational?style=flat&logoColor=black&color=white)](https://meingifs.pics/)  </td></tr></table> |
 | <a href="https://github.com/ptkdev/ptkdev-stickers"><b>Stickers</b></a> | [![](https://img.shields.io/badge/📱-%20App-informational?style=flat&logoColor=white&color=2ecc71)]() | 📱 PTKDev Stickers for Telegram, Whatsapp, iMessage and Discord  | <table><tr><td>  [![](https://img.shields.io/badge/--informational?style=flat&logo=github&logoColor=black&color=white)](https://github.com/ptkdev/ptkdev-stickers) </td><td> [![](https://img.shields.io/badge/--informational?style=flat&logo=telegram&logoColor=black&color=white)](https://t.me/addstickers/ptkdev)  </td><td> [![](https://img.shields.io/badge/--informational?style=flat&logo=whatsapp&logoColor=128c7e&color=white)](https://stickers.ptkdev.io/whatsapp) </td></tr></table> |
+
+<hr>
+
+# 🤝 **Contributions**
+
+List of projects I have contributed
+
+| Name | Category | Description | Links |
+| --- | :---: | --- | --- |
+| <a href="https://github.com/markserv/markserv"><b>Markserv</b></a> | [![](https://img.shields.io/badge/🔧-%20Tools-informational?style=flat&logoColor=white&color=9b59b6)]() | 🏁 Serve markdown as html (GitHub style) | <table><tr><td> [![](https://img.shields.io/badge/--informational?style=flat&logo=github&logoColor=black&color=white)](https://github.com/markserv/markserv) </td></tr></table> |
+| <a href="https://github.com/gajus/eslint-plugin-jsdoc"><b>ESLint: JSDoc</b></a> | [![](https://img.shields.io/badge/🔧-%20Tools-informational?style=flat&logoColor=white&color=9b59b6)]() | 📖 JSDoc specific linting rules for ESLint. | <table><tr><td> [![](https://img.shields.io/badge/--informational?style=flat&logo=github&logoColor=black&color=white)](https://github.com/gajus/eslint-plugin-jsdoc) </td></tr></table> |
+| <a href="https://github.com/emres/youtube2mp3"><b>Youtube2mp3</b></a> | [![](https://img.shields.io/badge/🔧-%20Tools-informational?style=flat&logoColor=white&color=9b59b6)]() | 🎧 A very simple system to download YouTube music videos and convert them to mp3 files | <table><tr><td> [![](https://img.shields.io/badge/--informational?style=flat&logo=github&logoColor=black&color=white)](https://github.com/emres/youtube2mp3) </td></tr></table> |
+| <a href="https://www.smodatamente.it/"><b>Smodatamente</b></a> | [![](https://img.shields.io/badge/🎨-%20Themes-informational?style=flat&logoColor=white&color=f1c40f)]()  <br> [![](https://img.shields.io/badge/🤖-%20Bot-informational?style=flat&logoColor=white&color=34495e)]() | 👠 Telegram bot and Wordpress theme for smodatamente | <table><tr><td> [![](https://img.shields.io/badge/--informational?style=flat&logo=telegram&logoColor=black&color=white)](https://t.me/Smodatamentebot) </td><td> [![](https://img.shields.io/badge/-🌎-informational?style=flat&logoColor=black&color=white)](https://www.smodatamente.it/) </td></tr></table> |
+| <a href="https://postinstagrammabili.it/"><b>PostInstagrammabili</b></a> | [![](https://img.shields.io/badge/🎨-%20Themes-informational?style=flat&logoColor=white&color=f1c40f)]() <br> [![](https://img.shields.io/badge/🤖-%20Bot-informational?style=flat&logoColor=white&color=34495e)]() | 🌅 Telegram bot and Wordpress theme for posti instagrammabili | <table><tr><td> [![](https://img.shields.io/badge/--informational?style=flat&logo=telegram&logoColor=black&color=white)](https://t.me/postinstagrammabilibot) </td><td> [![](https://img.shields.io/badge/-🌎-informational?style=flat&logoColor=black&color=white)](https://postinstagrammabili.it/) </td></tr></table> |
+
+# 🍻 **Community**
+
+| <img src="https://raw.githubusercontent.com/ptkdev/ptkdev/main/.github/assets/social_telegram.png" height="16px"> Telegram | <img src="https://raw.githubusercontent.com/ptkdev/ptkdev/main/.github/assets/social_discord.png" height="16px"> Discord | <img src="https://raw.githubusercontent.com/ptkdev/ptkdev/main/.github/assets/social_twitter.png" height="16px"> Twitter |
+| :---: | :---: | :---: |
+| [🇬🇧 Telegram English](http://t.me/ptkdev_support) | [🇬🇧 Discord English](https://discord.ptkdev.io) | [🇬🇧 Twitter English](http://twitter.com/ptkdevio) |
+| [🇮🇹 Telegram Italian](http://t.me/ptkdev_support_italian) | [🇮🇹 Discord Italian](https://discord.ptkdev.io)| |
+| | [🇵🇱 Discord Polish](https://discord.ptkdev.io) | |
+
+<hr>
+
+# 🎁 Donate
+
+My projects are __**free**__, __**open source**__ and I try to provide excellent __**free support**__.
+
+Why donate? I work on several opensource project in my spare time and try to keep it up to date and working.
+
+🙇‍♂️ **THANK YOU!** 🙇‍♂️
+
+<!-- all-shields/sponsors-badges:START -->
+[![Donate Paypal](https://img.shields.io/badge/donate-paypal-005EA6.svg?style=for-the-badge&logo=paypal)](https://www.paypal.me/ptkdev) [![Donate Ko-Fi](https://img.shields.io/badge/donate-ko--fi-29abe0.svg?style=for-the-badge&logo=ko-fi)](https://ko-fi.com/ptkdev) [![Donate Github Sponsors](https://img.shields.io/badge/donate-sponsors-ea4aaa.svg?style=for-the-badge&logo=github)](https://github.com/sponsors/ptkdev) [![Donate Patreon](https://img.shields.io/badge/donate-patreon-F87668.svg?style=for-the-badge&logo=patreon)](https://www.patreon.com/join/ptkdev) [![Donate Bitcoin](https://img.shields.io/badge/BTC-35jQmZCy4nsxoMM3QPFrnZePDVhdKaHMRH-E38B29.svg?style=flat-square&logo=bitcoin)](https://ptk.dev/img/icons/menu/bitcoin_wallet.png) [![Donate Ethereum](https://img.shields.io/badge/ETH-0x8b8171661bEb032828e82baBb0B5B98Ba8fBEBFc-4E8EE9.svg?style=flat-square&logo=ethereum)](https://ptk.dev/img/icons/menu/ethereum_wallet.png)
+<!-- all-shields/sponsors-badges:END -->
+
+## 👑 Backers and Sponsors
+
+Thanks to all our backers! 🙏 Donate 3$ or more on [paypal](https://www.paypal.me/ptkdev), [ko-fi](https://ko-fi.com/ptkdev), [github](https://github.com/sponsors/ptkdev) or [patreon](https://www.patreon.com/join/ptkdev) and send me [email](mailto:support@ptkdev.io) with your avatar and url.
+
+</div>
+
+[![](https://api.ptkdev.io/backers/sponsor1.png?)](https://api.ptkdev.io/backers/sponsor1.html) [![](https://api.ptkdev.io/backers/sponsor2.png?)](https://api.ptkdev.io/backers/sponsor2.html) [![](https://api.ptkdev.io/backers/sponsor-kofi1.png?)](https://api.ptkdev.io/backers/sponsor-kofi1.html) [![](https://api.ptkdev.io/backers/sponsor-kofi2.png?)](https://api.ptkdev.io/backers/sponsor-kofi2.html) [![](https://api.ptkdev.io/backers/sponsor-kofi3.png?)](https://api.ptkdev.io/backers/sponsor-kofi3.html) [![](https://api.ptkdev.io/backers/sponsor3.png?)](https://api.ptkdev.io/backers/sponsor3.html) [![](https://api.ptkdev.io/backers/sponsor4.png?)](https://api.ptkdev.io/backers/sponsor4.html) [![](https://api.ptkdev.io/backers/sponsor5.png?)](https://api.ptkdev.io/backers/sponsor5.html) [![](https://api.ptkdev.io/backers/sponsor6.png?)](https://api.ptkdev.io/backers/sponsor6.html) [![](https://api.ptkdev.io/backers/sponsor7.png?)](https://api.ptkdev.io/backers/sponsor7.html) [![](https://api.ptkdev.io/backers/sponsor8.png?)](https://api.ptkdev.io/backers/sponsor8.html) [![](https://api.ptkdev.io/backers/sponsor9.png?)](https://api.ptkdev.io/backers/sponsor9.html) [![](https://api.ptkdev.io/backers/sponsor10.png?)](https://api.ptkdev.io/backers/sponsor10.html) [![](https://api.ptkdev.io/backers/sponsor11.png?)](https://api.ptkdev.io/backers/sponsor11.html) [![](https://api.ptkdev.io/backers/sponsor12.png?)](https://api.ptkdev.io/backers/sponsor12.html) [![](https://api.ptkdev.io/backers/sponsor13.png?)](https://api.ptkdev.io/backers/sponsor13.html) [![](https://api.ptkdev.io/backers/sponsor14.png?)](https://api.ptkdev.io/backers/sponsor14.html) [![](https://api.ptkdev.io/backers/sponsor15.png?)](https://api.ptkdev.io/backers/sponsor15.html) [![](https://api.ptkdev.io/backers/backer1.png?)](https://api.ptkdev.io/backers/backer1.html) [![](https://api.ptkdev.io/backers/backer2.png?)](https://api.ptkdev.io/backers/backer2.html) [![](https://api.ptkdev.io/backers/backer3.png?)](https://api.ptkdev.io/backers/backer3.html) [![](https://api.ptkdev.io/backers/backer4.png?)](https://api.ptkdev.io/backers/backer4.html) [![](https://api.ptkdev.io/backers/backer5.png?)](https://api.ptkdev.io/backers/backer5.html) [![](https://api.ptkdev.io/backers/backer6.png?)](https://api.ptkdev.io/backers/backer6.html) [![](https://api.ptkdev.io/backers/backer7.png?)](https://api.ptkdev.io/backers/backer7.html) [![](https://api.ptkdev.io/backers/backer8.png?)](https://api.ptkdev.io/backers/backer8.html) [![](https://api.ptkdev.io/backers/backer9.png?)](https://api.ptkdev.io/backers/backer9.html) [![](https://api.ptkdev.io/backers/backer10.png?)](https://api.ptkdev.io/backers/backer10.html) [![](https://api.ptkdev.io/backers/backer11.png?)](https://api.ptkdev.io/backers/backer11.html) [![](https://api.ptkdev.io/backers/backer12.png?)](https://api.ptkdev.io/backers/backer12.html) [![](https://api.ptkdev.io/backers/backer13.png?)](https://api.ptkdev.io/backers/backer13.html) [![](https://api.ptkdev.io/backers/backer14.png?)](https://api.ptkdev.io/backers/backer14.html) [![](https://api.ptkdev.io/backers/backer15.png?)](https://api.ptkdev.io/backers/backer15.html) [![](https://api.ptkdev.io/backers/backer16.png?)](https://api.ptkdev.io/backers/backer16.html) [![](https://api.ptkdev.io/backers/backer17.png?)](https://api.ptkdev.io/backers/backer17.html) [![](https://api.ptkdev.io/backers/backer18.png?)](https://api.ptkdev.io/backers/backer18.html) [![](https://api.ptkdev.io/backers/backer19.png?)](https://api.ptkdev.io/backers/backer19.html) [![](https://api.ptkdev.io/backers/backer20.png?)](https://api.ptkdev.io/backers/backer20.html) [![](https://api.ptkdev.io/backers/backer21.png?)](https://api.ptkdev.io/backers/backer21.html) [![](https://api.ptkdev.io/backers/backer22.png?)](https://api.ptkdev.io/backers/backer22.html) [![](https://api.ptkdev.io/backers/backer23.png?)](https://api.ptkdev.io/backers/backer23.html) [![](https://api.ptkdev.io/backers/backer24.png?)](https://api.ptkdev.io/backers/backer24.html) [![](https://api.ptkdev.io/backers/backer25.png?)](https://api.ptkdev.io/backers/backer25.html) [![](https://api.ptkdev.io/backers/backer26.png?)](https://api.ptkdev.io/backers/backer26.html) [![](https://api.ptkdev.io/backers/backer27.png?)](https://api.ptkdev.io/backers/backer27.html) [![](https://api.ptkdev.io/backers/backer28.png?)](https://api.ptkdev.io/backers/backer28.html) [![](https://api.ptkdev.io/backers/backer29.png?)](https://api.ptkdev.io/backers/backer29.html)
+
+
+
 
 
 ## Tools I use
