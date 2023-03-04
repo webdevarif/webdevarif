@@ -15,14 +15,11 @@ Hopefully they can be useful to you as well.
 - To see the list of my most popular projects, [visit my website](https://webdeveloperarif.com/projects/).
 - If you want to contact me, join my [Discord server](https://discordapp.com/users/3762) or tag me on [Twitter](https://twitter.com/webdevarif).
 
-<div align="center">
-
 # 🚀 **Recent Projects**
 
 List of projects I made with love
 
 | Name | Category | Description | Links |
-</div>
 
 | --- | :---: | --- | --- |
 | <a href="https://ptk.dev"><b>Portfolio</b></a> | [![](https://img.shields.io/badge/💻-%20Portfolio-informational?style=flat&logoColor=white&color=3498db)]() | 🧙‍♂️ My personal website | <table><tr><td> [![](https://img.shields.io/badge/-🌎-informational?style=flat&logoColor=black&color=white)](https://ptk.dev)  </td></tr></table> |
