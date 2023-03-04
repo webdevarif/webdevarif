@@ -79,7 +79,7 @@ Hopefully they can be useful to you as well.
 
 ## Backend Development
 <p>
-  <img src="./assets/django.svg" alt="Web Developer Profile" />
+  <!-- <img src="./assets/django.svg" alt="Web Developer Profile" /> -->
 </p>
 
 
