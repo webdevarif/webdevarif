@@ -70,6 +70,8 @@ Hopefully they can be useful to you as well.
   <img src="./assets/packages/styled-components.svg" alt="Web Developer Profile" />
   <img src="./assets/packages/nodemon.svg" alt="Web Developer Profile" />
   <img src="./assets/packages/yarn.svg" alt="Web Developer Profile" />
+  <img src="./assets/packages/webpack.svg" alt="Web Developer Profile" />
+  <img src="./assets/packages/prisma.svg" alt="Web Developer Profile" />
 </p>
 
 ## Database
@@ -77,6 +79,7 @@ Hopefully they can be useful to you as well.
   <img src="./assets/database/postgresql.svg" alt="Web Developer Profile" />
   <img src="./assets/database/mongodb.svg" alt="Web Developer Profile" />
   <img src="./assets/database/mysql.svg" alt="Web Developer Profile" />
+  <img src="./assets/database/sqlite.svg" alt="Web Developer Profile" />
 </p>
 
 
