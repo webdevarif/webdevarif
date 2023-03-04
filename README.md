@@ -64,6 +64,7 @@ Hopefully they can be useful to you as well.
 
 ## Frameworks and Packages
 <p>
+  <img src="./assets/packages/styled-components.svg" alt="Web Developer Profile" />
 </p>
 
 ## Database
