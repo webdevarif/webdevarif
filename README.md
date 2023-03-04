@@ -38,16 +38,15 @@ Hopefully they can be useful to you as well.
 ## Tools I use
 
 <p>
-  <img src="./assets/vscode.svg" alt="Web Developer Profile" />
-  <img src="./assets/postman.svg" alt="Web Developer Profile" />
+  <img src="./assets/tools/vscode.svg" alt="Web Developer Profile" />
+  <img src="./assets/tools/postman.svg" alt="Web Developer Profile" />
 </p>
 
 ## Photoshop I use
-
 <p>
-  <img src="./assets/figma.svg" alt="Web Developer Profile" />
-  <img src="./assets/adobe-photoshop.svg" alt="Web Developer Profile" />
-  <img src="./assets/adobe-xd.svg" alt="Web Developer Profile" />
+  <img src="./assets/photoshop/figma.svg" alt="Web Developer Profile" />
+  <img src="./assets/photoshop/adobe-photoshop.svg" alt="Web Developer Profile" />
+  <img src="./assets/photoshop/adobe-xd.svg" alt="Web Developer Profile" />
 </p>
 
 ## Frontend Development
@@ -62,11 +61,6 @@ Hopefully they can be useful to you as well.
 
 ## Frameworks and Packages
 <p>
-  <img src="./assets/vscode.svg" alt="Web Developer Profile" />
-  <img src="./assets/html.svg" alt="Web Developer Profile" />
-  <img src="./assets/css.svg" alt="Web Developer Profile" />
-  <img src="./assets/sass.svg" alt="Web Developer Profile" />
-  <img src="./assets/javascript.svg" alt="Web Developer Profile" />
 </p>
 
 ## Database
