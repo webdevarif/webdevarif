@@ -1,8 +1,5 @@
-<p align="center">
-  <a href="https://webdeveloperarif">
-    <img src="banner-1.jpg">
-  </a>
-</p>
+<script src="./banner.js"></script>
+
 
 ---
 
