@@ -68,6 +68,7 @@ Hopefully they can be useful to you as well.
 <p>
   <img src="./assets/database/postgresql.svg" alt="Web Developer Profile" />
   <img src="./assets/database/mongodb.svg" alt="Web Developer Profile" />
+  <img src="./assets/database/mysql.svg" alt="Web Developer Profile" />
 </p>
 
 
