@@ -8,12 +8,15 @@
 
 ## 👋 Hi there!
 
-My name is **Arif Hossin** and I do open source for fun.
-The projects you will find on this profile are just random things I've built at one point or another to make my life easier.
-Hopefully they can be useful to you as well.
+I am **Arif Hossin**. As a highly experienced web developer, I have earned a reputation as a top-rated seller on Upwork and as a Level 2 seller on Fiverr. My expertise extends to both front-end and back-end development, and I am well-equipped to tackle a wide range of web development projects.
 
-- To see the list of my most popular projects, [visit my website](https://webdeveloperarif.com/projects/).
-- If you want to contact me, join my [Discord server](https://discordapp.com/users/3762) or tag me on [Twitter](https://twitter.com/webdevarif).
+On the front-end side, I have a deep understanding of HTML, CSS, and JavaScript, as well as proficiency in popular front-end frameworks such as ReactJS and NextJS. I am adept at creating responsive web designs that are optimized for speed and accessibility, and I understand the importance of user-centered design principles.
+
+On the back-end side, I have extensive experience with a variety of platforms and programming languages, including Django, Wordpress, and Shopify Liquid. I am skilled in creating custom themes, plugins, and web applications, and I understand the importance of security, scalability, and performance optimization in any back-end development project.
+
+As a top-rated seller on Upwork and a Level 2 seller on Fiverr, I have a proven track record of delivering high-quality results that meet the needs of my clients. I am a strong communicator and team player, and I understand the importance of collaboration and communication in any development project. I am also a quick learner and am always willing to expand my skill set to take on new challenges.
+
+Overall, my experience and skill set as both a front-end and back-end developer make me an ideal candidate for any web development project. Whether you need a custom website, an e-commerce platform, or a web application, I am confident in my ability to deliver outstanding results that exceed your expectations.
 
 
 <div align="center">
