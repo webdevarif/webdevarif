@@ -41,6 +41,7 @@ Hopefully they can be useful to you as well.
   <img src="./assets/tools/vscode.svg" alt="Web Developer Profile" />
   <img src="./assets/tools/postman.svg" alt="Web Developer Profile" />
   <img src="./assets/tools/github.svg" alt="Web Developer Profile" />
+  <img src="./assets/tools/git.svg" alt="Web Developer Profile" />
 </p>
 
 ## Photoshop I use
