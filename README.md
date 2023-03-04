@@ -8,7 +8,7 @@
 
 ## 👋 Hi there!
 
-I am **Arif Hossin**. As a highly experienced web developer, I have earned a reputation as a **Top-rated** seller on Upwork and as a Level 2 seller on **Fiverr**. My expertise extends to both front-end and back-end development, and I am well-equipped to tackle a wide range of web development projects.
+I am **Arif Hossin**. As a highly experienced web developer, I have earned a reputation as a **Top-rated** seller on <img src="https://img.shields.io/badge/Upwork-108A00?style=for-the-badge&logo=upwork&logoColor=white"/> and as a Level 2 seller on **Fiverr**. My expertise extends to both front-end and back-end development, and I am well-equipped to tackle a wide range of web development projects.
 
 On the front-end side, I have a deep understanding of HTML, CSS, and JavaScript, as well as proficiency in popular front-end frameworks such as ReactJS and NextJS. I am adept at creating responsive web designs that are optimized for speed and accessibility, and I understand the importance of user-centered design principles.
 
