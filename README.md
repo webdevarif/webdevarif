@@ -52,13 +52,12 @@ Hopefully they can be useful to you as well.
 
 ## Frontend Development
 <p>
-  <img src="./assets/vscode.svg" alt="Web Developer Profile" />
-  <img src="./assets/html.svg" alt="Web Developer Profile" />
-  <img src="./assets/css.svg" alt="Web Developer Profile" />
-  <img src="./assets/sass.svg" alt="Web Developer Profile" />
-  <img src="./assets/javascript.svg" alt="Web Developer Profile" />
-  <img src="./assets/react.svg" alt="Web Developer Profile" />
-  <img src="./assets/nextjs.svg" alt="Web Developer Profile" />
+  <img src="./assets/frontend/html.svg" alt="Web Developer Profile" />
+  <img src="./assets/frontend/css.svg" alt="Web Developer Profile" />
+  <img src="./assets/frontend/sass.svg" alt="Web Developer Profile" />
+  <img src="./assets/frontend/javascript.svg" alt="Web Developer Profile" />
+  <img src="./assets/frontend/react.svg" alt="Web Developer Profile" />
+  <img src="./assets/frontend/nextjs.svg" alt="Web Developer Profile" />
 </p>
 
 ## Frameworks and Packages
@@ -72,14 +71,14 @@ Hopefully they can be useful to you as well.
 
 ## Database
 <p>
-  <img src="./assets/postgresql.svg" alt="Web Developer Profile" />
-  <img src="./assets/mongodb.svg" alt="Web Developer Profile" />
+  <img src="./assets/database/postgresql.svg" alt="Web Developer Profile" />
+  <img src="./assets/database/mongodb.svg" alt="Web Developer Profile" />
 </p>
 
 
 ## Backend Development
 <p>
-  <img src="./assets/database/django.svg" alt="Web Developer Profile" />
+  <img src="./assets/backend/django.svg" alt="Web Developer Profile" />
 </p>
 
 
