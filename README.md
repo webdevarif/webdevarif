@@ -72,6 +72,9 @@ Hopefully they can be useful to you as well.
   <img src="./assets/packages/yarn.svg" alt="Web Developer Profile" />
   <img src="./assets/packages/webpack.svg" alt="Web Developer Profile" />
   <img src="./assets/packages/prisma.svg" alt="Web Developer Profile" />
+  <img src="./assets/packages/jwt.svg" alt="Web Developer Profile" />
+  <img src="./assets/packages/graphql.svg" alt="Web Developer Profile" />
+  <img src="./assets/packages/redux.svg" alt="Web Developer Profile" />
 </p>
 
 ## Database
