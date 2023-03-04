@@ -57,6 +57,17 @@ Hopefully they can be useful to you as well.
   <img src="./assets/css.svg" alt="Web Developer Profile" />
   <img src="./assets/sass.svg" alt="Web Developer Profile" />
   <img src="./assets/javascript.svg" alt="Web Developer Profile" />
+  <img src="./assets/react.svg" alt="Web Developer Profile" />
+  <img src="./assets/nextjs.svg" alt="Web Developer Profile" />
+</p>
+
+## Framework
+<p>
+  <img src="./assets/vscode.svg" alt="Web Developer Profile" />
+  <img src="./assets/html.svg" alt="Web Developer Profile" />
+  <img src="./assets/css.svg" alt="Web Developer Profile" />
+  <img src="./assets/sass.svg" alt="Web Developer Profile" />
+  <img src="./assets/javascript.svg" alt="Web Developer Profile" />
 </p>
 
 
