@@ -33,7 +33,7 @@ Hopefully they can be useful to you as well.
 [![Facebook](https://img.shields.io/badge/facebook-129AF7?style=for-the-badge&logo=facebook&logoColor=white)](https://www.facebook.com/webdeveloperarifpg/)
 [![Linkedin](https://img.shields.io/badge/linkedin-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/arif-hossin/)
 
-<h2 align="center">🛠️ Technologies and Tools I use 🛠️</h2>
+### 🛠️ Technologies and Tools I use 🛠️
 
 <p align="center">
   <img align="center" src="./assets/vscode.svg" alt="Web Developer Profile" />
