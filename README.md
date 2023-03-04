@@ -15,12 +15,15 @@ Hopefully they can be useful to you as well.
 - To see the list of my most popular projects, [visit my website](https://webdeveloperarif.com/projects/).
 - If you want to contact me, join my [Discord server](https://discordapp.com/users/3762) or tag me on [Twitter](https://twitter.com/webdevarif).
 
+<div align="center">
 
-# 🚀 **Projects**
+# 🚀 **Recent Projects**
 
 List of projects I made with love
 
 | Name | Category | Description | Links |
+</div>
+
 | --- | :---: | --- | --- |
 | <a href="https://ptk.dev"><b>Portfolio</b></a> | [![](https://img.shields.io/badge/💻-%20Portfolio-informational?style=flat&logoColor=white&color=3498db)]() | 🧙‍♂️ My personal website | <table><tr><td> [![](https://img.shields.io/badge/-🌎-informational?style=flat&logoColor=black&color=white)](https://ptk.dev)  </td></tr></table> |
 | <a href="https://github.com/ptkdev/ptkdev-logger"><b>Logger</b></a> | [![](https://img.shields.io/badge/🔧-%20Tools-informational?style=flat&logoColor=white&color=9b59b6)]() | 🦒 Beautiful Logger for Node.js: the best alternative to the console.log statement | <table><tr><td> [![](https://img.shields.io/badge/--informational?style=flat&logo=github&logoColor=black&color=white)](https://github.com/ptkdev/ptkdev-logger) </td><td> [![](https://img.shields.io/badge/--informational?style=flat&logo=npm&logoColor=white&color=white)](https://npmjs.com/package/@ptkdev/logger) </td></tr></table> |
