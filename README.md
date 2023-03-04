@@ -68,6 +68,7 @@ Hopefully they can be useful to you as well.
 <p>
   <img src="./assets/packages/npm.svg" alt="Web Developer Profile" />
   <img src="./assets/packages/styled-components.svg" alt="Web Developer Profile" />
+  <img src="./assets/packages/nodemon.svg" alt="Web Developer Profile" />
 </p>
 
 ## Database
