@@ -35,7 +35,7 @@ Hopefully they can be useful to you as well.
 
 <br />
 
-### 🛠️ Technologies and Tools I use 🛠️
+### 🛠️Tools I use 🛠️
 ##
 <p align="center">
   <img align="center" src="./assets/vscode.svg" alt="Web Developer Profile" />
@@ -78,8 +78,6 @@ Hopefully they can be useful to you as well.
 </div>
 
 ##
-[![](https://visitcount.itsvg.in/api?id=webdevarif&icon=0&color=0)](https://visitcount.itsvg.in)
-
 <img src="https://gpvc.arturio.dev/webdevarif" alt="Profile views"/>
 
 <!-- Proudly created with GPRM ( https://gprm.itsvg.in ) -->
