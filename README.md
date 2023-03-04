@@ -88,6 +88,7 @@ Hopefully they can be useful to you as well.
 
 ## Backend Development
 <p>
+  <img src="./assets/backend/wordpress.svg" alt="Web Developer Profile" />
   <img src="./assets/backend/django.svg" alt="Web Developer Profile" />
   <img src="./assets/backend/nodejs.svg" alt="Web Developer Profile" />
 </p>
