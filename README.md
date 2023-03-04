@@ -47,9 +47,20 @@ Hopefully they can be useful to you as well.
 <p>
   <img src="./assets/figma.svg" alt="Web Developer Profile" />
   <img src="./assets/adobe-photoshop.svg" alt="Web Developer Profile" />
+  <img src="./assets/adobe-xd.svg" alt="Web Developer Profile" />
 </p>
 
 ## Frontend Development
+<p>
+  <img src="./assets/vscode.svg" alt="Web Developer Profile" />
+  <img src="./assets/html.svg" alt="Web Developer Profile" />
+  <img src="./assets/css.svg" alt="Web Developer Profile" />
+  <img src="./assets/sass.svg" alt="Web Developer Profile" />
+  <img src="./assets/javascript.svg" alt="Web Developer Profile" />
+</p>
+
+
+## Backend Development
 <p>
   <img src="./assets/vscode.svg" alt="Web Developer Profile" />
   <img src="./assets/html.svg" alt="Web Developer Profile" />
