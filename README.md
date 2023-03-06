@@ -140,38 +140,4 @@ List of projects I made with love
 ##
 <img src="https://gpvc.arturio.dev/webdevarif" alt="Profile views"/>
 
-
-## Hire Me On
-<p>
-<!-- Put this code anywhere in the body of your page where you want the badge to show up. -->
-
-<div itemscope itemtype='http://schema.org/Person' class='fiverr-seller-widget' style='display: inline-block;'>
-     <a itemprop='url' href=https://www.fiverr.com/aalgiman rel="nofollow" target="_blank" style='display: inline-block;'>
-        <div class='fiverr-seller-content' id='fiverr-seller-widget-content-4df5390a-aed3-4363-9860-10f07dbd52cc' itemprop='contentURL' style='display: none;'></div>
-        <div id='fiverr-widget-seller-data' style='display: none;'>
-            <div itemprop='name' >aalgiman</div>
-            <div itemscope itemtype='http://schema.org/Organization'><span itemprop='name'>Fiverr</span></div>
-            <div itemprop='jobtitle'>Seller</div>
-            <div itemprop='description'>
-                I work as Front End Developer. I slice and dice PSD to fully responsive HTML. I use bellow features in my work:
-
-                ✔️ HTML5 / CSS3
-                ✔️ Sass / Scss
-                ✔️ Javascript / Jquery
-                ✔️ Bootstrap 5x / material ui / Tailwinds Css
-                ✔️ React Js
-                ✔️ Free or Paid Jquery Plugins
-
-                I also have Experience in Backend:
-                ✔️ Python Django Theme Development, 
-                ✔️ Wordpress Customization,
-                ✔️ Shopify Theme Development</div>
-                        </div>
-                    </a>
-                </div>
-
-                <script id='fiverr-seller-widget-script-4df5390a-aed3-4363-9860-10f07dbd52cc' src='https://widgets.fiverr.com/api/v1/seller/aalgiman?widget_id=4df5390a-aed3-4363-9860-10f07dbd52cc' data-config='{"category_name":"\n                                    Programming \u0026 Tech\n\n                            "}' async='true' defer='true'></script>
-</p>
-
-
 <!-- Proudly created with GPRM ( https://gprm.itsvg.in ) -->
