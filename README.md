@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://webdeveloperarif">
-    <img src="banner-1.jpg">
+    <img src="banner-2.jpg">
   </a>
 </p>
 
