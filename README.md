@@ -107,25 +107,25 @@ List of projects I made with love
 <br />
 
 <div align="center"> 
- 	<a href = "mailto:arif@digitalfarmers.co">
+ 	<a target="_blank" href = "mailto:arif@digitalfarmers.co">
       <img src="https://img.shields.io/badge/-Email-%23333?style=for-the-badge&logo=gmail&logoColor=white" target="_blank">
   </a>
-  <a href="https://www.linkedin.com/in/webdevarif/" target="_blank">
+  <a target="_blank" href="https://www.linkedin.com/in/webdevarif/" target="_blank">
     <img src="https://img.shields.io/badge/-LinkedIn-%230077B5?style=for-the-badge&logo=linkedin&logoColor=white" target="_blank">
   </a>
- <a href = "https://discord.com/channels/Web Developer Arif#3762" target="_blank">
+ <a target="_blank" href = "https://discord.com/channels/Web Developer Arif#3762" target="_blank">
   <img src= "https://img.shields.io/badge/Discord-5865F2?style=for-the-badge&logo=discord&logoColor=white"> 
  </a>
- <a href = "https://youtube.com/@WebDeveloperArif" target="_blank">
+ <a target="_blank" href = "https://youtube.com/@WebDeveloperArif" target="_blank">
   <img src= "https://img.shields.io/badge/youtube-FF0000?style=for-the-badge&logo=youtube&logoColor=white"> 
  </a>
- <a href = "https://twitter.com/webdevarif" target="_blank">
+ <a target="_blank" href = "https://twitter.com/webdevarif" target="_blank">
   <img src= "https://img.shields.io/badge/Twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white"> 
  </a>
   <a href="https://wa.me/08801857323271?text=https://wa.me/08801857323271?text=Hi!%20I%20found%20you%20from%20Github%20Profile."><img src="https://img.shields.io/badge/whatsapp-25D366?&style=for-the-badge&logo=whatsapp&logoColor=white"/></a>
-  <a href="https://wa.me/#?text=vk0x65?">
+  <a target="_blank" href="https://wa.me/#?text=vk0x65?">
     <img src="https://img.shields.io/badge/skype-00A5EA?&style=for-the-badge&logo=skype&logoColor=white"/></a>
-  <a href="https://github.com/webdevarif/webdevarif/blob/main/Ask/README.md">
+  <a target="_blank" href="https://github.com/webdevarif/webdevarif/blob/main/Ask/README.md">
     <img src="https://img.shields.io/badge/Ask%20me-anything-1abc9c.svg?style=for-the-badge">
     </a>
 </div>
