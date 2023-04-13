@@ -135,9 +135,7 @@ List of projects I made with love
 <div style="display: flex, flex-direction: row, color: rgb(255, 196, 0), " align="center" justify-content= "space-around" backgroundColor= "white">
   <img height="170em" src= "https://github-readme-stats.vercel.app/api?username=webdevarif" />
   <img height="170em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=webdevarif&layout=compact&langs_count=7&theme=white" />
-</div>
-
-<div style="display: flex, flex-direction: row, color: rgb(255, 196, 0), " align="center" justify-content= "space-around" backgroundColor= "white">
+  
 <a href="https://app.daily.dev/arifcpam">
 <img width="170em" src="https://api.daily.dev/devcards/4525031d920e4981af7413fbb5da4092.png?r=wkl" alt="Arif Hossain's Dev Card"/></a>
 </div>
