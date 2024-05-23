@@ -19,25 +19,16 @@ List of projects I made with love
 | Html/Bootstrap | Html/Tailwind | NextJs | WordPress | Shopify |
 | --- | --- | --- | --- | --- |
 | <a target="_blank" href="https://moteur.netlify.app/"><b>Moteur and Sens</b></a> | TAILWIND PROJECT | <a target="_blank" href="https://tipsy-turtles.netlify.app/"><b>Tipsy Turtles</b></a> | WORDPRESS PROJECT | SHOPIFY PROJECT |
-| <a target="_blank" href="https://4es-consulting.netlify.app/"><b>4es Consulting</b></a> | TAILWIND PROJECT | NEXTJS PROJECT | WORDPRES PROJECT | SHOPIFY PROJECT |
-| <a target="_blank" href="https://vincechain.netlify.app/"><b>Vincechain</b></a> | TAILWIND PROJECT | NEXTJS PROJECT | WORDPRES PROJECT | SHOPIFY PROJECT |
+
+| <a target="_blank" href="https://4es-consulting.netlify.app/"><b>4es Consulting</b></a> | TAILWIND PROJECT | <a target="_blank" href="https://webdevarif-babogue.netlify.app/"><b>Babogue</b></a> | WORDPRES PROJECT | SHOPIFY PROJECT |
+
+| <a target="_blank" href="https://vincechain.netlify.app/"><b>Vincechain</b></a> | TAILWIND PROJECT | <a target="_blank" href="https://webdevarif-taksvarden.netlify.app/"><b>Taksvarden</b></a> | WORDPRES PROJECT | SHOPIFY PROJECT |
+
 | <a target="_blank" href="https://stack-internal.netlify.app/"><b>Stack Internal</b></a> | TAILWIND PROJECT | NEXTJS PROJECT | WORDPRES PROJECT | SHOPIFY PROJECT |
+
 | <a target="_blank" href="https://tech-future.netlify.app/"><b>Tech Future (Ecommerce)</b></a> | TAILWIND PROJECT | NEXTJS PROJECT | WORDPRES PROJECT | SHOPIFY PROJECT |
+
 | <a target="_blank" href="https://foto-box.netlify.app/"><b>Fotobox</b></a> | TAILWIND PROJECT | NEXTJS PROJECT | WORDPRES PROJECT | SHOPIFY PROJECT |
-
-
-
-| Html/Bootstrap | Html/Tailwind | NextJs | Shopify |
-| --- | :---: | --- | --- |
-| <a target="_blank" href="https://webdeveloperarif.com/"><b>Portfolio</b></a> | <a target="_blank" href="https://webdeveloperarif.com/"><img src="https://img.shields.io/badge/Portfolio-212529?style=for-the-badge&logo=github&logoColor=white"/></a> | 🧙‍♂️ My personal website | <table><tr><td> [![](https://img.shields.io/badge/-🌎-informational?style=flat&logoColor=black&color=white)](https://webdeveloperarif.com/)  </td></tr></table> |
-| <a target="_blank" href="https://moteur.netlify.app/"><b>Moteur and Sens</b></a> | <img src="https://img.shields.io/badge/html-DF4A17?style=for-the-badge&logo=html5&logoColor=white"/> | 🦒 Html5, Bootstrap@5.2, Sass, Gulp, Vanilla Javascript | <table><tr><td> [![](https://img.shields.io/badge/-🌎-informational?style=flat&logoColor=black&color=white)](https://moteur.netlify.app/)  </td></tr></table> |
-| <a target="_blank" href="https://webdevarif.github.io/4es-consulting/"><b>4es Consulting</b></a> | <img src="https://img.shields.io/badge/html-DF4A17?style=for-the-badge&logo=html5&logoColor=white"/> | 🦒 Html5, Bootstrap@5.2, Sass, Gulp, Vanilla Javascript | <table><tr><td> [![](https://img.shields.io/badge/-🌎-informational?style=flat&logoColor=black&color=white)](https://webdevarif.github.io/4es-consulting/)  </td></tr></table> |
-| <a target="_blank" href="https://webdevarif.github.io/stack-internal/html/"><b>Stack Internal</b></a> | <img src="https://img.shields.io/badge/html-DF4A17?style=for-the-badge&logo=html5&logoColor=white"/> | 🦒 Html5, Bootstrap@5.2, Sass, Gulp, Vanilla Javascript | <table><tr><td> [![](https://img.shields.io/badge/-🌎-informational?style=flat&logoColor=black&color=white)](https://webdevarif.github.io/stack-internal/html/)  </td></tr></table> |
-| <a target="_blank" href="https://webdevarif.github.io/techfuture/"><b>Tech Future</b></a> | <img src="https://img.shields.io/badge/html-DF4A17?style=for-the-badge&logo=html5&logoColor=white"/> | 🦒 Html5, Bootstrap@5.2, Sass, Gulp, Vanilla Javascript | <table><tr><td> [![](https://img.shields.io/badge/-🌎-informational?style=flat&logoColor=black&color=white)](https://webdevarif.github.io/techfuture/)  </td></tr></table> |
-| <a target="_blank" href="https://webdevarif.github.io/fotobox/"><b>Fotobox</b></a> | <img src="https://img.shields.io/badge/html-DF4A17?style=for-the-badge&logo=html5&logoColor=white"/> | 🦒 Html5, Bootstrap@5.2, Sass, Gulp, Vanilla Javascript | <table><tr><td> [![](https://img.shields.io/badge/-🌎-informational?style=flat&logoColor=black&color=white)](https://webdevarif.github.io/fotobox/)  </td></tr></table> |
-| <a target="_blank" href="https://vincechain.netlify.app/"><b>Vincechain Blockchain</b></a> | <img src="https://img.shields.io/badge/React-212121?style=for-the-badge&logo=react&logoColor=white"/> | 🦒 Reactjs, Bootstrap@5.2 | <table><tr><td> [![](https://img.shields.io/badge/-🌎-informational?style=flat&logoColor=black&color=white)](https://vincechain.netlify.app/)  </td></tr></table> |
-| <a target="_blank" href="https://bohair.be/"><b>Bohair</b></a> | <img src="https://img.shields.io/badge/wordpress-007097?style=for-the-badge&logo=wordpress&logoColor=white"/> | 🦒 WordPress, Woocommerce, Elementor Pro, DigitalFarmers Plugins | <table><tr><td> [![](https://img.shields.io/badge/-🌎-informational?style=flat&logoColor=black&color=white)](https://bohair.be/)  </td></tr></table> |
-| <a target="_blank" href="https://carlightsolutions.be/"><b>Car Light Solutions</b></a> | <img src="https://img.shields.io/badge/wordpress-007097?style=for-the-badge&logo=wordpress&logoColor=white"/> | 🦒 WordPress, Woocommerce, Elementor Pro, DigitalFarmers Plugins, Gift Card | <table><tr><td> [![](https://img.shields.io/badge/-🌎-informational?style=flat&logoColor=black&color=white)](https://carlightsolutions.be/)  </td></tr></table> |
 
 </div>
 
