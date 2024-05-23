@@ -126,7 +126,4 @@ List of projects I made with love
 <img width="170em" src="https://api.daily.dev/devcards/4525031d920e4981af7413fbb5da4092.png?r=wkl" alt="Arif Hossain's Dev Card"/></a>
 </div>
 
-##
-<img src="https://gpvc.arturio.dev/webdevarif" alt="Profile views"/>
-
 <!-- Proudly created with GPRM ( https://gprm.itsvg.in ) -->
