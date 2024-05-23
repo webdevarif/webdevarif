@@ -1,33 +1,22 @@
 <p align="center">
   <a href="https://webdeveloperarif">
-    <img src="banner-2.jpg">
+    <img src="banner-3.jpg">
   </a>
 </p>
 
 ---
 
-## 👋 Hi there!
+## Wordpress Expert | Elementor Expert | Woocommerce Expert | Shopify Expert
 
-I am **Arif Hossin**. As a highly experienced web developer, I have earned a reputation as a **Top-rated** seller on <img src="https://img.shields.io/badge/Upwork-108A00?style=for-the-badge&logo=upwork&logoColor=white" align="top"/> and as a Level 2 seller on <img src="https://img.shields.io/badge/Fiverr-1DBF73108A00?style=for-the-badge&logo=fiverr&logoColor=white" align="top"/> .
-
-My expertise extends to both front-end and back-end development, and I am well-equipped to tackle a wide range of web development projects.
-
-On the front-end side, I have a deep understanding of HTML, CSS, and JavaScript, as well as proficiency in popular front-end frameworks such as ReactJS and NextJS. I am adept at creating responsive web designs that are optimized for speed and accessibility, and I understand the importance of user-centered design principles.
-
-On the back-end side, I have extensive experience with a variety of platforms and programming languages, including Django, Wordpress, and Shopify Liquid. I am skilled in creating custom themes, plugins, and web applications, and I understand the importance of security, scalability, and performance optimization in any back-end development project.
-
-As a top-rated seller on Upwork and a Level 2 seller on Fiverr, I have a proven track record of delivering high-quality results that meet the needs of my clients. I am a strong communicator and team player, and I understand the importance of collaboration and communication in any development project. I am also a quick learner and am always willing to expand my skill set to take on new challenges.
-
-Overall, my experience and skill set as both a front-end and back-end developer make me an ideal candidate for any web development project. Whether you need a custom website, an e-commerce platform, or a web application, I am confident in my ability to deliver outstanding results that exceed your expectations.
-
+Hi, I'm **Arif Hossin**, a full-time web developer with 7 years of experience in front-end development, WordPress WooCommerce theme development, and Shopify theme development. I specialize in developing and cloning all types of websites using WordPress and Shopify, ensuring high-quality service for my clients. I'm available 24/7 to assist with any web-based issues you may have. Feel free to contact me anytime!
 
 <div align="center">
 
-# 🚀 **Recent Projects**
+# 🚀 **RECENT PROJECTS**
 
 List of projects I made with love
 
-| Name | Category | Description | Links |
+| HTML/BOOTSTRAP | HTML/TAILWIND | NEXTJS | SHOPIFY |
 | --- | :---: | --- | --- |
 | <a target="_blank" href="https://webdeveloperarif.com/"><b>Portfolio</b></a> | <a target="_blank" href="https://webdeveloperarif.com/"><img src="https://img.shields.io/badge/Portfolio-212529?style=for-the-badge&logo=github&logoColor=white"/></a> | 🧙‍♂️ My personal website | <table><tr><td> [![](https://img.shields.io/badge/-🌎-informational?style=flat&logoColor=black&color=white)](https://webdeveloperarif.com/)  </td></tr></table> |
 | <a target="_blank" href="https://moteur.netlify.app/"><b>Moteur and Sens</b></a> | <img src="https://img.shields.io/badge/html-DF4A17?style=for-the-badge&logo=html5&logoColor=white"/> | 🦒 Html5, Bootstrap@5.2, Sass, Gulp, Vanilla Javascript | <table><tr><td> [![](https://img.shields.io/badge/-🌎-informational?style=flat&logoColor=black&color=white)](https://moteur.netlify.app/)  </td></tr></table> |
