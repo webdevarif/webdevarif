@@ -18,7 +18,7 @@ List of projects I made with love
 
 | Html/Bootstrap | Html/Tailwind | NextJs | Shopify |
 | --- | :---: | --- | --- |
-| <a target="_blank" href="https://moteur.netlify.app/"><b>Moteur and Sens</b></a> | TAILWIND PROJECT | NEXTJS PROJECT |
+| <a target="_blank" href="https://moteur.netlify.app/"><b>Moteur and Sens</b></a> | TAILWIND PROJECT | NEXTJS PROJECT | SHOPIFY PROJECT |
 
 
 
