@@ -16,7 +16,7 @@ Hi, I'm **Arif Hossin**, a full-time web developer with 7 years of experience in
 
 List of projects I made with love
 
-| Html/Bootstrap | Html/Tailwind | NextJs | Shopify |
+| Html/Bootstrap | Html/Tailwind | NextJs | WordPress | Shopify |
 | --- | :---: | --- | --- |
 | <a target="_blank" href="https://moteur.netlify.app/"><b>Moteur and Sens</b></a> | TAILWIND PROJECT | <a target="_blank" href="https://tipsy-turtles.netlify.app/"><b>Tipsy Turtles</b></a> | WORDPRESS PROJECT | SHOPIFY PROJECT |
 | <a target="_blank" href="https://4es-consulting.netlify.app/"><b>4es Consulting</b></a> | TAILWIND PROJECT | NEXTJS PROJECT | WORDPRES PROJECT | SHOPIFY PROJECT |
