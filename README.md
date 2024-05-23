@@ -19,11 +19,11 @@ List of projects I made with love
 | Html/Bootstrap | Html/Tailwind | NextJs | WordPress | Shopify |
 | --- | --- | --- | --- | --- |
 | <a target="_blank" href="https://moteur.netlify.app/"><b>Moteur and Sens</b></a> | TAILWIND PROJECT | <a target="_blank" href="https://tipsy-turtles.netlify.app/"><b>Tipsy Turtles</b></a> | WORDPRESS PROJECT | <a target="_blank" href="https://hsmotorsports.net/"><b>HS Motor Sports</b></a> |
-| <a target="_blank" href="https://4es-consulting.netlify.app/"><b>4es Consulting</b></a> | TAILWIND PROJECT | <a target="_blank" href="https://webdevarif-babogue.netlify.app/"><b>Babogue</b></a> | WORDPRES PROJECT | SHOPIFY PROJECT |
-| <a target="_blank" href="https://vincechain.netlify.app/"><b>Vincechain</b></a> | TAILWIND PROJECT | <a target="_blank" href="https://webdevarif-taksvarden.netlify.app/"><b>Taksvarden</b></a> | WORDPRES PROJECT | SHOPIFY PROJECT |
-| <a target="_blank" href="https://stack-internal.netlify.app/"><b>Stack Internal</b></a> | TAILWIND PROJECT | NEXTJS PROJECT | WORDPRES PROJECT | SHOPIFY PROJECT |
-| <a target="_blank" href="https://tech-future.netlify.app/"><b>Tech Future (Ecommerce)</b></a> | TAILWIND PROJECT | NEXTJS PROJECT | WORDPRES PROJECT | SHOPIFY PROJECT |
-| <a target="_blank" href="https://foto-box.netlify.app/"><b>Fotobox</b></a> | TAILWIND PROJECT | NEXTJS PROJECT | WORDPRES PROJECT | SHOPIFY PROJECT |
+| <a target="_blank" href="https://4es-consulting.netlify.app/"><b>4es Consulting</b></a> | TAILWIND PROJECT | <a target="_blank" href="https://webdevarif-babogue.netlify.app/"><b>Babogue</b></a> | WORDPRES PROJECT | <a target="_blank" href="https://tyresse.com/"><b>Tyresse</b></a> |
+| <a target="_blank" href="https://vincechain.netlify.app/"><b>Vincechain</b></a> | TAILWIND PROJECT | <a target="_blank" href="https://webdevarif-taksvarden.netlify.app/"><b>Taksvarden</b></a> | WORDPRES PROJECT | <a target="_blank" href="https://www.bigfrenchies.com/"><b>Big Frenchies</b></a> |
+| <a target="_blank" href="https://stack-internal.netlify.app/"><b>Stack Internal</b></a> | TAILWIND PROJECT | NEXTJS PROJECT | WORDPRES PROJECT | <a target="_blank" href="https://lockoffroadwheels.com/"><b>Lockoffroadwheels</b></a> |
+| <a target="_blank" href="https://tech-future.netlify.app/"><b>Tech Future (Ecommerce)</b></a> | TAILWIND PROJECT | NEXTJS PROJECT | WORDPRES PROJECT | <a target="_blank" href="https://katanawheels.myshopify.com/"><b>Katana Wheels</b></a> |
+| <a target="_blank" href="https://foto-box.netlify.app/"><b>Fotobox</b></a> | TAILWIND PROJECT | NEXTJS PROJECT | WORDPRES PROJECT | <a target="_blank" href="https://dolcewheels.myshopify.com/"><b>Dolce Wheels</b></a> |
 
 </div>
 
