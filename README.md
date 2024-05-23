@@ -23,7 +23,7 @@ List of projects I made with love
 | <a target="_blank" href="https://vincechain.netlify.app/"><b>Vincechain</b></a> | TAILWIND PROJECT | <a target="_blank" href="https://webdevarif-taksvarden.netlify.app/"><b>Taksvarden</b></a> | <a target="_blank" href="https://arroyotires.com/"><b>Arroyotires</b></a> | <a target="_blank" href="https://www.bigfrenchies.com/"><b>Big Frenchies</b></a> |
 | <a target="_blank" href="https://stack-internal.netlify.app/"><b>Stack Internal</b></a> | TAILWIND PROJECT | NEXTJS PROJECT | <a target="_blank" href="https://digitalfarmers.be/"><b>Digital Farmers</b></a> | <a target="_blank" href="https://lockoffroadwheels.com/"><b>Lockoffroadwheels</b></a> |
 | <a target="_blank" href="https://tech-future.netlify.app/"><b>Tech Future (Ecommerce)</b></a> | TAILWIND PROJECT | NEXTJS PROJECT | <a target="_blank" href="https://hatchpro.net/"><b>Hatch Pro</b></a> | <a target="_blank" href="https://katanawheels.myshopify.com/"><b>Katana Wheels</b></a> |
-| <a target="_blank" href="https://foto-box.netlify.app/"><b>Fotobox</b></a> | TAILWIND PROJECT | NEXTJS PROJECT | WORDPRES PROJECT | <a target="_blank" href="https://dolcewheels.myshopify.com/"><b>Dolce Wheels</b></a> |
+| <a target="_blank" href="https://foto-box.netlify.app/"><b>Fotobox</b></a> | TAILWIND PROJECT | NEXTJS PROJECT | <a target="_blank" href="https://casayaspa.be/"><b>Casayaspa</b></a> | <a target="_blank" href="https://dolcewheels.myshopify.com/"><b>Dolce Wheels</b></a> |
 
 </div>
 
