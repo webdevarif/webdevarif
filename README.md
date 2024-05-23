@@ -16,7 +16,7 @@ Hi, I'm **Arif Hossin**, a full-time web developer with 7 years of experience in
 
 List of projects I made with love
 
-| HTML/BOOTSTRAP | HTML/TAILWIND | NEXTJS | SHOPIFY |
+| Html/Bootstrap | Html/Tailwind | NextJs | Shopify |
 | --- | :---: | --- | --- |
 | <a target="_blank" href="https://webdeveloperarif.com/"><b>Portfolio</b></a> | <a target="_blank" href="https://webdeveloperarif.com/"><img src="https://img.shields.io/badge/Portfolio-212529?style=for-the-badge&logo=github&logoColor=white"/></a> | 🧙‍♂️ My personal website | <table><tr><td> [![](https://img.shields.io/badge/-🌎-informational?style=flat&logoColor=black&color=white)](https://webdeveloperarif.com/)  </td></tr></table> |
 | <a target="_blank" href="https://moteur.netlify.app/"><b>Moteur and Sens</b></a> | <img src="https://img.shields.io/badge/html-DF4A17?style=for-the-badge&logo=html5&logoColor=white"/> | 🦒 Html5, Bootstrap@5.2, Sass, Gulp, Vanilla Javascript | <table><tr><td> [![](https://img.shields.io/badge/-🌎-informational?style=flat&logoColor=black&color=white)](https://moteur.netlify.app/)  </td></tr></table> |
