@@ -9,7 +9,7 @@ const Social = () => {
         <div className="container">
         <div className="mb-[30px]">
             <h6 className='text-primary uppercase text-[14px] font-outfit tracking-widest'>Social Media</h6>
-            <h2 className="text-white text-[40px] font-kanit">Let's Be Friends</h2>
+            <h2 className="text-white text-[40px] font-kanit">Let&apos;s Be Friends</h2>
         </div>
 
         <div className="grid grid-cols-4 gap-[25px]">

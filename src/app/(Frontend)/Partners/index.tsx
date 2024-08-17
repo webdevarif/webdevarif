@@ -1,5 +1,7 @@
 import React from 'react';
 import PartnerThumb from './images/brand-logo2.png';
+import Image from 'next/image';
+import Link from 'next/link';
 
 const partners = [
     { thumb: PartnerThumb },
@@ -21,7 +23,7 @@ const Partners = () => {
                     <div className="flex justify-around min-w-full items-center">
                         {partners.map((partner, index) => (
                             <a href='#' key={index} className="border border-white border-opacity-25 py-0 px-[50px] cursor-pointer rounded-[40px] h-[80px] w-[220px] mx-[30px] flex items-center justify-center">
-                                <img src={partner.thumb.src} alt="Thumbnail" />
+                                <Image src={partner.thumb.src} alt="Thumbnail" />
                             </a>
                         ))}
                     </div>
@@ -31,9 +33,9 @@ const Partners = () => {
                 <div className="marquee-slide">
                     <div className="flex justify-around min-w-full items-center">
                         {partners.map((partner, index) => (
-                            <a href='#' key={index} className="border border-white border-opacity-25 py-0 px-[50px] cursor-pointer rounded-[40px] h-[80px] w-[220px] mx-[30px] flex items-center justify-center">
-                                <img src={partner.thumb.src} alt="Thumbnail" />
-                            </a>
+                            <Link href='#' key={index} className="border border-white border-opacity-25 py-0 px-[50px] cursor-pointer rounded-[40px] h-[80px] w-[220px] mx-[30px] flex items-center justify-center">
+                                <Image src={partner.thumb.src} alt="Thumbnail" />
+                            </Link>
                         ))}
                     </div>
                 </div>

@@ -12,8 +12,6 @@ import 'swiper/css/pagination';
 
 import AuthorThumb from './images/author.png';
 import Image from 'next/image';
-import { Star, StarHalf } from 'lucide-react';
-import { FaStar, FaStarHalfStroke } from "react-icons/fa6";
 import { RiStarFill, RiStarHalfFill } from "react-icons/ri";
 
 
@@ -30,7 +28,7 @@ const ClientReviews = () => {
         <div className="container">
             <div className="grid grid-cols-2 gap-x-[40px] gap-y-[20px]">
                 <div className="grid__item">
-                    <h2 className="text-[40px] font-bold font-outfit leading-[1.1] mb-[20px]">My Client's Stories</h2>
+                    <h2 className="text-[40px] font-bold font-outfit leading-[1.1] mb-[20px]">My Client&apos;s Stories</h2>
                     <div className="space-y-[15px] text-white text-opacity-60">
                         <p>Empowering people in new a digital journey with my super services</p>
                     </div>
@@ -59,7 +57,7 @@ const ClientReviews = () => {
                                             </div>
                                         </div>
                                         <div className="mb-[35px] space-y-[15px] text-white text-opacity-60 text-[14px]">
-                                            <p>“ This creative agency stands out with their exceptional talent and expertise. Their ability to think outside the box and bring unique ideas to life is truly impressive. With meticulous attention to detail, they consistently deliver visually stunning and impactful work.  </p>
+                                            <p>&apos; This creative agency stands out with their exceptional talent and expertise. Their ability to think outside the box and bring unique ideas to life is truly impressive. With meticulous attention to detail, they consistently deliver visually stunning and impactful work. </p>
                                         </div>
                                         <div className="mt-auto pt-4">
                                             <div className="flex items-center gap-[2px] text-[14px] text-[#ffbf35] relative z-[1] before:w-[150px] before:h-[40px] before:bottom-0 before:-skew-x-[20deg] before:bg-card before:bg-opacity-50 before:content-[''] before:absolute before:z-[-1]">

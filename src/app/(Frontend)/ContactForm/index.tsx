@@ -466,8 +466,8 @@ const ContactForm = () => {
                         <div className="p-[30px] rounded-[12px] shadow-sm bg-card">
                             <h2 className="text-[40px] font-bold leading-[1.1] mb-[20px]">Frequently Asked Questions</h2>
                             <div className="mb-[30px] space-y-[15px] text-white text-opacity-60">
-                                <p>Got a unique technical puzzle? We're here to help! Our specialized consulting services offer friendly, expert advice to help you navigate any obstacles you're facing. Using our deep understanding of the latest tech trends and solutions, we'll craft a plan tailored just for you</p>
-                                <p>Let's team up and turn those challenges into victories</p>
+                                <p>Got a unique technical puzzle? We&apos;re here to help! Our specialized consulting services offer friendly, expert advice to help you navigate any obstacles you&apos;re facing. Using our deep understanding of the latest tech trends and solutions, we&apos;ll craft a plan tailored just for you</p>
+                                <p>Let&apos;s team up and turn those challenges into victories</p>
                             </div>
 
                                 <Accordion type="single" collapsible className="w-full">

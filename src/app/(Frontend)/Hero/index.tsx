@@ -14,7 +14,7 @@ const Hero = () => {
         <div className="container">
             <div className="grid grid-cols-[7fr_5fr] gap-x-[70px] items-center">
                 <div className=''>
-                    <h1 className='text-[80px] font-semibold leading-[1.1] mb-[20px] font-kanit'><span className='font-outfit font-[200]'>Hey <Image src={Hand} alt='hand' className='animation-hand inline-block' />,</span> I'm <br />
+                    <h1 className='text-[80px] font-semibold leading-[1.1] mb-[20px] font-kanit'><span className='font-outfit font-[200]'>Hey <Image src={Hand} alt='hand' className='animation-hand inline-block' />,</span> I&apos;m <br />
                         ARIF HOSSIN
                     </h1>
                     <div className='mb-[50px] text-[18px] font-normal text-white/75 max-w-[450px]'> 7+ years of Experience | Full Stack Developer, WordPress, WooCommerce, ReactJs, NextJs and Shopify.</div>
