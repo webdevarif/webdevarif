@@ -107,7 +107,7 @@
 
 @layer base {
   body {
-    @apply bg-background text-foreground font-hind;
+    @apply bg-background text-foreground font-optima-pro;
   }
 
   .animation-hand {

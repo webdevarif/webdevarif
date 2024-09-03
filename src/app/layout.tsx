@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Kanit, Hind_Siliguri, Outfit } from "next/font/google";
+import "@/fonts/style.css";
 import "@/styles/globals.css";
 import CustomCursor from "@/lib";
 import LenisSmooth from "@/lib/Lenis";

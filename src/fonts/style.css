@@ -1,0 +1,84 @@
+@font-face {
+  font-family: "Optima LT Pro";
+  src: url("OptimaLTPro-Black.woff2") format("woff2"),
+    url("OptimaLTPro-Black.woff") format("woff");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Optima LT Pro";
+  src: url("OptimaLTPro-BoldItalic.woff2") format("woff2"),
+    url("OptimaLTPro-BoldItalic.woff") format("woff");
+  font-weight: bold;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Optima LT Pro";
+  src: url("OptimaLTPro-BlackItalic.woff2") format("woff2"),
+    url("OptimaLTPro-BlackItalic.woff") format("woff");
+  font-weight: 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Optima LT Pro";
+  src: url("OptimaLTPro-DemiBold.woff2") format("woff2"),
+    url("OptimaLTPro-DemiBold.woff") format("woff");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Optima LT Pro XBlack";
+  src: url("OptimaLTPro-ExtraBlack.woff2") format("woff2"),
+    url("OptimaLTPro-ExtraBlack.woff") format("woff");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Optima LT Pro";
+  src: url("OptimaLTPro-Roman.woff2") format("woff2"),
+    url("OptimaLTPro-Roman.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Optima LT Pro";
+  src: url("OptimaLTPro-Italic.woff2") format("woff2"),
+    url("OptimaLTPro-Italic.woff") format("woff");
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Optima LT Pro XBlack";
+  src: url("OptimaLTPro-ExtraBlackIta.woff2") format("woff2"),
+    url("OptimaLTPro-ExtraBlackIta.woff") format("woff");
+  font-weight: 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Optima LT Pro";
+  src: url("OptimaLTPro-Medium.woff2") format("woff2"),
+    url("OptimaLTPro-Medium.woff") format("woff");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+html {
+  --font-optima-pro: "Optima LT Pro";
+}

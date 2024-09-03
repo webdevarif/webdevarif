@@ -21,6 +21,7 @@ const config: Config = {
       'kanit': ['var(--font-kanit)'],
       'hind': ['var(--font-hind)'],
       'outfit': ['var(--font-outfit)'],
+      'optima-pro': ['var(--font-optima-pro)'],
     },
     extend: {
       colors: {
