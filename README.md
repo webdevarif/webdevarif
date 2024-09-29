@@ -6,7 +6,7 @@
 
 ---
 
-## Wordpress Expert | Elementor Expert | Woocommerce Expert | Shopify Expert
+## Shopify Expert | Woocommerce Expert | Elementor Expert 
 
 Hi, I'm **Arif Hossin**, a full-time web developer with 7 years of experience in front-end development, WordPress WooCommerce theme development, and Shopify theme development. I specialize in developing and cloning all types of websites using WordPress and Shopify, ensuring high-quality service for my clients. I'm available 24/7 to assist with any web-based issues you may have. Feel free to contact me anytime!
 
