@@ -24,7 +24,8 @@ List of projects I made with love
 | <a target="_blank" href="https://stack-internal.netlify.app/"><b>Stack Internal</b></a> | TAILWIND PROJECT | <a target="_blank" href="https://eirik-therapie.vercel.app/"><b>Eirik Therapie</b></a> | <a target="_blank" href="https://digitalfarmers.be/"><b>Digital Farmers</b></a> | <a target="_blank" href="https://lockoffroadwheels.com/"><b>Lockoffroadwheels</b></a> |
 | <a target="_blank" href="https://tech-future.netlify.app/"><b>Tech Future (Ecommerce)</b></a> | TAILWIND PROJECT | NEXTJS PROJECT | <a target="_blank" href="https://hatchpro.net/"><b>Hatch Pro</b></a> | <a target="_blank" href="https://katanawheels.myshopify.com/"><b>Katana Wheels</b></a> |
 | <a target="_blank" href="https://foto-box.netlify.app/"><b>Fotobox</b></a> | TAILWIND PROJECT | NEXTJS PROJECT | <a target="_blank" href="https://casayaspa.be/"><b>Casayaspa</b></a> | <a target="_blank" href="https://dolcewheels.myshopify.com/"><b>Dolce Wheels</b></a> |
-| <a target="_blank" href="https://assparo.netlify.app/"><b>Assparo</b></a> | TAILWIND PROJECT | NEXTJS PROJECT | <a target="_blank" href="https://riohondoofficeandmedicalplaza.com/"><b>Rio Hondo</b></a> | <a target="_blank" href="https://www.valentinewigs.co.uk/"><b>Valentine Wigs</b></a> | HTML/Bootstrap | TAILWIND PROJECT | NEXTJS PROJECT | WORDPRESS PROJECT |<a target="_blank" href="https://robinphotography.myshopify.com/"><b>Robin Photography</b></a> |
+| <a target="_blank" href="https://assparo.netlify.app/"><b>Assparo</b></a> | TAILWIND PROJECT | NEXTJS PROJECT | <a target="_blank" href="https://riohondoofficeandmedicalplaza.com/"><b>Rio Hondo</b></a> | <a target="_blank" href="https://www.valentinewigs.co.uk/"><b>Valentine Wigs</b></a> | 
+| HTML/Bootstrap | TAILWIND PROJECT | NEXTJS PROJECT | WORDPRESS PROJECT |<a target="_blank" href="https://robinphotography.myshopify.com/"><b>Robin Photography</b></a> |
 
 
 
