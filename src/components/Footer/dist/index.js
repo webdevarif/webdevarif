@@ -1,0 +1,60 @@
+"use strict";
+exports.__esModule = true;
+var react_1 = require("react");
+var button_1 = require("../ui/button");
+var link_1 = require("next/link");
+var lucide_react_1 = require("lucide-react");
+var Footer = function (_a) {
+    var identity = _a.identity, menu = _a.menu;
+    return (react_1["default"].createElement("footer", { className: "footer bg-black text-white" },
+        react_1["default"].createElement("div", { className: "pt-[6rem] pb-[4rem]" },
+            react_1["default"].createElement("div", { className: "container" },
+                react_1["default"].createElement("div", { className: "grid sm:grid-cols-[5fr_2fr] lg:grid-cols-[1fr_240px_auto] gap-y-10 gap-x-4" },
+                    react_1["default"].createElement("div", { className: "footer-block" },
+                        react_1["default"].createElement("h2", { className: "text-3xl sm:text-5xl md:text-6xl mb-8 uppercase font-bold font-unbounded tracking-tight text-white" }, "Let's Work Together"),
+                        react_1["default"].createElement("ul", { className: "flex flex-wrap gap-3" },
+                            react_1["default"].createElement("li", null,
+                                react_1["default"].createElement(button_1.Button, { variant: 'outline', className: 'border-2 bg-white text-black rounded-full px-8 hover:bg-black hover:border-white hover:text-white', asChild: true, size: 'lg' },
+                                    react_1["default"].createElement(link_1["default"], { href: "/", className: 'inline-flex items-center uppercase gap-3 transition-all duration-150 ease-linear' },
+                                        react_1["default"].createElement(lucide_react_1.Mail, null),
+                                        react_1["default"].createElement("span", null, "Email Me")))),
+                            react_1["default"].createElement("li", null,
+                                react_1["default"].createElement(button_1.Button, { variant: 'outline', className: 'border-2 border-white/25 bg-transparent text-white rounded-full px-8 hover:bg-white hover:border-white hover:text-black', asChild: true, size: 'lg' },
+                                    react_1["default"].createElement(link_1["default"], { href: "/", className: 'inline-flex items-center uppercase gap-3 transition-all duration-150 ease-linear' },
+                                        react_1["default"].createElement(lucide_react_1.Instagram, null),
+                                        react_1["default"].createElement("span", null, "Instagram")))))),
+                    react_1["default"].createElement("div", { className: "footer-block" },
+                        react_1["default"].createElement("h3", { className: "font-unbounded uppercase mb-6 font-bold text-lg" }, "What I Do?"),
+                        react_1["default"].createElement("ul", { className: "space-y-3 text-md font-optima-pro" },
+                            react_1["default"].createElement("li", null,
+                                react_1["default"].createElement(link_1["default"], { href: "/", className: 'text-white/50 hover:text-white transition-all duration-150 ease-linear' }, "Web Development")),
+                            react_1["default"].createElement("li", null,
+                                react_1["default"].createElement(link_1["default"], { href: "/", className: 'text-white/50 hover:text-white transition-all duration-150 ease-linear' }, "Mobile Development")),
+                            react_1["default"].createElement("li", null,
+                                react_1["default"].createElement(link_1["default"], { href: "/", className: 'text-white/50 hover:text-white transition-all duration-150 ease-linear' }, "Brand Identity")),
+                            react_1["default"].createElement("li", null,
+                                react_1["default"].createElement(link_1["default"], { href: "/", className: 'text-white/50 hover:text-white transition-all duration-150 ease-linear' }, "Graphics Design")),
+                            react_1["default"].createElement("li", null,
+                                react_1["default"].createElement(link_1["default"], { href: "/", className: 'text-white/50 hover:text-white transition-all duration-150 ease-linear' }, "Software Migration")))),
+                    react_1["default"].createElement("div", { className: "footer-block" },
+                        react_1["default"].createElement("h3", { className: "font-unbounded uppercase mb-6 font-bold text-lg" }, "More Info"),
+                        react_1["default"].createElement("ul", { className: "space-y-3 text-md font-optima-pro" },
+                            react_1["default"].createElement("li", null,
+                                react_1["default"].createElement(link_1["default"], { href: "/", className: 'text-white/50 hover:text-white transition-all duration-150 ease-linear' }, "Privacy Policy")),
+                            react_1["default"].createElement("li", null,
+                                react_1["default"].createElement(link_1["default"], { href: "/", className: 'text-white/50 hover:text-white transition-all duration-150 ease-linear' }, "Terms and Conditions")),
+                            react_1["default"].createElement("li", null,
+                                react_1["default"].createElement(link_1["default"], { href: "/", className: 'text-white/50 hover:text-white transition-all duration-150 ease-linear' }, "Cookie Policy")),
+                            react_1["default"].createElement("li", null,
+                                react_1["default"].createElement(link_1["default"], { href: "/", className: 'text-white/50 hover:text-white transition-all duration-150 ease-linear' }, "Careers"))))))),
+        react_1["default"].createElement("div", { className: "pb-[4rem]" },
+            react_1["default"].createElement("div", { className: "container" },
+                react_1["default"].createElement("hr", { className: "border-t-2 border-white/5 mb-5" }),
+                react_1["default"].createElement("div", { className: "flex gap-3 flex-col md:flex-row items-center justify-between" },
+                    react_1["default"].createElement("div", { className: 'text-white/50 uppercase text-sm' }, "Copyright \u00A9 2024 WebDevarif. All Rights Reserved"),
+                    react_1["default"].createElement("div", null,
+                        react_1["default"].createElement(link_1["default"], { className: 'uppercase inline-flex gap-1 items-center hover:text-white/50 duration-300 transition-all ease-linear font-medium ', href: "#home" },
+                            react_1["default"].createElement("span", null, "Back To Top"),
+                            react_1["default"].createElement(lucide_react_1.ChevronsUp, null))))))));
+};
+exports["default"] = Footer;

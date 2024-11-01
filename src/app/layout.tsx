@@ -1,27 +1,33 @@
 import type { Metadata } from "next";
-import { Kanit, Hind_Siliguri, Outfit } from "next/font/google";
+import { Hind_Siliguri, Manrope, Outfit, Unbounded } from "next/font/google";
 import "@/fonts/style.css";
 import "@/styles/globals.css";
-import CustomCursor from "@/lib";
-import LenisSmooth from "@/lib/Lenis";
-import SmoothScrollbars from "@/lib/SmoothScrollbars";
+import { ThemeProvider as NextThemesProvider, ThemeProvider } from "next-themes";
+import PrimaryLayout from "@/layouts/PrimaryLayout";
+import SWRLayout from "@/layouts/SWRLayouts";
 
-const kanit = Kanit({ 
-  subsets: ["latin"], 
-  weight: ['400', '500', '600', '700', '800', '900' ],
-  variable: '--font-kanit', 
+const unbounded = Unbounded({
+  subsets: ["latin"],
+  weight: ['400', '500', '600', '700'],
+  variable: '--font-unbounded',
 });
-const hind = Hind_Siliguri({ 
-    subsets: ["latin"], 
-    weight: ['400', '500', '600', '700' ],
-    variable: '--font-hind', 
-  });
 
-const outfit = Outfit({ 
-    subsets: ["latin"], 
-    weight: [ '100', '200', '300', '400', '500', '600', '700', '800', '900' ],
-    variable: '--font-outfit', 
-  });
+const hind = Hind_Siliguri({
+  subsets: ["latin"],
+  weight: ['400', '500', '600', '700'],
+  variable: '--font-hind',
+});
+const manrope = Manrope({
+  subsets: ["latin"],
+  weight: ['400', '500', '600', '700'],
+  variable: '--font-manrope',
+});
+
+const outfit = Outfit({
+  subsets: ["latin"],
+  weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
+  variable: '--font-outfit',
+});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -34,13 +40,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={`${ kanit.variable } ${ hind.variable } ${ outfit.variable } smooth-scrollbar`}>
-        {/* <CustomCursor /> */}
-        <SmoothScrollbars />
-        <LenisSmooth />
-          {children}
-      </body>
-    </html>
+    <SWRLayout>
+      <html lang="en">
+        <body className={`${unbounded.variable} ${manrope.variable} ${outfit.variable} smooth-scrollbar`}>
+          <ThemeProvider>
+            <PrimaryLayout>
+              {children}
+            </PrimaryLayout>
+          </ThemeProvider>
+        </body>
+      </html>
+    </SWRLayout>
   );
 }

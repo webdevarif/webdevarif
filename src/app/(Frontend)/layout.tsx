@@ -1,6 +1,5 @@
-import Footer from "@/components/Footer";
-import Header from "@/components/Header";
 import type { Metadata } from "next";
+import React from "react";
 
 export const metadata: Metadata = {
   title: "Web Developer Arif | Portfolio",
@@ -12,11 +11,5 @@ export default function HomeLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  return (
-    <div>
-      <Header />
-      <div>{children}</div>
-      <Footer />
-    </div>
-  );
+  return <React.Fragment>{children}</React.Fragment>;
 }

@@ -3,35 +3,49 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
-import { GoArrowUpRight } from 'react-icons/go';
 import { Button } from '@/components/ui/button';
+import { ProjectPostProps } from '@/types/projects';
+import { Card, CardContent, CardFooter, CardHeader } from '../ui/card';
+import { Config } from '@/lib/config';
+import { MdDoubleArrow } from 'react-icons/md';
 
-interface Project {
-  category: string; 
-  thumbnails: any; 
-  name: string;
-  link: string;
-}
 
-interface CardProjectProps {
-  project: Project;
-}
-
-const CardProject: React.FC<CardProjectProps> = ({ project }) => {
+const CardProject: React.FC<{ post: ProjectPostProps }> = ({ post }) => {
   return (
-    <div className='card-project-item space-y-6'>
-      <div className="rounded-xl overflow-hidden h-[30vh] min-h-[300px]">
-        <Image src={project.thumbnails} alt={project.name} className='h-full w-full object-cover' />
-      </div>
-      <div className="flex gap-3 justify-between items-center">
-        <h2 className="mb-0 text-xl font-kanit">{project.name}</h2>
-        <Button variant={'ghost'} size={'icon'} asChild>
-          <Link href={project.link} className='border !rounded-full hover:bg-primary hover:text-background hover:border-primary'>
-            <GoArrowUpRight />
+    <Card className='h-full relative flex flex-col border border-black before:transition-all before:duration-300 before:ease-linear before:content-[""] before:w-full before:h-full before:bg-black group/item before:absolute before:end-0 before:z-[-1] before:translate-y-0 hover:before:-end-[0.35rem] hover:before:translate-y-[0.35rem]'>
+      {post.featured_image && (
+        <div className="w-full h-[15rem] overflow-hidden">
+          <Image className='w-full h-full group-hover/item:scale-105 duration-300 transition-all ease-linear object-cover rounded-none' alt={post.title || ''} src={post.featured_image} width={400} height={300} />
+        </div>
+      )}
+      <CardHeader>
+        <Link href={Config.cleanBlogURL(post.link)} className='text-black transition-all duration-300 hover:text-primary'>
+          <h2 className="font-unbounded text-sm leading-[1.6] font-medium mb-0">{post.title}</h2>
+        </Link>
+      </CardHeader>
+      <CardContent className='space-y-3'>
+        { post.excerpt && <div>{post.excerpt}</div>}
+
+        {post.project_categories && <div className='inline-flex gap-2'>
+          { post.project_categories && post.project_categories.map((category, index) => {
+            // Return something for each category
+            return (
+              <span key={index} className={`inline-flex items-center rounded-md px-2 py-1 text-xs font-medium ring-1 ring-inset ${Config.projectCategoryClass(category.name)}`}>
+                {category.name}
+              </span>
+            );
+          })}
+        </div>}
+      </CardContent>
+      <CardFooter className='mt-auto border-t border-black pt-5'>
+        <Button variant={'link'} asChild className='p-0 text-slate-black hover:text-primary h-auto inline-flex items-center gap-1 uppercase'>
+          <Link href={Config.cleanBlogURL(post.link)}>
+            <span>Preview</span>
+            <MdDoubleArrow />
           </Link>
         </Button>
-      </div>
-    </div>
+      </CardFooter>
+    </Card>
   );
 };
 

@@ -14,12 +14,13 @@ const config: Config = {
       center: true,
       padding: "2rem",
       screens: {
-        "2xl": "1360px",
+        "2xl": "1200px",
       },
     },
     fontFamily: {
-      'kanit': ['var(--font-kanit)'],
+      'unbounded': ['var(--font-unbounded)'],
       'hind': ['var(--font-hind)'],
+      'manrope': ['var(--font-manrope)'],
       'outfit': ['var(--font-outfit)'],
       'optima-pro': ['var(--font-optima-pro)'],
     },
