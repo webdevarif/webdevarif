@@ -11,7 +11,7 @@ const Footer: React.FC<GlobalSettingsProps> = ({ identity, menu }) => {
         <div className="container">
           <div className="grid sm:grid-cols-[5fr_2fr] lg:grid-cols-[1fr_240px_auto] gap-y-10 gap-x-4">
             <div className="footer-block">
-              <h2 className="text-3xl sm:text-5xl md:text-6xl mb-8 uppercase font-bold font-unbounded tracking-tight text-white">Let's Work Together</h2>
+              <h2 className="text-3xl sm:text-5xl md:text-6xl mb-8 uppercase font-bold font-unbounded tracking-tight text-white">Let&apos;s Work Together</h2>
               <ul className="flex flex-wrap gap-3">
                 <li>
                   <Button variant={'outline'} className='border-2 bg-white text-black rounded-full px-8 hover:bg-black hover:border-white hover:text-white' asChild size={'lg'}>

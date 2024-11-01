@@ -12,10 +12,10 @@ const AboutMe = () => {
         <div className="container max-w-[60rem]">
             <div className="grid grid-cols-[1fr_18rem] gap-x-8 items-center">
                 <div className=''>
-                    <h3 className="text-lg font-unbounded uppercase mb-4"> I'm Arif Hossin | Full Stack Developer </h3>
+                    <h3 className="text-lg font-unbounded uppercase mb-4"> I&apos;m Arif Hossin | Full Stack Developer </h3>
                     <div className="space-y-4">
                         <p>With over 7 years as a Full Stack Developer, I specialize in building user-focused, high-performing websites. At Digital Farmers, I create responsive applications using React, Next.js, and Django, with expertise in Shopify Plus, WooCommerce, and WordPress, enabling tailored solutions that exceed client expectations. My Marketing degree enhances my focus on UX and engagement.</p>
-                        <p>With 500+ projects completed on Upwork and Fiverr, I’ve honed skills in e-commerce and theme customization. I’m dedicated to delivering impactful digital experiences that drive results.</p>
+                        <p>With 500+ projects completed on Upwork and Fiverr, I&apos;ve honed skills in e-commerce and theme customization. I&apos;m dedicated to delivering impactful digital experiences that drive results.</p>
                     </div>
 
                     <div className='mt-6'>

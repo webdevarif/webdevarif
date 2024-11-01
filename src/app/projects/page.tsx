@@ -1,6 +1,6 @@
 "use client";
 
-import { blogQueries, projectQueries } from '@/actions/queries';
+import { useProjects } from '@/actions/queries';
 import CustomPagination from '@/components/CustomPagination';
 import PageLayout from '@/layouts/PageLayout';
 import React, { useEffect, useState } from 'react';
@@ -17,14 +17,14 @@ const ProjectsPage = () => {
     return pageParam ? parseInt(pageParam) : 1;
   });
   
-  const { data, isLoading } = projectQueries.getPosts(`current-page=${pageIndex}&per-page=15`);
+  const { data, isLoading } = useProjects(`current-page=${pageIndex}&per-page=15`);
 
   useEffect(() => {
     const pageParam = searchParams.get('page');
     if (pageParam && pageParam !== pageIndex.toString()) {
       setPageIndex(parseInt(pageParam));
     }
-  }, [searchParams]);
+  }, [searchParams , pageIndex]);
 
   const changePage = (newPage: number) => {
     setPageIndex(newPage);

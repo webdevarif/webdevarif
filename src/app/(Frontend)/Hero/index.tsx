@@ -75,8 +75,8 @@ const Hero = () => {
                             <span className="absolute w-[calc(100%-2.5rem)] h-[calc(100%-2.5rem)] top-0 end-0 border-t-2 border-black 
                             before:absolute before:content-[''] before:w-[3rem] before:h-[3rem] before:border-b-2 before:border-black before:border-l-2 before:rounded-bl-[1.75rem] before:-start-[calc(2.5rem+2px)] before:-top-[3rem]"></span>
                             <span className="absolute w-[calc(100%+2.5rem)] h-[calc(100%-1.5rem)] bottom-0 -start-[2px] border-b-2 border-l-2 border-black rounded-bl-[1.75rem]"></span>
-                            <h3 className="text-5xl mb-3 font-hind font-bold">52+</h3>
-                            <p className='font-unbounded text-black/50 font-semibold text-xs'>Happy Customer</p>
+                            <h3 className="text-5xl mb-3 font-hind font-bold">1k+</h3>
+                            <p className='font-unbounded text-black/50 font-semibold text-xs'>Complete Projects</p>
                         </div>
                     </div>
                     {/* ITEM */}
@@ -87,8 +87,8 @@ const Hero = () => {
                             after:absolute after:content-[''] after:w-[2px] after:h-[calc(100%-1.5rem)]  after:bg-black after:start-[2px] after:bottom-[1.5rem]
                             before:absolute before:content-[''] before:w-[2.5rem] before:h-[3rem] before:border-b-2 before:border-black before:border-r-2 before:rounded-br-[1.75rem] before:-end-[4px] before:-top-[calc(4.5rem-2px)]
                             "></span>
-                            <h3 className="text-5xl mb-3 font-hind font-bold">9.2M</h3>
-                            <p className='font-unbounded text-black/50 font-semibold text-xs'>Happy Customer</p>
+                            <h3 className="text-5xl mb-3 font-hind font-bold">3+</h3>
+                            <p className='font-unbounded text-black/50 font-semibold text-xs'>Awards</p>
                         </div>
                     </div>
                     {/* ITEM */}
@@ -101,7 +101,7 @@ const Hero = () => {
                             before:absolute before:content-[''] before:w-[3rem] before:h-[3rem] before:border-t-2 before:border-black before:border-l-2 before:rounded-tl-[1.75rem] before:-start-[calc(2.5rem+2px)] before:-bottom-[3rem]
                             "></span>
                             <h3 className="text-5xl mb-3 font-hind font-bold">89%</h3>
-                            <p className='font-unbounded text-black/50 font-semibold text-xs'>Happy Customer</p>
+                            <p className='font-unbounded text-black/50 font-semibold text-xs'>Growing</p>
                         </div>
                     </div>
                 </div>

@@ -1,6 +1,6 @@
 "use client";
 
-import { blogQueries } from '@/actions/queries';
+import { useBlogs } from '@/actions/queries';
 import CustomPagination from '@/components/CustomPagination';
 import PageLayout from '@/layouts/PageLayout';
 import React, { useEffect, useState } from 'react';
@@ -16,14 +16,14 @@ const BlogPage = () => {
     return pageParam ? parseInt(pageParam) : 1;
   });
   
-  const { data, isLoading } = blogQueries.getBlogs(`current-page=${pageIndex}&per-page=15`);
+  const { data, isLoading } = useBlogs(`current-page=${pageIndex}&per-page=15`);
 
   useEffect(() => {
     const pageParam = searchParams.get('page');
     if (pageParam && pageParam !== pageIndex.toString()) {
       setPageIndex(parseInt(pageParam));
     }
-  }, [searchParams]);
+  }, [searchParams, pageIndex]);
 
   const changePage = (newPage: number) => {
     setPageIndex(newPage);
@@ -46,7 +46,7 @@ const BlogPage = () => {
         <div className="grid grid-cols-3 gap-6">
           {isLoading ? "Loading..." : 
             data && data.blogs.map((blog, index) => (
-              <CardBlogPost key={blog.id} post={blog} />
+              <CardBlogPost key={blog.id ?? index} post={blog} />
             ))
           }
         </div>

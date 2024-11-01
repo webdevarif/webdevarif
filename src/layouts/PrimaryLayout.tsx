@@ -1,5 +1,5 @@
 'use client';
-import { themeQueries } from '@/actions/queries';
+import { useGlobalSettings } from '@/actions/queries';
 import Footer from '@/components/Footer';
 import Header from '@/components/Header';
 import React, { ReactNode, useEffect } from 'react';
@@ -7,7 +7,7 @@ import React, { ReactNode, useEffect } from 'react';
 const PrimaryLayout: React.FC<{
     children: ReactNode
 }> = ({ children }) => {
-  const { data, error } = themeQueries.getSettings();
+  const { data, error } = useGlobalSettings();
 
 
   if (error) return <div>Error loading data.</div>;

@@ -1,5 +1,5 @@
 "use client";
-import { blogQueries } from '@/actions/queries';
+import { useBlogPost } from '@/actions/queries';
 import PageLayout from '@/layouts/PageLayout'
 import Head from 'next/head';
 import React from 'react';
@@ -15,7 +15,7 @@ const BlogPost = ({
 }: {
   params: { slug: string }
 }) => {
-  const { data, isLoading } = blogQueries.getBlogPost(`${params.slug}`);
+  const { data, isLoading } = useBlogPost(`${params.slug}`);
 
   return data?.post && (
     <PageLayout>
@@ -49,7 +49,7 @@ const BlogPost = ({
                         <CardContent className='pt-4'>
                           <ul className='space-y-3'>
                             {data.related_posts && data.related_posts.map((post, index) => (
-                              <li><Link className='font-hind font-medium hover:text-primary transition-all duration-300 ease-linear text-sm' href={Config.cleanBlogURL(post.link)} >{ post.title }</Link></li>
+                              <li key={index}><Link className='font-hind font-medium hover:text-primary transition-all duration-300 ease-linear text-sm' href={Config.cleanBlogURL(post.link)} >{ post.title }</Link></li>
                             ))}
                           </ul>                          
                         </CardContent>
@@ -63,4 +63,4 @@ const BlogPost = ({
   )
 }
 
-export default BlogPost
+export default BlogPost;

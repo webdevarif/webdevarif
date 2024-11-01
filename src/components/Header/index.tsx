@@ -30,7 +30,7 @@ const Header: React.FC<GlobalSettingsProps> = ({ identity, menu }) => {
               {/* LOGO */}
               <div className="header__logo max-w-[120px] xl:max-w-[150px] w-[40vw]">
                   <Link className='relative inline-flext' href={'/'}>
-                    {identity?.logo && <Image src={identity.logo} width={200} height={60} alt='web developer' className='h-[25px] w-auto'/>}
+                    {identity?.logo && <Image src={identity.logo} width={200} height={60} alt='web developer' className='h-[35px] w-auto'/>}
                   </Link>
               </div>
               {/* NAVBAR */}
@@ -68,7 +68,7 @@ const Header: React.FC<GlobalSettingsProps> = ({ identity, menu }) => {
                 <span className="inline-block relative z-10 before:transition-all before:duration-300 before:ease-linear before:content-[''] before:w-full before:h-full before:bg-black before:absolute before:end-0 before:z-[-1] before:translate-y-0 hover:before:-end-[0.35rem] hover:before:translate-y-[0.35rem]">
                   <Button variant={'outline'} size={'lg'} asChild>
                     <Link href="/schedule" className='inline-flex items-center gap-2 uppercase font-unbounded text-sm'>
-                      <span>Let's Talk</span>
+                      <span>Let&apos;s Talk</span>
                       <FiMessageSquare className='w-5 h-5'/>
                     </Link>
                   </Button>

@@ -1,10 +1,10 @@
 "use client";
 import React from 'react';
 import CardProject from '@/components/Card/CardProject';
-import { projectQueries } from '@/actions/queries';
+import { useProjects } from '@/actions/queries';
 
 const Projects = () => {
-    const { data, isLoading } = projectQueries.getPosts(`current-page=1&per-page=3`);
+    const { data, isLoading } =useProjects(`current-page=1&per-page=3`);
   return (
     <section className="py-[100px]">
         <div className="container">

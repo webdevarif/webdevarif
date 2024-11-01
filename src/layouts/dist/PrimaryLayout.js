@@ -7,7 +7,7 @@ var Header_1 = require("@/components/Header");
 var react_1 = require("react");
 var PrimaryLayout = function (_a) {
     var children = _a.children;
-    var _b = queries_1.themeQueries.getSettings(), data = _b.data, error = _b.error;
+    var _b = queries_1.useGlobalSettings(), data = _b.data, error = _b.error;
     if (error)
         return react_1["default"].createElement("div", null, "Error loading data.");
     if (!data)
