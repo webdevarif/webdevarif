@@ -1,13 +1,7 @@
 import React from 'react';
-import Hand from './images/hand.png';
-import Laptop from './images/laptop.png';
-import OverlayBG from './images/overlay-bg.png';
-import Figma from './images/figma.png';
-import WP from './images/wordpress.png';
 import Image from 'next/image';
 import Link from 'next/link';
 import PageLayout from '@/layouts/PageLayout';
-import { Card, CardContent } from '@/components/ui/card';
 import ShapeBG from './images/hero-shape.svg';
 import HeroService1 from './images/hero-service-1.png';
 import HeroService2 from './images/hero-service-2.png';
