@@ -2,9 +2,11 @@
 import React from 'react';
 import CardProject from '@/components/Card/CardProject';
 import { useProjects } from '@/actions/queries';
+import { Button } from '@/components/ui/button';
+import Link from 'next/link';
 
 const Projects = () => {
-    const { data, isLoading } =useProjects(`current-page=1&per-page=3`);
+    const { data, isLoading } =useProjects(`current-page=1&per-page=6`);
   return (
     <section className="py-[100px]">
         <div className="container">
@@ -21,7 +23,12 @@ const Projects = () => {
                         <CardProject key={project.id} post={ project } />
                     ))
                 )}
-                </div>
+            </div>
+            <div className="text-center">
+                <Button variant={'default'}>
+                    <Link href={'/projects'} className='min-w-[8rem] text-md uppercase h-auto py-3 max-w-full'>View All</Link>
+                </Button>
+            </div>
         </div>
     </section>
   )
