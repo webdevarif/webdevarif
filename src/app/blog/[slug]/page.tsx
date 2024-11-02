@@ -16,6 +16,18 @@ const BlogPost = ({
   params: { slug: string }
 }) => {
   const { data, isLoading } = useBlogPost(`${params.slug}`);
+  
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    name: data?.post.title,
+    image: data?.post.featured_image ?? '',
+    categories: data?.post.categories,
+    tags: data?.post.tags,
+    export: data?.post.excerpt,
+    description: data?.post.content,
+    date: data?.post.date,
+  }
 
   return data?.post && (
     <PageLayout>
@@ -23,7 +35,7 @@ const BlogPost = ({
         <title>{data.post.title}</title>
       </Head>
     {/* Heading */}
-        <div className="py-6">
+        <div className="py-[50px]">
             <div className="container">
               <div className="grid grid-cols-3 gap-x-6">
                 <div className="col-span-2 space-y-6">
@@ -39,6 +51,7 @@ const BlogPost = ({
                   <div className="">TABLE OF CONTENT</div>
                   {/* POST CONTENT */}
                     <div className='post-content' dangerouslySetInnerHTML={{__html: DOMPurify.sanitize(data.post.content ?? '')}}></div>
+                    <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
                 </div>
                 <div className="col-span-1">
                   <div className="sticky top-[100px]">

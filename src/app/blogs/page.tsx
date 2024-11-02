@@ -42,7 +42,7 @@ const BlogPage = () => {
               <h5 className="font-unbounded text-5xl font-semibold uppercase">Blog Insight</h5>
           </div>
       </div> 
-      <div className="container pb-6 space-y-10">
+      <div className="container pb-[100px] space-y-10">
         <div className="grid grid-cols-3 gap-6">
           {isLoading ? "Loading..." : 
             data && data.blogs.map((blog, index) => (

@@ -8,8 +8,22 @@ import { Config } from '@/lib/config';
 import { MdDoubleArrow } from 'react-icons/md';
 
 const CardBlogPost: React.FC<{ post: BlogPostsProps }> = ({ post }) => {
+  
+    const jsonLd = {
+      '@context': 'https://schema.org',
+      '@type': 'Article',
+      name: post.title,
+      image: post.featured_image ?? '',
+      categories: post.categories,
+      tags: post.tags,
+      export: post.excerpt,
+      description: post.content,
+      date: post.date,
+    }
+    
   return (
     <Card className='h-full group/item relative flex flex-col border border-black before:transition-all before:duration-300 before:ease-linear before:content-[""] before:w-full before:h-full before:bg-black before:absolute before:end-0 before:z-[-1] before:translate-y-0 hover:before:-end-[0.35rem] hover:before:translate-y-[0.35rem]'>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       {post.featured_image && (
         <div className="w-full h-[15rem] overflow-hidden">
           <Image className='w-full h-full group-hover/item:scale-105 duration-300 transition-all ease-linear object-cover rounded-none' alt={post.title || ''} src={post.featured_image} width={400} height={300} />
