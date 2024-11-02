@@ -29,6 +29,9 @@ export class Config {
         if (name == 'WordPress') {
             return 'bg-[#3859E9] text-white ring-[#3859E9]';  // Return the original URL if no base URL is available
         }
+        if (name == 'Bootstrap') {
+            return 'bg-[#760FF0] text-white ring-[#760FF0]';  // Return the original URL if no base URL is available
+        }
 
         // Perform replacement of the base URL with an empty string
         return 'bg-gray-50 text-gray-600 ring-gray-500/10';
