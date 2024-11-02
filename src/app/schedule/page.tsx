@@ -19,7 +19,7 @@ const SchedulePage: React.FC = () => {
       {/* Heading */}
       <div className="pt-[100px] text-center">
         <div className="container">
-          <h5 className="font-unbounded text-5xl font-semibold uppercase">Schedule a meeting</h5>
+          <h5 className="font-unbounded text-3xl lg:text-5xl font-semibold uppercase">Schedule a meeting</h5>
         </div>
       </div>
       <div className="">

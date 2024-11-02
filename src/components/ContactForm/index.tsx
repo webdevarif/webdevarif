@@ -5,7 +5,6 @@ import React from 'react';
 import { useForm as useFormspree, ValidationError } from '@formspree/react';
 import { Input } from "@/components/ui/input";
 import { Textarea } from '@/components/ui/textarea';
-import ServiceOverlay from './images/overlay-bg.png';
 import { Label } from '@radix-ui/react-label';
 import { Button } from '@/components/ui/button';
 import { Calendar } from "@/components/ui/calendar";
@@ -31,18 +30,10 @@ import ServiceTailwind from './images/tailwind.png';
 import ServiceBootstrap from './images/Bootstrap.png';
 
 import {
-    Accordion,
-    AccordionContent,
-    AccordionItem,
-    AccordionTrigger,
-  } from "@/components/ui/accordion"
-
-import {
     Popover,
     PopoverContent,
     PopoverTrigger,
 } from "@/components/ui/popover"
-import { toast } from "@/components/ui/use-toast"
 
 // Define your schema with Zod
 const FormSchema = z.object({
