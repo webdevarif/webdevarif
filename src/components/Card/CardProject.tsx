@@ -19,7 +19,7 @@ const CardProject: React.FC<{ post: ProjectPostProps }> = ({ post }) => {
         </div>
       )}
       <CardHeader>
-        <Link href={Config.cleanBlogURL(post.link)} className='text-black transition-all duration-300 hover:text-primary'>
+        <Link href={post.preview_link} className='text-black transition-all duration-300 hover:text-primary'>
           <h2 className="font-unbounded text-sm leading-[1.6] font-medium mb-0">{post.title}</h2>
         </Link>
       </CardHeader>
