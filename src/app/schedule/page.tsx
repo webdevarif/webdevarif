@@ -19,11 +19,7 @@ const SchedulePage: React.FC = () => {
       {/* Heading */}
       <div className="pt-[100px] text-center">
         <div className="container">
-          <h5 className="font-unbounded text-3xl lg:text-5xl font-semibold uppercase">Schedule a meeting</h5>
-        </div>
-      </div>
-      <div className="">
-        <div className="container">
+          <h5 className="font-unbounded text-3xl lg:text-5xl font-semibold uppercase mb-[3rem]">Schedule a meeting</h5>
           <div className="">
             {/* Calendly inline widget begin */}
             <div
@@ -31,7 +27,6 @@ const SchedulePage: React.FC = () => {
               data-url="https://calendly.com/webgeniusplus/30min"
               style={{ minWidth: '320px', height: '700px' }}
             ></div>
-            {/* Calendly inline widget end */}
           </div>
         </div>
       </div>
