@@ -24,7 +24,7 @@ const Projects = () => {
                     ))
                 )}
             </div>
-            <div className="text-center">
+            <div className="text-center mt-[2rem]">
                 <Button variant={'default'}>
                     <Link href={'/projects'} className='min-w-[8rem] text-md uppercase h-auto py-3 max-w-full'>View All</Link>
                 </Button>
