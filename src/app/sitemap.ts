@@ -1,5 +1,5 @@
 import { Config } from '@/lib/config';
-import { BlogPostsProps, BlogsListDataProps } from '@/types/blogs';
+import { BlogPostsProps } from '@/types/blogs';
 import type { MetadataRoute } from 'next';
 
 const WEBSITE_HOST_URL = process.env.siteURL || 'https://www.webdeveloperarif.com';
@@ -23,20 +23,23 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   }
 
   // Use BlogsListDataProps to type the response
-  const data: BlogsListDataProps = await response.json();
+  const data = await response.json();
   const changeFrequency: ChangeFrequency = 'daily'; // Specify a default or specific value
 
   const posts = data?.blogs?.map((blog: BlogPostsProps) => {
+    // Ensure lastModified is in the correct ISO 8601 format
+    const lastModified = new Date(blog.date).toISOString();
+
     return {
       url: `${WEBSITE_HOST_URL}${Config.cleanBlogURL(blog.link)}`,
-      lastModified: blog.date,
+      lastModified,
       changeFrequency,
     };
   }) || [];
 
   const routes = ['', '/projects', '/blogs', '/tools', '/contact', '/pricing'].map((route) => ({
     url: `${WEBSITE_HOST_URL}${route}`,
-    lastModified: new Date().toISOString(),
+    lastModified: new Date().toISOString(), // Ensure this is also formatted correctly
     changeFrequency,
   }));
 
