@@ -27,8 +27,8 @@ const Projects = () => {
                 )}
             </div>
             <div className="text-center mt-[2rem]">
-                <Button variant={'default'}>
-                    <Link href={'/projects'} className='min-w-[8rem] text-md uppercase h-auto py-4 inline-block max-w-full'>View All</Link>
+                <Button variant={'default'} className='h-auto py-4 inline-block'>
+                    <Link href={'/projects'} className='min-w-[8rem] text-md uppercase max-w-full'>View All</Link>
                 </Button>
             </div>
         </div>
