@@ -5,6 +5,8 @@ import "@/styles/globals.css";
 import { ThemeProvider as NextThemesProvider, ThemeProvider } from "next-themes";
 import PrimaryLayout from "@/layouts/PrimaryLayout";
 import SWRLayout from "@/layouts/SWRLayouts";
+import Head from "next/head";
+import Favicon from '@/favicon.ico';
 
 const unbounded = Unbounded({
   subsets: ["latin"],
@@ -42,6 +44,9 @@ export default function RootLayout({
   return (
     <SWRLayout>
       <html lang="en">
+        <Head>
+          <link rel="shortcut icon" href="/favicon.ico" />
+        </Head>
         <body className={`${unbounded.variable} ${manrope.variable} ${outfit.variable} smooth-scrollbar`}>
           <ThemeProvider>
             <PrimaryLayout>

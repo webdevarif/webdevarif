@@ -29,7 +29,7 @@ const BlogPost = ({
                 <div className="col-span-2 space-y-6">
                   <h1 className="font-unbounded text-3xl leading-[1.3] font-semibold uppercase">{data.post.title}</h1>
                   {/* POST DATE */}
-                  <div className=""><Moment fromNow>{ data.post.date }</Moment></div>
+                  <div className=""><Moment format='MMMM Do YYYY'>{ data.post.date }</Moment></div>
                   {/* POST THUMBNAIL */}
                   {data.post.featured_image && <div className=""><Image src={ data.post.featured_image } alt={data.post.title} width={800} height={450} /></div>}
 
