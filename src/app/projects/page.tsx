@@ -1,16 +1,16 @@
 "use client";
 
+import React, { useEffect, useState, Suspense } from 'react';
+import { useRouter, useSearchParams } from 'next/navigation';
 import { useProjects } from '@/actions/queries';
 import CustomPagination from '@/components/CustomPagination';
 import PageLayout from '@/Providers/PageLayout';
-import React, { useEffect, useState } from 'react';
-import { useRouter, useSearchParams } from 'next/navigation';
-import CardProject from '@/components/Card/CardProject';
-import Skeleton from './Skeleton';
 import PrimaryLayout from '@/Providers/PrimaryLayout';
 import SectionHeading from '@/components/Common/SectionHeading';
+import CardProject from '@/components/Card/CardProject';
+import Skeleton from './Skeleton';
 
-const ProjectsPage = () => {
+const ProjectContent = () => {
   const [pageSize] = useState<number>(12);
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -33,7 +33,7 @@ const ProjectsPage = () => {
 
   const changePage = (newPage: number) => {
     setPageIndex(newPage);
-
+    
     // Construct the new URL with updated parameters
     const newUrl = `/projects?page=${newPage}`;
     
@@ -42,25 +42,34 @@ const ProjectsPage = () => {
   };
   
   return (
+    <PageLayout>
+      <SectionHeading caption={'Portfolio'} title={'My Recent Work'} />
+      
+      <div className="grid sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-3 gap-4 lg:gap-8">
+        {isLoading 
+          ? Array.from({ length: pageSize }).map((_, index) => <Skeleton key={index} />)
+          : data && data.posts.map((project, index) => (
+              <CardProject key={project.id ?? index} post={project} />
+            ))}
+      </div>
+      {data && data.total_pages > 1 && (
+        <CustomPagination 
+          currentPage={pageIndex} 
+          totalPages={data.total_pages}
+          setPage={changePage}
+        />
+      )}
+    </PageLayout>
+  );
+};
+
+const ProjectsPage = () => {
+  return (
     <PrimaryLayout>
-      <PageLayout>
-        <SectionHeading caption={'Portfolio'} title={'My Recent Work'} />
-        
-        <div className="grid sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-3 gap-4 lg:gap-8">
-          {isLoading 
-            ? Array.from({ length: pageSize }).map((_, index) => <Skeleton key={index} />)
-            : data && data.posts.map((project, index) => (
-                <CardProject key={project.id ?? index} post={project} />
-              ))}
-          </div>
-        {data && data.total_pages > 1 && (
-          <CustomPagination 
-            currentPage={pageIndex} 
-            totalPages={data.total_pages}
-            setPage={changePage}
-          />
-        )}
-      </PageLayout>
+      {/* Wrap only the dynamic content in Suspense */}
+      <Suspense fallback={<Skeleton />}>
+        <ProjectContent />
+      </Suspense>
     </PrimaryLayout>
   );
 };
