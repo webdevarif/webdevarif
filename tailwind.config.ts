@@ -14,19 +14,18 @@ const config: Config = {
       center: true,
       padding: "2rem",
       screens: {
-        "2xl": "1200px",
+        "2xl": "1300px",
       },
     },
     fontFamily: {
-      'unbounded': ['var(--font-unbounded)'],
-      'hind': ['var(--font-hind)'],
-      'manrope': ['var(--font-manrope)'],
-      'outfit': ['var(--font-outfit)'],
-      'optima-pro': ['var(--font-optima-pro)'],
+      'barlow': ['var(--font-barlow)'],
+      'source-serif-4': ['var(--font-source-serif-4)'],
     },
     extend: {
       colors: {
         border: 'rgba(var(--border-rgb), <alpha-value>)',
+        black: 'rgba(var(--black-rgb), <alpha-value>)',
+        white: 'rgba(var(--white-rgb), <alpha-value>)',
         input: 'rgba(var(--input-rgb), <alpha-value>)',
         ring: 'rgba(var(--ring-rgb), <alpha-value>)',
         background: 'rgba(var(--background-rgb), <alpha-value>)',
@@ -59,6 +58,10 @@ const config: Config = {
           DEFAULT: 'rgba(var(--card-rgb), <alpha-value>)',
           foreground: 'rgba(var(--card-foreground-rgb), <alpha-value>)',
         },
+        dark: {
+          DEFAULT: 'rgba(var(--dark-rgb), <alpha-value>)',
+          foreground: 'rgba(var(--dark-foreground-rgb), <alpha-value>)',
+        },
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -73,6 +76,10 @@ const config: Config = {
         "accordion-up": {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: "0" },
+        },
+        'pulse-border': {
+          '0%': { transform: 'scale(1)', opacity: '1' },
+          '100%': { transform: 'scale(1.7)', opacity: '0' },
         },
       },
       animation: {

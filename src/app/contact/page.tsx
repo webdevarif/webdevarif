@@ -1,12 +1,15 @@
 import React from 'react';
 import ContactForm from '@/components/ContactForm'
-import PageLayout from '@/layouts/PageLayout';
+import PageLayout from '@/Providers/PageLayout';
+import PrimaryLayout from '@/Providers/PrimaryLayout';
 
 const ContactPage = () => {
   return (
-    <PageLayout>
-        <ContactForm />
-    </PageLayout>
+    <PrimaryLayout>
+      <PageLayout>
+          <ContactForm />
+      </PageLayout>
+    </PrimaryLayout>
   )
 }
 

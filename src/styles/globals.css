@@ -4,14 +4,14 @@
 
 @layer base {
   :root {
-    --background-rgb: 255, 255, 255;
+    --background-rgb: 243, 244, 246;
     /* Converted from hsl(231.82, 26.19%, 16.47%) */
-    --foreground-rgb: 0, 0, 0;
+    --foreground-rgb: 102, 102, 102;
     /* Converted from hsl(0, 0%, 100%) */
 
     --card-rgb: 255, 255, 255;
     /* Converted from hsl(232.73, 25.19%, 25.69%) */
-    --card-foreground-rgb: 0, 0, 0;
+    --card-foreground-rgb: 49, 48, 48;
     /* Converted from hsl(0, 0%, 100%) */
 
     --popover-rgb: 37, 34, 48;
@@ -20,30 +20,33 @@
     /* Converted from hsl(0, 0%, 100%) */
 
     /* --primary-rgb: 247, 87, 0; */
-    --primary-rgb: 0, 0, 0;
+    --primary-rgb: 18, 15, 18;
     /* Converted from hsl(34.6, 100%, 73.14%) */
     --primary-foreground-rgb: 255, 255, 255;
     /* Converted from hsl(210, 20%, 98%) */
 
-    --secondary-rgb: 245, 245, 245;
+    --secondary-rgb: 243, 244, 246;
     /* Converted from hsl(220, 14.3%, 95.9%) */
     --secondary-foreground-rgb: 255, 174, 77;
     /* Converted from hsl(34.6, 100%, 73.14%) */
 
-    --muted-rgb: 245, 245, 245;
+    --muted-rgb: 243, 244, 246;
     /* Converted from hsl(220, 14.3%, 95.9%) */
     --muted-foreground-rgb: 105, 105, 105;
     /* Converted from hsl(220, 8.9%, 46.1%) */
 
-    --accent-rgb: 245, 245, 245;
+    --accent-rgb: 243, 244, 246;
     /* Converted from hsl(220, 14.3%, 95.9%) */
-    --accent-foreground-rgb: 247, 87, 0;
+    --accent-foreground-rgb: 18, 15, 18;
     /* Converted from hsl(34.6, 100%, 73.14%) */
 
     --destructive-rgb: 234, 59, 59;
     /* Converted from hsl(0, 84.2%, 60.2%) */
     --destructive-foreground-rgb: 242, 242, 250;
     /* Converted from hsl(210, 20%, 98%) */
+    
+    --dark-rgb: 18, 15, 18;
+    --dark-foreground-rgb: 255, 255, 255;
 
     --border-rgb: 232, 232, 232;
     /* Converted from hsl(220, 13%, 91%) */
@@ -52,18 +55,22 @@
     --ring-rgb: 12, 12, 12;
     /* Converted from hsl(224, 71.4%, 4.1%) */
 
+    --black-rgb: 0, 0, 0;
+    --white-rgb: 255, 255, 255;
+    /* Converted from hsl(224, 71.4%, 4.1%) */
+
     --radius: 0.5rem;
   }
 
   .dark {
-    --background-rgb: 12, 12, 12;
+    --background-rgb: 26, 26, 26;
     /* Converted from hsl(224, 71.4%, 4.1%) */
-    --foreground-rgb: 242, 242, 250;
+    --foreground-rgb: 204, 204, 204;
     /* Converted from hsl(210, 20%, 98%) */
 
-    --card-rgb: 12, 12, 12;
+    --card-rgb: 49, 48, 48;
     /* Converted from hsl(224, 71.4%, 4.1%) */
-    --card-foreground-rgb: 242, 242, 250;
+    --card-foreground-rgb: 255, 255, 255;
     /* Converted from hsl(210, 20%, 98%) */
 
     --popover-rgb: 12, 12, 12;
@@ -95,6 +102,9 @@
     /* Converted from hsl(0, 62.8%, 30.6%) */
     --destructive-foreground-rgb: 242, 242, 250;
     /* Converted from hsl(210, 20%, 98%) */
+    
+    --dark-rgb: 255, 255, 255;
+    --dark-foreground-rgb: 18, 15, 18;
 
     --border-rgb: 55, 60, 70;
     /* Converted from hsl(215, 27.9%, 16.9%) */
@@ -102,36 +112,55 @@
     /* Converted from hsl(215, 27.9%, 16.9%) */
     --ring-rgb: 202, 202, 214;
     /* Converted from hsl(216, 12.2%, 83.9%) */
+    
+    --black-rgb: 255, 255, 255;
+    --white-rgb: 0, 0, 0;
   }
 }
 
+
+html {
+  scroll-behavior: smooth;
+}
 
 @layer base {
-  html {
-    scroll-behavior: smooth;
-  }
 
   body {
-    @apply bg-background text-foreground font-hind;
+    @apply bg-background text-foreground font-source-serif-4;
+  }
+
+  h1, .h1,
+  h2, .h2,
+  h3, .h3,
+  h4, .h4,
+  h5, .h5,
+  h6, .h6{
+    @apply font-barlow;
   }
 }
 
 
+/* START HEADER */
+.header-sticky{
+  box-shadow: 0 1px 3px #12142024;
+  position: fixed !important;
+  animation: headerSticky .4s;
+}
+
+@keyframes headerSticky{
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(0); }
+}
+/* END HEADER */
 
 
 /* BLOG POSTS */
-.post-content {
-  /* @apply font-optima-pro; */
-}
-
 .post-content code {
-  padding: 15px;
-  font-size: 13pt;
   tab-size: 4;
   -webkit-box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.25);
   -moz-box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.25);
   box-shadow: 0 0 8px 0 rgba(0, 0, 0, .25);
-  @apply block bg-slate-900 text-slate-300 mt-3 mb-6 font-optima-pro overflow-x-auto;
+  @apply p-6 block bg-dark dark:bg-white text-slate-300 mt-3 mb-6 font-barlow overflow-x-auto bg-[length:2.5rem] bg-[calc(100%-1rem)_calc(100%-0.75rem)] bg-no-repeat bg-[url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNzE3IiBoZWlnaHQ9IjcxNyIgdmlld0JveD0iMCAwIDcxNyA3MTciIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxwYXRoIGQ9Ik00NzUgMjU4LjMzNkw0ODAuNzIgMjY0LjA1NUM1MjUuMTYzIDMwOC40OTkgNTQ3LjM4NyAzMzAuNzIzIDU0Ny4zODcgMzU4LjMzNkM1NDcuMzg3IDM4NS45NDkgNTI1LjE2MyA0MDguMTczIDQ4MC43MiA0NTIuNjE2TDQ3NSA0NTguMzM2IiBzdHJva2U9IndoaXRlIiBzdHJva2Utb3BhY2l0eT0iMC41IiBzdHJva2Utd2lkdGg9IjUwIiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KPHBhdGggZD0iTTQwMS40NzMgMTk3LjM1MkwzNTguMzM2IDM1OC4zMzhMMzE1LjE5OSA1MTkuMzI4IiBzdHJva2U9IndoaXRlIiBzdHJva2Utb3BhY2l0eT0iMC41IiBzdHJva2Utd2lkdGg9IjUwIiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KPHBhdGggZD0iTTI0MS42NjMgMjU4LjMzNkwyMzUuOTQ0IDI2NC4wNTVDMTkxLjUgMzA4LjQ5OSAxNjkuMjc3IDMzMC43MjMgMTY5LjI3NyAzNTguMzM2QzE2OS4yNzcgMzg1Ljk0OSAxOTEuNSA0MDguMTczIDIzNS45NDQgNDUyLjYxNkwyNDEuNjYzIDQ1OC4zMzYiIHN0cm9rZT0id2hpdGUiIHN0cm9rZS1vcGFjaXR5PSIwLjUiIHN0cm9rZS13aWR0aD0iNTAiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPgo8cGF0aCBvcGFjaXR5PSIwLjUiIGQ9Ik0yNSAzNTguMzMzQzI1IDIwMS4xOTggMjUgMTIyLjYzMSA3My44MTU3IDczLjgxNTdDMTIyLjYzMSAyNSAyMDEuMTk4IDI1IDM1OC4zMzMgMjVDNTE1LjQ2NyAyNSA1OTQuMDM3IDI1IDY0Mi44NSA3My44MTU3QzY5MS42NjcgMTIyLjYzMSA2OTEuNjY3IDIwMS4xOTggNjkxLjY2NyAzNTguMzMzQzY5MS42NjcgNTE1LjQ2NyA2OTEuNjY3IDU5NC4wMzcgNjQyLjg1IDY0Mi44NUM1OTQuMDM3IDY5MS42NjcgNTE1LjQ2NyA2OTEuNjY3IDM1OC4zMzMgNjkxLjY2N0MyMDEuMTk4IDY5MS42NjcgMTIyLjYzMSA2OTEuNjY3IDczLjgxNTcgNjQyLjg1QzI1IDU5NC4wMzcgMjUgNTE1LjQ2NyAyNSAzNTguMzMzWiIgc3Ryb2tlPSJ3aGl0ZSIgc3Ryb2tlLW9wYWNpdHk9IjAuMiIgc3Ryb2tlLXdpZHRoPSI1MCIvPgo8L3N2Zz4K)];
 }
 
 .scroller-animation {
@@ -140,7 +169,6 @@
   animation-timing-function: cubic-bezier(.15, .41, .69, .94);
   animation-iteration-count: infinite;
 }
-
 
 @keyframes scroll {
   0% {
@@ -171,9 +199,38 @@
   }
 }
 
-.text-gradient-primary {
-  background: linear-gradient(90deg, #f75700 0%, #ffb646 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
+@keyframes dashstroke-animation {
+  0% {
+    stroke-dasharray: 300;
+    stroke-dashoffset: 300;
+  }
+
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+.text-stroke {
+  @apply text-transparent;
+  -webkit-text-stroke: 1px rgb(var(--foreground-rgb));
+}
+
+
+/* TYPOGRAPHY */
+@layer components {
+  h1, .h1{
+    @apply text-3xl md:text-5xl font-semibold mb-3;
+  }
+  
+  h2, .h2 {
+  @apply text-3xl md:text-4xl font-semibold mb-3;
+  }
+  
+  h3, .h3{
+    @apply text-xl md:text-2xl font-medium mb-3;
+  }
+  
+  p, .p{
+      @apply text-base mb-3;
+  }
 }

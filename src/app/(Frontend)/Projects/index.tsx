@@ -1,39 +1,37 @@
 "use client";
 import React from 'react';
 import CardProject from '@/components/Card/CardProject';
-import { useProjects } from '@/actions/queries';
 import { Button } from '@/components/ui/button';
-import Link from 'next/link';
+import SectionHeading from '@/components/Common/SectionHeading';
+import { LoadMoreProjects } from '@/lib/fetchData';
+import Skeleton from './Skeleton';
 
 const Projects = () => {
-    const { data, isLoading } =useProjects(`current-page=1&per-page=6`);
+    const [pageSize] = React.useState<number>(9);
+    const { projects, isLoading, isLoadingMore, changePage, size, isLast } = LoadMoreProjects(`&per-page=${pageSize}`);
 
-  return (
-    <section className="py-[100px]">
-        <div className="container">
+    return (
+        <section className="py-[100px]">
+            <div className="container">
+                <SectionHeading caption={'Portfolio'} title={'My Recent Work'} />
 
-            <div className="mb-[3rem] mx-auto text-center max-w-[40rem]">
-                <span className="uppercase font-unbounded font-bold text-4xl mb-3 inline-block">Recent Projects</span>
-                <p className="font-medium">Valuable insights to change your startup idea</p>
+                <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 xl:gap-6">
+                { isLoading ? Array.from({ length: pageSize }).map((_, index) => (<Skeleton key={index}/> ))  : projects && projects.map(project => ( <CardProject key={project.id} post={project} /> ))}
+                </div>
+                {!isLast && <div className="text-center text-md mt-[3rem]">
+                    Are you interested to show more portfolios?
+                    <Button
+                        variant={'outline'}
+                        type='button'
+                        disabled={isLast || isLoadingMore}
+                        className='text-sm text-dark font-semibold ms-4 rounded-full px-6'
+                        onClick={() => changePage(size + 1)}>
+                        {isLoadingMore ? "Loading..." : "Load More"}
+                        </Button>
+                </div>}
             </div>
-
-            <div className="grid grid-cols-3 gap-4">
-                {isLoading ? (
-                    <p>Loading...</p>
-                ) : (
-                    data && data.projects.map(project => (
-                        <CardProject key={project.id} post={ project } />
-                    ))
-                )}
-            </div>
-            <div className="text-center mt-[2rem]">
-                <Button variant={'default'} className='gap-2 h-[3.25rem] min-w-[10rem] uppercase font-unbounded text-sm'>
-                    <Link href={'/projects'}>View All</Link>
-                </Button>
-            </div>
-        </div>
-    </section>
-  )
+        </section>
+    )
 }
 
 export default Projects;

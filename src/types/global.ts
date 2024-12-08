@@ -19,38 +19,15 @@ export interface GlobalSettingsProps {
   styleCss?: string | null | undefined;
 }
 
-
-
 export interface PostTagProps {
-  term_id?:  number;
   name: string;
   slug: string;
-  term_group?:  number;
-  term_taxonomy_id?:  number;
-  taxonomy: string | null;
-  description?: string | null;
-  parent?:  number;
-  count?:  number;
-  filter?: string | null;
+  term_id?:  number;
 }
 
-
-
 export interface PostCategoryProps {
-  term_id?:  number;
   name: string;
   slug: string;
-  term_group?: number;
-  term_taxonomy_id:  number;
-  taxonomy: string | null;
+  term_id?:  number;
   description?: string;
-  parent?:  number;
-  count?:  number;
-  filter?: string | null;
-  cat_ID?:  number;
-  category_count?:  number;
-  category_description?: string | null;
-  cat_name?: string | null;
-  category_nicename?: string | null;
-  category_parent?:  number;
 }

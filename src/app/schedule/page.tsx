@@ -1,5 +1,5 @@
 "use client";
-import PageLayout from '@/layouts/PageLayout';
+import PageLayout from '@/Providers/PageLayout';
 import React, { useEffect } from 'react';
 
 const SchedulePage: React.FC = () => {

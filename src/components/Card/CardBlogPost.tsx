@@ -1,13 +1,11 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
-import { Button } from '@/components/ui/button';
-import { BlogPostsProps } from '@/types/blogs';
-import { Card, CardContent, CardFooter, CardHeader } from '../ui/card';
+import { PostDataProps } from '@/types/post';
+import { Card, CardContent, CardHeader } from '@/components/ui/card';
 import { Config } from '@/lib/config';
-import { MdDoubleArrow } from 'react-icons/md';
 
-const CardBlogPost: React.FC<{ post: BlogPostsProps }> = ({ post }) => {
+const CardBlogPost: React.FC<{ post: PostDataProps }> = ({ post }) => {
   
     const jsonLd = {
       '@context': 'https://schema.org',
@@ -22,29 +20,28 @@ const CardBlogPost: React.FC<{ post: BlogPostsProps }> = ({ post }) => {
     }
     
   return (
-    <Card className='h-full group/item relative flex flex-col border border-black before:transition-all before:duration-300 before:ease-linear before:content-[""] before:w-full before:h-full before:bg-black before:absolute before:end-0 before:z-[-1] before:translate-y-0 hover:before:-end-[0.35rem] hover:before:translate-y-[0.35rem]'>
+    <Card className='h-full group/item relative flex flex-col bg-transparent shadow-none'>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       {post.featured_image && (
-        <div className="w-full h-[15rem] overflow-hidden">
+        <Link href={Config.cleanBlogURL(post.link)} className="w-full h-[25vh] mb-4 overflow-hidden rounded-xl">
           <Image className='w-full h-full group-hover/item:scale-105 duration-300 transition-all ease-linear object-cover rounded-none' alt={post.title || ''} src={post.featured_image} width={400} height={300} />
-      </div>
+      </Link>
       )}
-      <CardHeader>
-        <Link href={Config.cleanBlogURL(post.link)} className='text-black transition-all duration-300 hover:text-primary'>
-          <h2 className="font-unbounded text-sm leading-[1.6] font-medium mb-0">{post.title}</h2>
+      <CardHeader className='p-0 mb-2'>
+        <div className="flex items-center flex-wrap">
+          <div className="inline-flex flex-wrap items-center space-x-2">
+            {  post.categories && post.categories.map((item, index) =>(
+              <Link href="/" key={item.term_id ?? index} className="px-[15px] py-[5px] font-medium rounded-full text-sm bg-dark text-dark-foreground">{item.name}</Link>
+            )) }
+          </div>
+        </div>
+        <Link href={Config.cleanBlogURL(post.link)} className='text-black hover:underline transition-all duration-300 hover:text-primary'>
+          <h2 className="text-xl leading-[1.4] font-semibold font-source-serif-4 mb-0">{post.title}</h2>
         </Link>
       </CardHeader>
-      <CardContent className='space-y-3'>
+      <CardContent className='space-y-3 mb-4 p-0 text-foreground'>
         <div>{post.excerpt}</div>
       </CardContent>
-      <CardFooter className='mt-auto border-t border-black pt-5'>
-        <Button variant={'link'} asChild className='p-0 text-slate-black hover:text-primary h-auto inline-flex items-center gap-1 uppercase'>
-          <Link href={Config.cleanBlogURL(post.link)}>
-            <span>Read More</span>
-            <MdDoubleArrow />
-          </Link>
-        </Button>
-      </CardFooter>
     </Card>
   );
 };

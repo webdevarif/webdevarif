@@ -1,21 +1,27 @@
-
-import React from 'react'
-import Hero from './Hero'
-import ContactForm from '@/components/ContactForm'
-import BlogInsight from './BlogInsight'
-import Projects from './Projects'
-import AboutMe from './AboutMe'
+import React from 'react';
+import Hero from './Hero';
+import BlogInsight from './BlogInsight';
+import Projects from './Projects';
+import AboutMe from './AboutMe';
+import PromoteBox from './Promote';
+import PrimaryLayout from '@/Providers/PrimaryLayout';
+import Services from './Services';
+import Pricing from './Pricing';
+import Testimonials from './Testimonials';
 
 const HomePage = () => {
   return (
-    <div>
+    <PrimaryLayout>
       <Hero />      
       <AboutMe />
+      <Services />
       <Projects />
-      <ContactForm />
+      <Testimonials />
+      <Pricing />
       <BlogInsight />
-    </div>
+      <PromoteBox />
+    </PrimaryLayout>
   )
 }
 
-export default HomePage
+export default HomePage;

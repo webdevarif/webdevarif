@@ -1,65 +1,38 @@
 "use client";
 
+import React from 'react';
 import { useBlogs } from '@/actions/queries';
 import CustomPagination from '@/components/CustomPagination';
-import PageLayout from '@/layouts/PageLayout';
-import React, { useEffect, useState } from 'react';
-import { useRouter, useSearchParams } from 'next/navigation';
+import PageLayout from '@/Providers/PageLayout';
 import CardBlogPost from '@/components/Card/CardBlogPost';
+import Skeleton from './Skeleton';
+import { usePageIndex } from '@/lib/pageIndex';
+import PrimaryLayout from '@/Providers/PrimaryLayout';
+import SectionHeading from '@/components/Common/SectionHeading';
 
 const BlogPage = () => {
-  const router = useRouter();
-  const searchParams = useSearchParams();
-
-  const [pageIndex, setPageIndex] = useState(() => {
-    const pageParam = searchParams.get('page');
-    return pageParam ? parseInt(pageParam) : 1;
-  });
-  
-  const { data, isLoading } = useBlogs(`current-page=${pageIndex}&per-page=15`);
-
-  useEffect(() => {
-    const pageParam = searchParams.get('page');
-    if (pageParam && pageParam !== pageIndex.toString()) {
-      setPageIndex(parseInt(pageParam));
-    }
-  }, [searchParams, pageIndex]);
-
-  const changePage = (newPage: number) => {
-    setPageIndex(newPage);
-    
-    const searchParams = new URLSearchParams();
-    searchParams.set('page', newPage.toString());
-  
-    router.push(`/blogs?${searchParams.toString()}`);
-  };
+  const [pageSize] = React.useState<number>(15);
+  const { pageIndex, changePage } = usePageIndex('/blogs', 1); // '/tools' can be changed based on the specific page
+  const { data, isLoading } = useBlogs(`current-page=${pageIndex}&per-page=${pageSize}`);
   
   return (
-    <PageLayout>
-      {/* Heading */}
-      <div className="py-[100px] text-center">
-          <div className="container">
-              <h5 className="font-unbounded text-5xl font-semibold uppercase">Blog Insight</h5>
-          </div>
-      </div> 
-      <div className="container pb-[100px] space-y-10">
-        <div className="grid grid-cols-3 gap-6">
-          {isLoading ? "Loading..." : 
-            data && data.blogs.map((blog, index) => (
-              <CardBlogPost key={blog.id ?? index} post={blog} />
-            ))
-          }
-        </div>
+    <PrimaryLayout>
+      <PageLayout>
+        <SectionHeading 
+          caption={'Blog Insight'}
+          title={'Latest Post'} 
+        />
 
-        {data && data.total_pages > 1 && 
-          <CustomPagination 
-            currentPage={pageIndex} 
-            totalPages={Number(data?.total_pages)}
-            setPage={changePage}
-          />
-        }
-      </div>
-    </PageLayout>
+        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-8">
+          { isLoading ? Array.from({ length: pageSize }).map((_, index) => (<Skeleton key={index}/> ))  : data && data.posts.map((blog, index) => ( <CardBlogPost key={blog.id ?? index} post={blog} /> ))}
+        </div>
+        {data && data.total_pages > 1 && <CustomPagination 
+          currentPage={pageIndex} 
+          totalPages={Number(data?.total_pages)}
+          setPage={changePage}
+        />}
+      </PageLayout>
+    </PrimaryLayout>
   );
 }
 

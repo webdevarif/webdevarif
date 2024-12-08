@@ -6,7 +6,8 @@ export interface BlogPostsProps {
     excerpt: string;
     content?: string;
     link: string;
-    author: string;
+    slug: string;
+    author?: string;
     categories?: PostCategoryProps[];
     tags?: PostTagProps[];
     featured_image?: string | null;
@@ -21,7 +22,7 @@ export interface BlogsListDataProps {
 
   
 export interface SingleBlogPostProps {
-  post: BlogPostsProps;
-  related_posts: BlogPostsProps[];
+  post?: BlogPostsProps;
+  related_posts?: BlogPostsProps[];
 }
   

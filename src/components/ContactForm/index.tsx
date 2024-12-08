@@ -2,7 +2,8 @@
 import React from 'react';
 // Make sure to run npm install @formspree/react
 // For more help visit https://formspr.ee/react-help
-import { useForm as useFormspree, ValidationError } from '@formspree/react';
+// import { useForm as useFormspree, ValidationError } from '@formspree/react';
+import { useForm as useFormspree } from '@formspree/react';
 import { Input } from "@/components/ui/input";
 import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@radix-ui/react-label';
@@ -54,7 +55,8 @@ const FormSchema = z.object({
 type FormSchemaType = z.infer<typeof FormSchema>;
 
 import { cn } from "@/lib/utils"
-import { CalendarClock, CalendarDays, CheckCheck, CheckIcon } from 'lucide-react';
+import { CalendarClock } from 'lucide-react';
+// import { CalendarClock, CalendarDays, CheckCheck, CheckIcon } from 'lucide-react';
 import Image from 'next/image';
 
 const ContactForm = () => {
@@ -154,7 +156,7 @@ const ContactForm = () => {
         <section className='contact-area bg-slate-50 py-[100px]'>
             <div className="container">
                 <div className="mb-[5rem]">
-                    <h2 className="text-[40px] font-bold font-unbounded uppercase leading-[1.2] mb-4">Need help with <br />something in specific?</h2>
+                    <h2 className="text-[25px] md:text-[30px] xl:text-[40px] font-bold font-unbounded uppercase leading-[1.2] mb-4">Need help with <br />something in specific?</h2>
                 </div>
                 <div className="">
                     <Form {...form}>
@@ -163,11 +165,11 @@ const ContactForm = () => {
                             handleSubmit(data);  // Integrating with Formspree
                         })}>
 
-                            <div className="grid grid-cols-2 gap-8">
+                            <div className="grid md:grid-cols-2 gap-8">
                                 <div className="col-span-1 md:order-last">
                                     <div className="">
                                         <FormLabel className='block font-hind mb-4 font-semibold uppercase'>What service you want?</FormLabel>
-                                        <div className="grid grid-cols-3 gap-6">
+                                        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-2 lg:grid-cols-3 gap-6">
                                             {services.map((service, index) => (
                                             <FormField
                                                 key={index}

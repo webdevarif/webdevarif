@@ -17,9 +17,38 @@ export class Config {
         }
 
         // Perform replacement of the base URL with an empty string
-        return url.replace(wpBaseUrl, '/blog');
+        return url.replace(wpBaseUrl, '/blogs');
     }
-
+    
+    static cleanURL(url: string): string {
+        // Use dynamicBaseUrl if provided; otherwise, use the environment variable
+        const wpBaseUrl = process.env.baseURL;
+    
+        // Check if wpBaseUrl is undefined and handle accordingly
+        if (!wpBaseUrl) {
+            console.warn("Environment variable NEXT_PUBLIC_WP_BASE_URL is not set.");
+            return url;  // Return the original URL if no base URL is available
+        }
+    
+        // Perform replacement of the base URL with the 'replaceWith' string
+        return url.replace(wpBaseUrl, '');
+    }
+    
+    static urlTool(url: string): string {
+        // Use dynamicBaseUrl if provided; otherwise, use the environment variable
+        const wpBaseUrl = process.env.baseURL;
+    
+        // Check if wpBaseUrl is undefined and handle accordingly
+        if (!wpBaseUrl) {
+            console.warn("Environment variable NEXT_PUBLIC_WP_BASE_URL is not set.");
+            return url;  // Return the original URL if no base URL is available
+        }
+    
+        // Perform replacement of the base URL with the 'replaceWith' string
+        return url.replace(wpBaseUrl, '/tools');
+    }
+    
+    
     static projectCategoryClass(name: string): string {
 
         // Check if wpBaseUrl is undefined and handle accordingly

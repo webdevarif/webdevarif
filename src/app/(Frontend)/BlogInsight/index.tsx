@@ -3,26 +3,21 @@
 import { useBlogs } from '@/actions/queries';
 import CardBlogPost from '@/components/Card/CardBlogPost';
 import React from 'react';
+import Skeleton from './Skeleton';
+import SectionHeading from '@/components/Common/SectionHeading';
 
 const BlogInsight = () => {
-  const { data, isLoading } = useBlogs(`current-page=1&per-page=3`);
-
+  const [pageSize] = React.useState<number>(4);
+  const { data, isLoading } = useBlogs(`per-page=${pageSize}`);
   return (
     <section className='py-[100px]'>
       <div className="container">
-        <div className="mb-[3rem] mx-auto text-center max-w-[40rem]">
-          <span className="uppercase font-unbounded font-bold text-4xl mb-3 inline-block">Blog Insight</span>
-          <p className="font-medium">Valuable insights to change your startup idea</p>
-        </div>
-
-        <div className="grid grid-cols-3 gap-4">
-          {isLoading ? (
-            <p>Loading...</p>
-          ) : (
-            data && data.blogs.map(blog => (
-              <CardBlogPost key={blog.id} post={blog} />
-            ))
-          )}
+        <SectionHeading 
+          title={'Latest Post'} 
+          description={'Discover our most recent business insights'}
+        />
+        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-8">
+          { isLoading ? <Skeleton /> : data && data.posts.map(post => <CardBlogPost key={post.id} post={post} />)}
         </div>
       </div>
     </section>

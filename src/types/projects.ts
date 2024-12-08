@@ -1,8 +1,4 @@
-import { PostTagProps } from "./global";
-
-export interface ProjectCategoryProps {
-  name: string;
-}
+import { PostTagProps, PostCategoryProps } from "./global";
 
 export interface ProjectPostProps {
     id: number;
@@ -11,7 +7,7 @@ export interface ProjectPostProps {
     content?: string;
     link: string;
     preview_link: string;
-    project_categories?: ProjectCategoryProps[];
+    categories?: PostCategoryProps[];
     tags?: PostTagProps[];
     featured_image?: string | null;
     date: Date;
@@ -20,7 +16,7 @@ export interface ProjectPostProps {
 export interface ProjectsListDataProps {
     current_page: number;
     total_pages: number;
-    projects: ProjectPostProps[];
+    posts: ProjectPostProps[];
 }
 
 export interface SingleProjectPostProps {
