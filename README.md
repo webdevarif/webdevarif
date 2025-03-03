@@ -3,10 +3,11 @@
     <img src="banner-4.gif">
   </a>
 </p>
+<p align="left"><img src="https://komarev.com/ghpvc/?username=webdevarif&label=Profile%20views&color=0e75b6&style=flat" alt="webdevarif" /></p>
 
 ---
 
-## Shopify Expert | Woocommerce Expert | Elementor Expert <img src="https://komarev.com/ghpvc/?username=webdevarif&label=Profile%20views&color=0e75b6&style=flat" alt="webdevarif" /> 
+## Shopify Expert | Woocommerce Expert | Elementor Expert  
 
 Hi, I'm **Arif Hossin**, a full-time web developer with 7 years of experience in front-end development, WordPress WooCommerce theme development, and Shopify theme development. I specialize in developing and cloning all types of websites using WordPress and Shopify, ensuring high-quality service for my clients. I'm available 24/7 to assist with any web-based issues you may have. Feel free to contact me anytime!
 
