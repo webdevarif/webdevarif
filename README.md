@@ -6,6 +6,9 @@
 <p align="left"><img src="https://komarev.com/ghpvc/?username=webdevarif&label=Profile%20views&color=0e75b6&style=flat" alt="webdevarif" /></p>
 
 ---
+<h1 align="center">
+    <img src="https://readme-typing-svg.herokuapp.com?font=Roboto&weight=900&size=35&pause=1000&color=3E9604&width=435&lines=3%2B+Years+Shopify+Experiences+;8%2B+Years+WordPress+Experience;4%2B+Years+Woocommerce+Experience;8%2B+Years+Front+Development" alt="Typing SVG" />
+</h1>
 
 ## Shopify Expert | Woocommerce Expert | Elementor Expert  
 
@@ -93,6 +96,28 @@ List of projects I made with love
   <img src="./assets/backend/django.svg" alt="Web Developer Profile" />
   <img src="./assets/backend/nodejs.svg" alt="Web Developer Profile" />
 </p>
+
+## ⚡ MY STREAK ⚡
+<p>
+  [![GitHub Streak](https://streak-stats.demolab.com?user=webdevarif&theme=merko&border_radius=0&short_numbers=true)](https://git.io/streak-stats)
+</p>
+
+
+## 🌟 PROFILE SUMMARY 🌟
+<p>
+  ![Github profile summary](http://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=webdevarif&theme=dark)
+</p>
+
+## 💻 TOP LANGUAGES & COMMIT STATS 💻
+<p>
+  ![Top language](http://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=webdevarif&theme=dark)
+  ![Language by commit](http://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=webdevarif&theme=dark)
+</p>
+<p>
+  ![Cards stats](http://github-profile-summary-cards.vercel.app/api/cards/stats?username=webdevarif&theme=dark)
+  ![Commit stats](http://github-profile-summary-cards.vercel.app/api/cards/productive-time?username=webdevarif&theme=dark&utcOffset=8)
+</p>
+
 
 
 ##
