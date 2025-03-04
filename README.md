@@ -99,21 +99,24 @@ List of projects I made with love
 
 ## ⚡ MY STREAK ⚡
 <p>
+  
   [![GitHub Streak](https://streak-stats.demolab.com?user=webdevarif&theme=merko&border_radius=0&short_numbers=true)](https://git.io/streak-stats)
 </p>
 
-
 ## 🌟 PROFILE SUMMARY 🌟
 <p>
+  
   ![Github profile summary](http://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=webdevarif&theme=dark)
 </p>
 
 ## 💻 TOP LANGUAGES & COMMIT STATS 💻
 <p>
+  
   ![Top language](http://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=webdevarif&theme=dark)
   ![Language by commit](http://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=webdevarif&theme=dark)
 </p>
 <p>
+  
   ![Cards stats](http://github-profile-summary-cards.vercel.app/api/cards/stats?username=webdevarif&theme=dark)
   ![Commit stats](http://github-profile-summary-cards.vercel.app/api/cards/productive-time?username=webdevarif&theme=dark&utcOffset=8)
 </p>
