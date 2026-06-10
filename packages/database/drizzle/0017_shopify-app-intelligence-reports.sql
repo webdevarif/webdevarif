@@ -1,0 +1,1 @@
+ALTER TABLE "shopify_app_intelligence_reports" DROP CONSTRAINT "shopify_app_intelligence_reports_app_gid_shopify_partner_apps_app_gid_fk";

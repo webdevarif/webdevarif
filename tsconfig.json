@@ -1,0 +1,6 @@
+{
+  "extends": "@webdevarif/tsconfig/base.json",
+  "compilerOptions": {
+    "noEmit": true
+  }
+}

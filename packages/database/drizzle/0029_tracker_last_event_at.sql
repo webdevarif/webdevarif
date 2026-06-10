@@ -1,0 +1,1 @@
+ALTER TABLE "tracked_sites" ADD COLUMN "last_event_at" timestamp with time zone;

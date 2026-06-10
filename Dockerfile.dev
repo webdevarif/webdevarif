@@ -1,0 +1,26 @@
+# Development image — runs `next dev` with hot reload.
+# Use with docker-compose.dev.yml (which bind-mounts your source).
+FROM node:20-alpine
+RUN corepack enable && corepack prepare pnpm@10.26.0 --activate
+WORKDIR /app
+
+# Install workspace deps (Linux-native) using the lockfile for cache hits.
+COPY package.json pnpm-lock.yaml pnpm-workspace.yaml ./
+COPY tooling/ ./tooling/
+COPY packages/database/package.json ./packages/database/
+COPY packages/shared/package.json ./packages/shared/
+COPY packages/ui/package.json ./packages/ui/
+COPY apps/web/package.json ./apps/web/
+RUN pnpm install --frozen-lockfile
+
+COPY . .
+
+# Polling makes file-watching reliable across the Windows ↔ container mount.
+ENV WATCHPACK_POLLING=true
+ENV CHOKIDAR_USEPOLLING=true
+ENV NEXT_TELEMETRY_DISABLED=1
+
+EXPOSE 3000
+
+# Bind to 0.0.0.0 so the host can reach it at http://localhost:3000
+CMD ["pnpm", "--filter", "@webdevarif/web", "exec", "next", "dev", "-H", "0.0.0.0", "-p", "3000"]

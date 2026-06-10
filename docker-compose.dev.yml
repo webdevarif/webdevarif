@@ -1,0 +1,27 @@
+# Local development with hot reload.
+#   docker compose -f docker-compose.dev.yml up --build
+# Then open http://localhost:3000 (localhost is a secure context, so the
+# microphone / voice agent works here).
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    ports:
+      - "3000:3000"
+    env_file:
+      - apps/web/.env
+    environment:
+      - WATCHPACK_POLLING=true
+      - CHOKIDAR_USEPOLLING=true
+    volumes:
+      # Live source for hot reload…
+      - ./:/app
+      # …but keep the container's Linux-native installs (don't let the
+      # host's Windows node_modules / build output leak in).
+      - /app/node_modules
+      - /app/apps/web/node_modules
+      - /app/packages/database/node_modules
+      - /app/packages/shared/node_modules
+      - /app/packages/ui/node_modules
+      - /app/apps/web/.next
