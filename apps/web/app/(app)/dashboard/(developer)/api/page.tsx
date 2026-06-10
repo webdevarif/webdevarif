@@ -8,6 +8,7 @@ import { requireUser } from "@/lib/auth/session";
 import { ApiKeysPanel } from "@/app/(app)/dashboard/(projects)/projects/settings/api-keys/_components/api-keys-panel";
 
 import { ApiDocs } from "./_components/api-docs";
+import { ExportButton } from "./_components/export-button";
 
 export const metadata = {
   title: "API & Docs · webdevarif",
@@ -23,13 +24,18 @@ export default async function DeveloperApiPage() {
   return (
     <div className="mx-auto max-w-4xl px-6 py-10 sm:px-8">
       <header className="mb-8">
-        <p className="text-label">— developers</p>
-        <h1 className="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">
-          API &amp; Docs
-        </h1>
-        <p className="text-comment mt-2">
-          {`// call your tools from anywhere — create a key, send a POST, get JSON back`}
-        </p>
+        <div className="flex items-start justify-between gap-4">
+          <div>
+            <p className="text-label">— developers</p>
+            <h1 className="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">
+              API Docs
+            </h1>
+            <p className="text-comment mt-2">
+              {`// call your tools from anywhere — create a key, send a POST, get JSON back`}
+            </p>
+          </div>
+          <ExportButton baseUrl={baseUrl} />
+        </div>
       </header>
 
       <GettingStarted baseUrl={baseUrl} />
