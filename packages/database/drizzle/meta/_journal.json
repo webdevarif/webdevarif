@@ -239,6 +239,13 @@
       "when": 1780906109134,
       "tag": "0033_project_personas",
       "breakpoints": true
+    },
+    {
+      "idx": 34,
+      "version": "7",
+      "when": 1781281612480,
+      "tag": "0034_left_shocker",
+      "breakpoints": true
     }
   ]
 }

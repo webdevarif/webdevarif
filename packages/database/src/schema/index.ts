@@ -38,3 +38,5 @@ export * from "./track-daily-salts";
 export * from "./api-keys";
 export * from "./project-health-checks";
 export * from "./project-personas";
+export * from "./short-links";
+export * from "./link-clicks";

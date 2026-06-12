@@ -13,6 +13,7 @@ import {
   CodeIcon as Code2,
   DashboardIcon as LayoutDashboard,
   FileTextIcon as FileText,
+  LinkIcon,
   MagicWandIcon as MagicWand,
   GaugeIcon as Gauge,
   GlobeIcon as Globe,
@@ -63,6 +64,7 @@ const pinnedNav: NavLeaf[] = [
   { href: "/dashboard/feed", label: "Smart Feed", icon: Sparkles },
   { href: "/dashboard/videos", label: "Videos", icon: Video },
   { href: "/dashboard/english/drills", label: "English Drill", icon: Library },
+  { href: "/dashboard/link-shortener", label: "Link Shortener", icon: LinkIcon },
   { href: "/dashboard/api", label: "API Docs", icon: Code2 },
 ];
 
