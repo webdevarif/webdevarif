@@ -1,20 +1,42 @@
 <p align="center">
-  <a href="https://webdeveloperarif">
+  <a href="https://webdevarif.com" target="_blank">
     <img src="./apps/web/public/github/banner-4.gif">
   </a>
 </p>
 
+<h1 align="center">Hi, I'm Arif Hossin 👋</h1>
+<h3 align="center">Shopify App &amp; Theme Developer · Shopify Plus · Headless Commerce</h3>
+
+<p align="center">
+  <a href="https://webdevarif.com" target="_blank"><img src="https://img.shields.io/badge/Portfolio-webdevarif.com-BAFF04?style=for-the-badge&logo=googlechrome&logoColor=black"></a>
+  <img src="https://img.shields.io/badge/Experience-8%2B%20Years-1abc9c?style=for-the-badge">
+  <img src="https://img.shields.io/badge/Projects%20Shipped-500%2B-blue?style=for-the-badge">
+  <img src="https://img.shields.io/badge/Upwork-Top%20Rated-6FDA44?style=for-the-badge&logo=upwork&logoColor=white">
+  <img src="https://img.shields.io/badge/Fiverr-Level%202-1DBF73?style=for-the-badge&logo=fiverr&logoColor=white">
+</p>
+
 ---
 
-## Shopify Expert | Woocommerce Expert | Elementor Expert 
+## 👨‍💻 About Me
 
-Hi, I'm **Arif Hossin**, a full-time web developer with 7 years of experience in front-end development, WordPress WooCommerce theme development, and Shopify theme development. I specialize in developing and cloning all types of websites using WordPress and Shopify, ensuring high-quality service for my clients. I'm available 24/7 to assist with any web-based issues you may have. Feel free to contact me anytime!
+I'm a **Shopify App & Theme Developer** with **8+ years** of experience building fast, conversion-focused ecommerce experiences. I'm currently a **Shopify Expert at Hatch Pro (US)**, and I've previously worked with **Ecom Experts** (Shopify Plus agency, Canada) and **Digital Farmers** (WooCommerce agency, Belgium).
+
+Over the years I've **shipped 500+ projects** across freelance platforms and agencies, and I build and maintain my own **Shopify apps and SaaS products** on the side. With a background in Marketing, I care as much about **revenue, UX, and store performance** as I do about clean, maintainable code.
+
+- 🛍️ Custom **Liquid** themes & **Shopify Plus** storefronts
+- 🧩 Shopify **app development** with Polaris & App Bridge
+- ⚡ **Headless commerce** with Hydrogen / Oxygen & Next.js
+- 🎯 **Conversion rate** & Core Web Vitals / performance optimization
+- 🌐 **WordPress / WooCommerce** solutions
+- 📈 Top Rated on Upwork · Level 2 on Fiverr · open for select projects
+
+> 💬 I offer a free 30-minute consultation — reach out anytime via [webdevarif.com](https://webdevarif.com).
 
 <div align="center">
 
 # 🚀 **RECENT PROJECTS**
 
-List of projects I made with love
+A selection of websites and stores I've built with care
 
 | Html/Bootstrap | Html/Tailwind | NextJs | WordPress | Shopify |
 | --- | --- | --- | --- | --- |
@@ -24,18 +46,12 @@ List of projects I made with love
 | <a target="_blank" href="https://stack-internal.netlify.app/"><b>Stack Internal</b></a> | TAILWIND PROJECT | <a target="_blank" href="https://eirik-therapie.vercel.app/"><b>Eirik Therapie</b></a> | <a target="_blank" href="https://digitalfarmers.be/"><b>Digital Farmers</b></a> | <a target="_blank" href="https://lockoffroadwheels.com/"><b>Lockoffroadwheels</b></a> |
 | <a target="_blank" href="https://tech-future.netlify.app/"><b>Tech Future (Ecommerce)</b></a> | TAILWIND PROJECT | NEXTJS PROJECT | <a target="_blank" href="https://hatchpro.net/"><b>Hatch Pro</b></a> | <a target="_blank" href="https://katanawheels.myshopify.com/"><b>Katana Wheels</b></a> |
 | <a target="_blank" href="https://foto-box.netlify.app/"><b>Fotobox</b></a> | TAILWIND PROJECT | NEXTJS PROJECT | <a target="_blank" href="https://casayaspa.be/"><b>Casayaspa</b></a> | <a target="_blank" href="https://dolcewheels.myshopify.com/"><b>Dolce Wheels</b></a> |
-| <a target="_blank" href="https://assparo.netlify.app/"><b>Assparo</b></a> | TAILWIND PROJECT | NEXTJS PROJECT | <a target="_blank" href="https://riohondoofficeandmedicalplaza.com/"><b>Rio Hondo</b></a> | <a target="_blank" href="https://www.valentinewigs.co.uk/"><b>Valentine Wigs</b></a> | 
-| HTML/Bootstrap | TAILWIND PROJECT | NEXTJS PROJECT | WORDPRESS PROJECT |<a target="_blank" href="https://robinphotography.myshopify.com/"><b>Robin Photography</b></a> |
-
-
-
-
+| <a target="_blank" href="https://assparo.netlify.app/"><b>Assparo</b></a> | TAILWIND PROJECT | NEXTJS PROJECT | <a target="_blank" href="https://riohondoofficeandmedicalplaza.com/"><b>Rio Hondo</b></a> | <a target="_blank" href="https://www.valentinewigs.co.uk/"><b>Valentine Wigs</b></a> |
+| HTML/Bootstrap | TAILWIND PROJECT | NEXTJS PROJECT | WORDPRESS PROJECT | <a target="_blank" href="https://robinphotography.myshopify.com/"><b>Robin Photography</b></a> |
 
 </div>
 
-
-
-## Published Products
+## 📦 Published Products
 
 | App | Tag | Description |
 |-----|-----|-------------|
@@ -45,101 +61,116 @@ List of projects I made with love
 
 ---
 
-## Tools I use
+## 🧰 Tech Stack
+
+**Ecommerce & CMS**
 
 <p>
-  <img src="./apps/web/public/github/tools/vscode.svg" alt="Web Developer Profile" />
-  <img src="./apps/web/public/github/tools/postman.svg" alt="Web Developer Profile" />
-  <img src="./apps/web/public/github/tools/github.svg" alt="Web Developer Profile" />
-  <img src="./apps/web/public/github/tools/git.svg" alt="Web Developer Profile" />
-  <img src="./apps/web/public/github/tools/gitlab.svg" alt="Web Developer Profile" />
+  <img src="https://img.shields.io/badge/Shopify-7AB55C?style=for-the-badge&logo=shopify&logoColor=white">
+  <img src="https://img.shields.io/badge/Shopify%20Plus-95BF47?style=for-the-badge&logo=shopify&logoColor=white">
+  <img src="https://img.shields.io/badge/Liquid-3D5A80?style=for-the-badge&logo=shopify&logoColor=white">
+  <img src="https://img.shields.io/badge/Hydrogen-000000?style=for-the-badge&logo=shopify&logoColor=white">
+  <img src="https://img.shields.io/badge/WordPress-21759B?style=for-the-badge&logo=wordpress&logoColor=white">
+  <img src="https://img.shields.io/badge/WooCommerce-96588A?style=for-the-badge&logo=woocommerce&logoColor=white">
 </p>
 
-## Photoshop I use
+**Frontend Development**
 <p>
-  <img src="./apps/web/public/github/photoshop/figma.svg" alt="Web Developer Profile" />
-  <img src="./apps/web/public/github/photoshop/adobe-photoshop.svg" alt="Web Developer Profile" />
-  <img src="./apps/web/public/github/photoshop/adobe-xd.svg" alt="Web Developer Profile" />
+  <img src="./apps/web/public/github/frontend/html.svg" alt="HTML" />
+  <img src="./apps/web/public/github/frontend/css.svg" alt="CSS" />
+  <img src="./apps/web/public/github/frontend/sass.svg" alt="Sass" />
+  <img src="./apps/web/public/github/frontend/javascript.svg" alt="JavaScript" />
+  <img src="./apps/web/public/github/frontend/typescript.svg" alt="TypeScript" />
+  <img src="./apps/web/public/github/frontend/react.svg" alt="React" />
+  <img src="./apps/web/public/github/frontend/nextjs.svg" alt="Next.js" />
+  <img src="./apps/web/public/github/frontend/vite.svg" alt="Vite" />
 </p>
 
-## Frontend Development
+**Frameworks &amp; Packages**
 <p>
-  <img src="./apps/web/public/github/frontend/html.svg" alt="Web Developer Profile" />
-  <img src="./apps/web/public/github/frontend/css.svg" alt="Web Developer Profile" />
-  <img src="./apps/web/public/github/frontend/sass.svg" alt="Web Developer Profile" />
-  <img src="./apps/web/public/github/frontend/javascript.svg" alt="Web Developer Profile" />
-  <img src="./apps/web/public/github/frontend/react.svg" alt="Web Developer Profile" />
-  <img src="./apps/web/public/github/frontend/nextjs.svg" alt="Web Developer Profile" />
-  <img src="./apps/web/public/github/frontend/typescript.svg" alt="Web Developer Profile" />
-  <img src="./apps/web/public/github/frontend/vite.svg" alt="Web Developer Profile" />
+  <img src="./apps/web/public/github/packages/npm.svg" alt="npm" />
+  <img src="./apps/web/public/github/packages/yarn.svg" alt="Yarn" />
+  <img src="./apps/web/public/github/packages/webpack.svg" alt="Webpack" />
+  <img src="./apps/web/public/github/packages/styled-components.svg" alt="styled-components" />
+  <img src="./apps/web/public/github/packages/redux.svg" alt="Redux" />
+  <img src="./apps/web/public/github/packages/graphql.svg" alt="GraphQL" />
+  <img src="./apps/web/public/github/packages/prisma.svg" alt="Prisma" />
+  <img src="./apps/web/public/github/packages/jwt.svg" alt="JWT" />
+  <img src="./apps/web/public/github/packages/nodemon.svg" alt="Nodemon" />
 </p>
 
-## Frameworks and Packages
+**Backend Development**
 <p>
-  <img src="./apps/web/public/github/packages/npm.svg" alt="Web Developer Profile" />
-  <img src="./apps/web/public/github/packages/styled-components.svg" alt="Web Developer Profile" />
-  <img src="./apps/web/public/github/packages/nodemon.svg" alt="Web Developer Profile" />
-  <img src="./apps/web/public/github/packages/yarn.svg" alt="Web Developer Profile" />
-  <img src="./apps/web/public/github/packages/webpack.svg" alt="Web Developer Profile" />
-  <img src="./apps/web/public/github/packages/prisma.svg" alt="Web Developer Profile" />
-  <img src="./apps/web/public/github/packages/jwt.svg" alt="Web Developer Profile" />
-  <img src="./apps/web/public/github/packages/graphql.svg" alt="Web Developer Profile" />
-  <img src="./apps/web/public/github/packages/redux.svg" alt="Web Developer Profile" />
+  <img src="./apps/web/public/github/backend/nodejs.svg" alt="Node.js" />
+  <img src="./apps/web/public/github/backend/django.svg" alt="Django" />
+  <img src="./apps/web/public/github/backend/wordpress.svg" alt="WordPress" />
 </p>
 
-## Database
+**Databases**
 <p>
-  <img src="./apps/web/public/github/database/postgresql.svg" alt="Web Developer Profile" />
-  <img src="./apps/web/public/github/database/mongodb.svg" alt="Web Developer Profile" />
-  <img src="./apps/web/public/github/database/mysql.svg" alt="Web Developer Profile" />
-  <img src="./apps/web/public/github/database/sqlite.svg" alt="Web Developer Profile" />
+  <img src="./apps/web/public/github/database/postgresql.svg" alt="PostgreSQL" />
+  <img src="./apps/web/public/github/database/mongodb.svg" alt="MongoDB" />
+  <img src="./apps/web/public/github/database/mysql.svg" alt="MySQL" />
+  <img src="./apps/web/public/github/database/sqlite.svg" alt="SQLite" />
 </p>
 
-
-## Backend Development
+**Tools &amp; Design**
 <p>
-  <img src="./apps/web/public/github/backend/wordpress.svg" alt="Web Developer Profile" />
-  <img src="./apps/web/public/github/backend/django.svg" alt="Web Developer Profile" />
-  <img src="./apps/web/public/github/backend/nodejs.svg" alt="Web Developer Profile" />
+  <img src="./apps/web/public/github/tools/vscode.svg" alt="VS Code" />
+  <img src="./apps/web/public/github/tools/git.svg" alt="Git" />
+  <img src="./apps/web/public/github/tools/github.svg" alt="GitHub" />
+  <img src="./apps/web/public/github/tools/gitlab.svg" alt="GitLab" />
+  <img src="./apps/web/public/github/tools/postman.svg" alt="Postman" />
+  <img src="./apps/web/public/github/photoshop/figma.svg" alt="Figma" />
+  <img src="./apps/web/public/github/photoshop/adobe-photoshop.svg" alt="Adobe Photoshop" />
+  <img src="./apps/web/public/github/photoshop/adobe-xd.svg" alt="Adobe XD" />
 </p>
 
+---
 
-##
+## 📫 Connect With Me
 
-<br />
-
-<div align="center"> 
- 	<a target="_blank" href = "mailto:arif@digitalfarmers.co">
-      <img src="https://img.shields.io/badge/-Email-%23333?style=for-the-badge&logo=gmail&logoColor=white" target="_blank">
+<div align="center">
+  <a target="_blank" href="https://webdevarif.com">
+    <img src="https://img.shields.io/badge/-Portfolio-BAFF04?style=for-the-badge&logo=googlechrome&logoColor=black">
   </a>
-  <a target="_blank" href="https://www.linkedin.com/in/webdevarif/" target="_blank">
-    <img src="https://img.shields.io/badge/-LinkedIn-%230077B5?style=for-the-badge&logo=linkedin&logoColor=white" target="_blank">
+  <a target="_blank" href="mailto:webdeveloperarif@gmail.com">
+    <img src="https://img.shields.io/badge/-Email-D14836?style=for-the-badge&logo=gmail&logoColor=white">
   </a>
- <a target="_blank" href = "https://discord.com/channels/Web Developer Arif#3762" target="_blank">
-  <img src= "https://img.shields.io/badge/Discord-5865F2?style=for-the-badge&logo=discord&logoColor=white"> 
- </a>
- <a target="_blank" href = "https://youtube.com/@WebDeveloperArif" target="_blank">
-  <img src= "https://img.shields.io/badge/youtube-FF0000?style=for-the-badge&logo=youtube&logoColor=white"> 
- </a>
- <a target="_blank" href = "https://twitter.com/webdevarif" target="_blank">
-  <img src= "https://img.shields.io/badge/Twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white"> 
- </a>
-  <a href="https://wa.me/08801857323271?text=https://wa.me/08801857323271?text=Hi!%20I%20found%20you%20from%20Github%20Profile."><img src="https://img.shields.io/badge/whatsapp-25D366?&style=for-the-badge&logo=whatsapp&logoColor=white"/></a>
-  <a target="_blank" href="https://wa.me/#?text=vk0x65?">
-    <img src="https://img.shields.io/badge/skype-00A5EA?&style=for-the-badge&logo=skype&logoColor=white"/></a>
-  <a target="_blank" href="https://github.com/webdevarif/webdevarif/blob/main/Ask/README.md">
-    <img src="https://img.shields.io/badge/Ask%20me-anything-1abc9c.svg?style=for-the-badge">
-    </a>
+  <a target="_blank" href="https://www.linkedin.com/in/webdevarif/">
+    <img src="https://img.shields.io/badge/-LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white">
+  </a>
+  <a target="_blank" href="https://github.com/webdevarif">
+    <img src="https://img.shields.io/badge/-GitHub-181717?style=for-the-badge&logo=github&logoColor=white">
+  </a>
+  <a target="_blank" href="https://www.upwork.com/freelancers/webdevarif">
+    <img src="https://img.shields.io/badge/-Upwork-6FDA44?style=for-the-badge&logo=upwork&logoColor=white">
+  </a>
+  <a target="_blank" href="https://www.fiverr.com/webdevarif">
+    <img src="https://img.shields.io/badge/-Fiverr-1DBF73?style=for-the-badge&logo=fiverr&logoColor=white">
+  </a>
+  <a target="_blank" href="https://youtube.com/@WebDeveloperArif">
+    <img src="https://img.shields.io/badge/-YouTube-FF0000?style=for-the-badge&logo=youtube&logoColor=white">
+  </a>
+  <a target="_blank" href="https://twitter.com/webdevarif">
+    <img src="https://img.shields.io/badge/-Twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white">
+  </a>
+  <a target="_blank" href="https://wa.me/8801857323271?text=Hi!%20I%20found%20you%20from%20your%20GitHub%20profile.">
+    <img src="https://img.shields.io/badge/-WhatsApp-25D366?style=for-the-badge&logo=whatsapp&logoColor=white">
+  </a>
 </div>
 
 <br />
 
-<div style="display: flex, flex-direction: row, color: rgb(255, 196, 0), " justify-content= "space-around" backgroundColor= "white">
-  <img height="170em" src= "https://github-readme-stats.vercel.app/api?username=webdevarif" />
-  <img height="170em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=webdevarif&layout=compact&langs_count=7&theme=white" />
-  
-<a href="https://app.daily.dev/arifcpam" target="_blank">
-<img width="170em" src="https://api.daily.dev/devcards/4525031d920e4981af7413fbb5da4092.png?r=wkl" alt="Arif Hossain's Dev Card"/></a>
+## 📊 GitHub Stats
+
+<div align="center">
+  <img height="170em" src="https://github-readme-stats.vercel.app/api?username=webdevarif&show_icons=true&theme=tokyonight&hide_border=true" />
+  <img height="170em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=webdevarif&layout=compact&langs_count=8&theme=tokyonight&hide_border=true" />
 </div>
 
-<!-- Proudly created with GPRM ( https://gprm.itsvg.in ) -->
+<div align="center">
+  <a href="https://app.daily.dev/arifcpam" target="_blank">
+    <img width="356em" src="https://api.daily.dev/devcards/4525031d920e4981af7413fbb5da4092.png?r=wkl" alt="Arif Hossin's Dev Card"/>
+  </a>
+</div>
