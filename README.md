@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://webdeveloperarif">
-    <img src="./apps/web/public/banner-4.gif">
+    <img src="./apps/web/public/github/banner-4.gif">
   </a>
 </p>
 
@@ -38,59 +38,59 @@ List of projects I made with love
 ## Tools I use
 
 <p>
-  <img src="./assets/tools/vscode.svg" alt="Web Developer Profile" />
-  <img src="./assets/tools/postman.svg" alt="Web Developer Profile" />
-  <img src="./assets/tools/github.svg" alt="Web Developer Profile" />
-  <img src="./assets/tools/git.svg" alt="Web Developer Profile" />
-  <img src="./assets/tools/gitlab.svg" alt="Web Developer Profile" />
+  <img src="./apps/web/public/github/tools/vscode.svg" alt="Web Developer Profile" />
+  <img src="./apps/web/public/github/tools/postman.svg" alt="Web Developer Profile" />
+  <img src="./apps/web/public/github/tools/github.svg" alt="Web Developer Profile" />
+  <img src="./apps/web/public/github/tools/git.svg" alt="Web Developer Profile" />
+  <img src="./apps/web/public/github/tools/gitlab.svg" alt="Web Developer Profile" />
 </p>
 
 ## Photoshop I use
 <p>
-  <img src="./assets/photoshop/figma.svg" alt="Web Developer Profile" />
-  <img src="./assets/photoshop/adobe-photoshop.svg" alt="Web Developer Profile" />
-  <img src="./assets/photoshop/adobe-xd.svg" alt="Web Developer Profile" />
+  <img src="./apps/web/public/github/photoshop/figma.svg" alt="Web Developer Profile" />
+  <img src="./apps/web/public/github/photoshop/adobe-photoshop.svg" alt="Web Developer Profile" />
+  <img src="./apps/web/public/github/photoshop/adobe-xd.svg" alt="Web Developer Profile" />
 </p>
 
 ## Frontend Development
 <p>
-  <img src="./assets/frontend/html.svg" alt="Web Developer Profile" />
-  <img src="./assets/frontend/css.svg" alt="Web Developer Profile" />
-  <img src="./assets/frontend/sass.svg" alt="Web Developer Profile" />
-  <img src="./assets/frontend/javascript.svg" alt="Web Developer Profile" />
-  <img src="./assets/frontend/react.svg" alt="Web Developer Profile" />
-  <img src="./assets/frontend/nextjs.svg" alt="Web Developer Profile" />
-  <img src="./assets/frontend/typescript.svg" alt="Web Developer Profile" />
-  <img src="./assets/frontend/vite.svg" alt="Web Developer Profile" />
+  <img src="./apps/web/public/github/frontend/html.svg" alt="Web Developer Profile" />
+  <img src="./apps/web/public/github/frontend/css.svg" alt="Web Developer Profile" />
+  <img src="./apps/web/public/github/frontend/sass.svg" alt="Web Developer Profile" />
+  <img src="./apps/web/public/github/frontend/javascript.svg" alt="Web Developer Profile" />
+  <img src="./apps/web/public/github/frontend/react.svg" alt="Web Developer Profile" />
+  <img src="./apps/web/public/github/frontend/nextjs.svg" alt="Web Developer Profile" />
+  <img src="./apps/web/public/github/frontend/typescript.svg" alt="Web Developer Profile" />
+  <img src="./apps/web/public/github/frontend/vite.svg" alt="Web Developer Profile" />
 </p>
 
 ## Frameworks and Packages
 <p>
-  <img src="./assets/packages/npm.svg" alt="Web Developer Profile" />
-  <img src="./assets/packages/styled-components.svg" alt="Web Developer Profile" />
-  <img src="./assets/packages/nodemon.svg" alt="Web Developer Profile" />
-  <img src="./assets/packages/yarn.svg" alt="Web Developer Profile" />
-  <img src="./assets/packages/webpack.svg" alt="Web Developer Profile" />
-  <img src="./assets/packages/prisma.svg" alt="Web Developer Profile" />
-  <img src="./assets/packages/jwt.svg" alt="Web Developer Profile" />
-  <img src="./assets/packages/graphql.svg" alt="Web Developer Profile" />
-  <img src="./assets/packages/redux.svg" alt="Web Developer Profile" />
+  <img src="./apps/web/public/github/packages/npm.svg" alt="Web Developer Profile" />
+  <img src="./apps/web/public/github/packages/styled-components.svg" alt="Web Developer Profile" />
+  <img src="./apps/web/public/github/packages/nodemon.svg" alt="Web Developer Profile" />
+  <img src="./apps/web/public/github/packages/yarn.svg" alt="Web Developer Profile" />
+  <img src="./apps/web/public/github/packages/webpack.svg" alt="Web Developer Profile" />
+  <img src="./apps/web/public/github/packages/prisma.svg" alt="Web Developer Profile" />
+  <img src="./apps/web/public/github/packages/jwt.svg" alt="Web Developer Profile" />
+  <img src="./apps/web/public/github/packages/graphql.svg" alt="Web Developer Profile" />
+  <img src="./apps/web/public/github/packages/redux.svg" alt="Web Developer Profile" />
 </p>
 
 ## Database
 <p>
-  <img src="./assets/database/postgresql.svg" alt="Web Developer Profile" />
-  <img src="./assets/database/mongodb.svg" alt="Web Developer Profile" />
-  <img src="./assets/database/mysql.svg" alt="Web Developer Profile" />
-  <img src="./assets/database/sqlite.svg" alt="Web Developer Profile" />
+  <img src="./apps/web/public/github/database/postgresql.svg" alt="Web Developer Profile" />
+  <img src="./apps/web/public/github/database/mongodb.svg" alt="Web Developer Profile" />
+  <img src="./apps/web/public/github/database/mysql.svg" alt="Web Developer Profile" />
+  <img src="./apps/web/public/github/database/sqlite.svg" alt="Web Developer Profile" />
 </p>
 
 
 ## Backend Development
 <p>
-  <img src="./assets/backend/wordpress.svg" alt="Web Developer Profile" />
-  <img src="./assets/backend/django.svg" alt="Web Developer Profile" />
-  <img src="./assets/backend/nodejs.svg" alt="Web Developer Profile" />
+  <img src="./apps/web/public/github/backend/wordpress.svg" alt="Web Developer Profile" />
+  <img src="./apps/web/public/github/backend/django.svg" alt="Web Developer Profile" />
+  <img src="./apps/web/public/github/backend/nodejs.svg" alt="Web Developer Profile" />
 </p>
 
 
