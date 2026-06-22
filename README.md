@@ -35,6 +35,16 @@ List of projects I made with love
 
 
 
+## Published Products
+
+| App | Tag | Description |
+|-----|-----|-------------|
+| [TablePilot](https://apps.shopify.com/table-pilot) | Shopify App | Pricing tables, spec tables, and comparison tables for Shopify stores. Built with Liquid and Shopify App Bridge. |
+| [GoFitment](https://apps.shopify.com/gofitment) | Shopify App | Year/Make/Model fitment search app. Helps customers find compatible products for their vehicle. |
+| Surfacly | SaaS | My own SaaS — live with first client. A surface-level analytics and conversion tool for ecommerce. |
+
+---
+
 ## Tools I use
 
 <p>
