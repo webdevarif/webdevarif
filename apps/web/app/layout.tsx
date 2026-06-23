@@ -33,6 +33,11 @@ export default function RootLayout({
       className={`dark ${syne.variable} ${dmMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-background text-foreground">
+        {/* Impact.com site verification — hoisted into <head> by React 19 */}
+        <meta
+          name="impact-site-verification"
+          value="be22a2d9-2d96-4329-b91c-ca21e085286a"
+        />
         <Providers>{children}</Providers>
       </body>
     </html>
