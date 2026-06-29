@@ -1,5 +1,8 @@
 import Link from "next/link";
 
+import { PageContainer } from "@kit/ui/page-container";
+import { PageHeader } from "@kit/ui/page-header";
+
 import { loadPillars, type PillarSummary } from "./_lib/loader";
 
 export const metadata = {
@@ -10,19 +13,15 @@ export default async function LibraryPage() {
   const pillars = await loadPillars();
 
   return (
-    <div className="mx-auto max-w-6xl px-8 py-10">
-      <header>
-        <p className="text-label">— taxonomy · the future cmo</p>
-        <h1 className="mt-3 text-4xl font-semibold tracking-tight sm:text-5xl">
-          Library
-        </h1>
-        <p className="text-comment mt-2">
-          // 30+ pillars · 75+ sub-pillars · 240+ topics
-        </p>
-      </header>
+    <PageContainer>
+      <PageHeader
+        eyebrow="— taxonomy · the future cmo"
+        title="Library"
+        description="// 30+ pillars · 75+ sub-pillars · 240+ topics"
+      />
 
       {pillars.length === 0 ? <EmptyState /> : <PillarGrid pillars={pillars} />}
-    </div>
+    </PageContainer>
   );
 }
 
