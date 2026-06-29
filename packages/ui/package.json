@@ -5,6 +5,7 @@
   "type": "module",
   "exports": {
     ".": "./src/index.ts",
+    "./badge": "./src/components/badge.tsx",
     "./button": "./src/components/button.tsx",
     "./card": "./src/components/card.tsx",
     "./checkbox": "./src/components/checkbox.tsx",
@@ -13,6 +14,8 @@
     "./icons": "./src/icons.tsx",
     "./input": "./src/components/input.tsx",
     "./label": "./src/components/label.tsx",
+    "./page-container": "./src/components/page-container.tsx",
+    "./page-header": "./src/components/page-header.tsx",
     "./pagination": "./src/components/pagination.tsx",
     "./progress": "./src/components/progress.tsx",
     "./select": "./src/components/select.tsx",
@@ -20,6 +23,7 @@
     "./sheet": "./src/components/sheet.tsx",
     "./skeleton": "./src/components/skeleton.tsx",
     "./sonner": "./src/components/sonner.tsx",
+    "./stat-card": "./src/components/stat-card.tsx",
     "./lib/utils": "./src/lib/utils.ts",
     "./styles/globals.css": "./src/styles/globals.css"
   },

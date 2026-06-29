@@ -1,3 +1,6 @@
+import { PageContainer } from "@kit/ui/page-container";
+import { PageHeader } from "@kit/ui/page-header";
+
 import { requireUser } from "@/lib/auth/session";
 import {
   getFollowUpsDue,
@@ -21,19 +24,16 @@ export default async function OutreachPage() {
   ]);
 
   return (
-    <div className="mx-auto max-w-7xl px-8 py-10">
-      <header className="mb-8">
-        <p className="text-label">— outreach · client hunting</p>
-        <h1 className="mt-3 text-4xl font-semibold tracking-tight sm:text-5xl">
-          Outreach Tracker
-        </h1>
-        <p className="text-comment mt-2">
-          // track every prospect · follow up on time · close deals
-        </p>
-      </header>
+    <PageContainer width="wide">
+      <PageHeader
+        className="mb-8"
+        eyebrow="— outreach · client hunting"
+        title="Outreach Tracker"
+        description="// track every prospect · follow up on time · close deals"
+      />
 
       <OutreachStats stats={stats} followUpsDue={followUpsDue.length} />
       <OutreachBoard initialItems={items} followUpsDue={followUpsDue} />
-    </div>
+    </PageContainer>
   );
 }

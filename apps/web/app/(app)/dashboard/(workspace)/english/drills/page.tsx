@@ -1,5 +1,8 @@
 import { getDrillStats, listRecentDrills } from "@kit/database";
 
+import { PageContainer } from "@kit/ui/page-container";
+import { PageHeader } from "@kit/ui/page-header";
+
 import { requireUser } from "@/lib/auth/session";
 
 import { DrillPlayer } from "./_components/drill-player";
@@ -29,16 +32,13 @@ export default async function EnglishDrillsPage() {
     }));
 
   return (
-    <div className="mx-auto max-w-5xl px-6 py-10 sm:px-8">
-      <header className="mb-8">
-        <p className="text-label">— english · pronunciation drill</p>
-        <h1 className="mt-3 text-4xl font-semibold tracking-tight sm:text-5xl">
-          Daily Drill
-        </h1>
-        <p className="text-comment mt-2">
-          {`// one sentence at a time · speak it back · learn how you sound`}
-        </p>
-      </header>
+    <PageContainer width="narrow">
+      <PageHeader
+        className="mb-8"
+        eyebrow="— english · pronunciation drill"
+        title="Daily Drill"
+        description="// one sentence at a time · speak it back · learn how you sound"
+      />
 
       <section className="mb-6 grid gap-3 sm:grid-cols-3">
         <StatCard label="Attempts" value={stats.totalAttempts.toString()} />
@@ -53,7 +53,7 @@ export default async function EnglishDrillsPage() {
       <DrillPlayer />
 
       <DrillHistory items={history} />
-    </div>
+    </PageContainer>
   );
 }
 

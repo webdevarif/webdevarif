@@ -1,6 +1,6 @@
 "use client";
 
-import { AnimatePresence, motion } from "motion/react";
+import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useMemo, useState } from "react";
@@ -486,6 +486,7 @@ function Subgroup({
   const [open, setOpen] = useState(childActive);
   // Keep `open` in sync when route changes externally.
   const effectiveOpen = useMemo(() => open || childActive, [open, childActive]);
+  const reduce = useReducedMotion();
   const Icon = subgroup.icon;
 
   return (
@@ -518,7 +519,7 @@ function Subgroup({
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.18, ease: [0.32, 0.72, 0, 1] }}
+            transition={{ duration: reduce ? 0 : 0.18, ease: [0.32, 0.72, 0, 1] }}
             className="overflow-hidden"
           >
             <ul className="mt-0.5 ml-3 space-y-0.5 border-l border-border pl-3">
@@ -559,14 +560,14 @@ function LeafLink({
     return (
       <span
         className={cn(
-          "flex cursor-not-allowed items-center gap-2.5 rounded-md text-sm text-muted-foreground/55",
+          "flex cursor-not-allowed items-center gap-2.5 rounded-md text-sm text-muted-foreground/70",
           padding,
         )}
         aria-disabled
       >
         {Icon ? <Icon className="size-3.5" /> : null}
         <span className="flex-1 truncate">{leaf.label}</span>
-        <span className="font-mono text-[0.625rem] uppercase tracking-[0.18em] text-muted-foreground/45">
+        <span className="font-mono text-[0.625rem] uppercase tracking-[0.18em] text-muted-foreground/70">
           soon
         </span>
       </span>

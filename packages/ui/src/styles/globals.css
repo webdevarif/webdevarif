@@ -32,6 +32,12 @@
   --color-input: var(--input);
   --color-border: var(--border);
   --color-destructive: var(--destructive);
+  --color-success: var(--success);
+  --color-success-foreground: var(--success-foreground);
+  --color-warning: var(--warning);
+  --color-warning-foreground: var(--warning-foreground);
+  --color-info: var(--info);
+  --color-info-foreground: var(--info-foreground);
   --color-accent-foreground: var(--accent-foreground);
   --color-accent: var(--accent);
   --color-muted-foreground: var(--muted-foreground);
@@ -44,6 +50,9 @@
   --color-popover: var(--popover);
   --color-card-foreground: var(--card-foreground);
   --color-card: var(--card);
+  --color-card-elevated: var(--card-elevated);
+  --color-card-muted: var(--card-muted);
+  --text-2xs: 0.6875rem;
   --radius-sm: calc(var(--radius) * 0.6);
   --radius-md: calc(var(--radius) * 0.8);
   --radius-lg: var(--radius);
@@ -63,13 +72,15 @@
   --foreground: #ededed;
   --card: #141414;
   --card-foreground: #ededed;
+  --card-elevated: #1c1c1c;
+  --card-muted: #101010;
   --popover: #1a1a1a;
   --popover-foreground: #ededed;
 
   --secondary: #1a1a1a;
   --secondary-foreground: #ededed;
   --muted: #181818;
-  --muted-foreground: #646464;
+  --muted-foreground: #8a8a8a;
   --accent: #1e1e1e;
   --accent-foreground: #ededed;
 
@@ -77,6 +88,14 @@
   --primary-foreground: #000000;
 
   --destructive: #ef4444;
+
+  /* Semantic status — single source of truth (registered in @theme inline). */
+  --success: oklch(0.80 0.14 160);
+  --success-foreground: #000000;
+  --warning: oklch(0.85 0.14 90);
+  --warning-foreground: #000000;
+  --info: #00d4ff;
+  --info-foreground: #000000;
 
   --border: #252525;
   --input: #1a1a1a;
@@ -105,17 +124,25 @@
   --foreground: #ededed;
   --card: #141414;
   --card-foreground: #ededed;
+  --card-elevated: #1c1c1c;
+  --card-muted: #101010;
   --popover: #1a1a1a;
   --popover-foreground: #ededed;
   --secondary: #1a1a1a;
   --secondary-foreground: #ededed;
   --muted: #181818;
-  --muted-foreground: #646464;
+  --muted-foreground: #8a8a8a;
   --accent: #1e1e1e;
   --accent-foreground: #ededed;
   --primary: #baff04;
   --primary-foreground: #000000;
   --destructive: #ef4444;
+  --success: oklch(0.80 0.14 160);
+  --success-foreground: #000000;
+  --warning: oklch(0.85 0.14 90);
+  --warning-foreground: #000000;
+  --info: #00d4ff;
+  --info-foreground: #000000;
   --border: #252525;
   --input: #1a1a1a;
   --ring: #baff04;
@@ -200,8 +227,19 @@
     @apply font-mono text-xs text-muted-foreground;
   }
 
+  /* Co-equal row metadata (domain · date · lifetime) — one weight instead of
+     the per-page arbitrary micro-sizes. 11px floor for muted mono legibility. */
+  .text-meta {
+    @apply font-mono text-[0.6875rem] text-muted-foreground;
+  }
+
+  /* Tabular numeric data in tables / inline counts. */
+  .text-data {
+    @apply font-mono text-xs tabular-nums;
+  }
+
   .stat-badge {
-    @apply font-mono text-xs tracking-wider text-muted-foreground/70;
+    @apply font-mono text-xs tracking-wider text-muted-foreground;
   }
 }
 
@@ -251,6 +289,19 @@
   animation: pulse-dot 2s ease-in-out infinite;
 }
 
+/* Reduced motion — disable decorative/looping animations (esp. the two
+   infinite translateX tickers, classic vestibular triggers). Keep the tiny,
+   non-translating terminal cursor blink (.animate-blink) as on-brand. */
+@media (prefers-reduced-motion: reduce) {
+  .animate-hero-float,
+  .animate-ticker,
+  .animate-ticker-reverse,
+  .animate-shimmer,
+  .animate-pulse-dot {
+    animation: none !important;
+  }
+}
+
 /* ────────────────────────────────────────────────────────────
    Print styles — Marketing Audit Report → "Save as PDF"
    Chrome (sidebar, topbar, toolbar buttons) is tagged with the
@@ -284,7 +335,11 @@
 
   /* Text → near-black */
   [class*="text-foreground"],
-  [class*="text-muted-foreground"] {
+  [class*="text-muted-foreground"],
+  [class*="text-success"],
+  [class*="text-warning"],
+  [class*="text-info"],
+  [class*="text-destructive"] {
     color: #111 !important;
   }
 
