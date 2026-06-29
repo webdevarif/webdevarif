@@ -14,6 +14,7 @@ export * from "./shopify-partner-credentials";
 export * from "./shopify-partner-apps";
 export * from "./shopify-app-events";
 export * from "./shopify-shops";
+export * from "./app-funnel";
 export * from "./saved-personas";
 export * from "./website-audits";
 export * from "./shopify-app-email-config";

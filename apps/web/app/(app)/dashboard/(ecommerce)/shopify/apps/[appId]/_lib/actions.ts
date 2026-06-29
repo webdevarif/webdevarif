@@ -16,6 +16,7 @@ import {
   insertShopifyAppReport,
   listShopifyAppReports,
   listShopifyShops,
+  updateAppFunnelConfig,
   updateShopifyPartnerAppListing,
   updateShopifyShopCrm,
   upsertShopifyAppEmailConfig,
@@ -23,6 +24,7 @@ import {
 import type { ShopifyAppIntelligenceData } from "@kit/database/schema";
 
 import { requireUser } from "@/lib/auth/session";
+import { syncAppFunnel } from "@/lib/app-funnel/sync";
 import { analyzeImage } from "@/lib/ai/image-analyzer";
 import { generateImage } from "@/lib/ai/image-generator";
 import { chat, ECONOMY_CHAIN } from "@/lib/ai/openrouter";
@@ -62,6 +64,62 @@ export async function updateStoreCrmAction(input: {
 
   revalidatePath(`/dashboard/shopify/apps/${encodeURIComponent(input.appGid)}`);
   return { ok: true };
+}
+
+// ─── App funnel config ──────────────────────────────────────────────
+
+export type FunnelConfigState =
+  | { ok: true }
+  | { ok: false; error: { message: string } };
+
+/**
+ * Set (or clear) an app's funnel endpoint + token. Generic — works for any
+ * app that implements the funnel contract. Token is encrypted at rest; leaving
+ * the token field blank keeps the previously-saved token.
+ */
+export async function setAppFunnelConfigAction(input: {
+  appGid: string;
+  funnelApiUrl: string;
+  funnelApiToken: string;
+}): Promise<FunnelConfigState> {
+  const user = await requireUser();
+
+  const url = input.funnelApiUrl.trim();
+  if (url && !/^https?:\/\//i.test(url)) {
+    return {
+      ok: false,
+      error: { message: "Enter a full URL starting with https://" },
+    };
+  }
+  const token = input.funnelApiToken.trim();
+
+  await updateAppFunnelConfig({
+    userId: user.id,
+    appGid: input.appGid,
+    funnelApiUrl: url || null,
+    // Only overwrite the token when the field was filled in.
+    ...(token ? { funnelApiTokenEncrypted: encryptSecret(token) } : {}),
+  });
+
+  revalidatePath(
+    `/dashboard/shopify/apps/${encodeURIComponent(input.appGid)}/churn`,
+  );
+  return { ok: true };
+}
+
+/** Pull the funnel right now (manual refresh button next to the cron). */
+export async function syncAppFunnelNowAction(
+  appGid: string,
+): Promise<FunnelConfigState> {
+  const user = await requireUser();
+  const app = await findShopifyPartnerApp(user.id, appGid);
+  if (!app) return { ok: false, error: { message: "App not found." } };
+
+  const res = await syncAppFunnel(app);
+  revalidatePath(
+    `/dashboard/shopify/apps/${encodeURIComponent(appGid)}/churn`,
+  );
+  return res.ok ? { ok: true } : { ok: false, error: res.error };
 }
 
 // ─── App Store URL ──────────────────────────────────────────────────

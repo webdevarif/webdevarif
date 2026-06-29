@@ -38,6 +38,15 @@ export const shopifyPartnerApps = pgTable(
     appStoreUrl: text("app_store_url"),
     /** Cached listing audit result (pulse + LLM). Updated on "Sync listing". */
     listingCache: jsonb("listing_cache"),
+    /**
+     * Optional per-app activation-funnel endpoint. When set, the dashboard
+     * polls it (`GET <url>` with the bearer token below) and stores snapshots
+     * in app_funnel_snapshots. Generic — any app that implements the funnel
+     * contract can be configured here. Null = no funnel for this app.
+     */
+    funnelApiUrl: text("funnel_api_url"),
+    /** AES-256-GCM encrypted bearer token for the funnel endpoint. */
+    funnelApiTokenEncrypted: text("funnel_api_token_encrypted"),
     /** Last successful sync — null until the user clicks "Sync". */
     lastSyncedAt: timestamp("last_synced_at", { withTimezone: true }),
     /** Last sync error message — cleared on successful sync. */

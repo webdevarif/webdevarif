@@ -21,6 +21,7 @@ import {
   insertShopifyAppReport,
   listAllActiveSites,
   listAllShopifyPartnerApps,
+  listAppsWithFunnel,
   listEnabledFeedSources,
   listProjectReports,
   listProjectsDueForReport,
@@ -50,6 +51,7 @@ import {
 } from "@/lib/projects/compute-trends";
 import { syncFeedSource } from "@/lib/feed/sync";
 import { syncProject } from "@/lib/projects/sync";
+import { syncAppFunnel } from "@/lib/app-funnel/sync";
 
 const CRON_SECRET = process.env.CRON_SECRET;
 
@@ -59,6 +61,7 @@ const SECTION_IDS = [
   "projects-reports",
   "feed",
   "shopify",
+  "app-funnel",
   "tracker-rollups",
   "tracker-retention",
   "health-aggregate",
@@ -124,6 +127,8 @@ async function runSection(id: SectionId): Promise<unknown> {
         return { ok: true, took_ms: Date.now() - started, ...(await runFeed()) };
       case "shopify":
         return { ok: true, took_ms: Date.now() - started, ...(await runShopify()) };
+      case "app-funnel":
+        return { ok: true, took_ms: Date.now() - started, ...(await runAppFunnel()) };
       case "tracker-rollups":
         return { ok: true, took_ms: Date.now() - started, ...(await runTrackerRollups()) };
       case "tracker-retention":
@@ -416,6 +421,47 @@ async function runShopify() {
         appGid: app.appGid,
         appName: app.appName,
         ok: true,
+      });
+    } catch (err) {
+      results.push({
+        appGid: app.appGid,
+        appName: app.appName,
+        ok: false,
+        error: err instanceof Error ? err.message : "Unknown error",
+      });
+    }
+  }
+
+  return {
+    processed: results.length,
+    success: results.filter((r) => r.ok).length,
+    failed: results.filter((r) => !r.ok).length,
+    results,
+  };
+}
+
+/**
+ * Poll every app that has a funnel endpoint configured and append a snapshot
+ * for each. Generic — adding an app is config-only (set its funnelApiUrl), no
+ * code change here. Per-app failures don't abort the batch.
+ */
+async function runAppFunnel() {
+  const apps = await listAppsWithFunnel();
+  const results: Array<{
+    appGid: string;
+    appName: string;
+    ok: boolean;
+    error?: string;
+  }> = [];
+
+  for (const app of apps) {
+    try {
+      const res = await syncAppFunnel(app);
+      results.push({
+        appGid: app.appGid,
+        appName: app.appName,
+        ok: res.ok,
+        error: res.ok ? undefined : res.error.message,
       });
     } catch (err) {
       results.push({

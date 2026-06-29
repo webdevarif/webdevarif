@@ -8,6 +8,7 @@ export * from "./prospect-reports";
 export * from "./place-reviews-cache";
 export * from "./business-website-info-cache";
 export * from "./shopify";
+export * from "./app-funnel";
 export * from "./saved-personas";
 export * from "./social-profile-analyses";
 export * from "./tracked-projects";
