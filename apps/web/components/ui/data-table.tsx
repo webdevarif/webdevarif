@@ -108,7 +108,8 @@ export function DataTable<TData, TValue>({
   return (
     <div className={cn("space-y-4", className)}>
       <div className="overflow-hidden rounded-lg border border-border bg-card">
-        <table className="w-full">
+        <div className="overflow-x-auto">
+        <table className="w-full min-w-[640px]">
           <thead>
             {table.getHeaderGroups().map((headerGroup) => (
               <tr key={headerGroup.id} className="border-b border-border bg-muted/40">
@@ -220,6 +221,7 @@ export function DataTable<TData, TValue>({
             )}
           </tbody>
         </table>
+        </div>
       </div>
 
       {totalRows > 0 ? (

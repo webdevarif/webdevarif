@@ -32,6 +32,12 @@
   --color-input: var(--input);
   --color-border: var(--border);
   --color-destructive: var(--destructive);
+  --color-success: var(--success);
+  --color-success-foreground: var(--success-foreground);
+  --color-warning: var(--warning);
+  --color-warning-foreground: var(--warning-foreground);
+  --color-info: var(--info);
+  --color-info-foreground: var(--info-foreground);
   --color-accent-foreground: var(--accent-foreground);
   --color-accent: var(--accent);
   --color-muted-foreground: var(--muted-foreground);
@@ -69,7 +75,7 @@
   --secondary: #1a1a1a;
   --secondary-foreground: #ededed;
   --muted: #181818;
-  --muted-foreground: #646464;
+  --muted-foreground: #8a8a8a;
   --accent: #1e1e1e;
   --accent-foreground: #ededed;
 
@@ -77,6 +83,14 @@
   --primary-foreground: #000000;
 
   --destructive: #ef4444;
+
+  /* Semantic status — single source of truth (registered in @theme inline). */
+  --success: oklch(0.80 0.14 160);
+  --success-foreground: #000000;
+  --warning: oklch(0.85 0.14 90);
+  --warning-foreground: #000000;
+  --info: #00d4ff;
+  --info-foreground: #000000;
 
   --border: #252525;
   --input: #1a1a1a;
@@ -110,12 +124,18 @@
   --secondary: #1a1a1a;
   --secondary-foreground: #ededed;
   --muted: #181818;
-  --muted-foreground: #646464;
+  --muted-foreground: #8a8a8a;
   --accent: #1e1e1e;
   --accent-foreground: #ededed;
   --primary: #baff04;
   --primary-foreground: #000000;
   --destructive: #ef4444;
+  --success: oklch(0.80 0.14 160);
+  --success-foreground: #000000;
+  --warning: oklch(0.85 0.14 90);
+  --warning-foreground: #000000;
+  --info: #00d4ff;
+  --info-foreground: #000000;
   --border: #252525;
   --input: #1a1a1a;
   --ring: #baff04;
@@ -201,7 +221,7 @@
   }
 
   .stat-badge {
-    @apply font-mono text-xs tracking-wider text-muted-foreground/70;
+    @apply font-mono text-xs tracking-wider text-muted-foreground;
   }
 }
 
@@ -251,6 +271,19 @@
   animation: pulse-dot 2s ease-in-out infinite;
 }
 
+/* Reduced motion — disable decorative/looping animations (esp. the two
+   infinite translateX tickers, classic vestibular triggers). Keep the tiny,
+   non-translating terminal cursor blink (.animate-blink) as on-brand. */
+@media (prefers-reduced-motion: reduce) {
+  .animate-hero-float,
+  .animate-ticker,
+  .animate-ticker-reverse,
+  .animate-shimmer,
+  .animate-pulse-dot {
+    animation: none !important;
+  }
+}
+
 /* ────────────────────────────────────────────────────────────
    Print styles — Marketing Audit Report → "Save as PDF"
    Chrome (sidebar, topbar, toolbar buttons) is tagged with the
@@ -284,7 +317,11 @@
 
   /* Text → near-black */
   [class*="text-foreground"],
-  [class*="text-muted-foreground"] {
+  [class*="text-muted-foreground"],
+  [class*="text-success"],
+  [class*="text-warning"],
+  [class*="text-info"],
+  [class*="text-destructive"] {
     color: #111 !important;
   }
 
