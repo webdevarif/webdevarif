@@ -50,6 +50,9 @@
   --color-popover: var(--popover);
   --color-card-foreground: var(--card-foreground);
   --color-card: var(--card);
+  --color-card-elevated: var(--card-elevated);
+  --color-card-muted: var(--card-muted);
+  --text-2xs: 0.6875rem;
   --radius-sm: calc(var(--radius) * 0.6);
   --radius-md: calc(var(--radius) * 0.8);
   --radius-lg: var(--radius);
@@ -69,6 +72,8 @@
   --foreground: #ededed;
   --card: #141414;
   --card-foreground: #ededed;
+  --card-elevated: #1c1c1c;
+  --card-muted: #101010;
   --popover: #1a1a1a;
   --popover-foreground: #ededed;
 
@@ -119,6 +124,8 @@
   --foreground: #ededed;
   --card: #141414;
   --card-foreground: #ededed;
+  --card-elevated: #1c1c1c;
+  --card-muted: #101010;
   --popover: #1a1a1a;
   --popover-foreground: #ededed;
   --secondary: #1a1a1a;
@@ -218,6 +225,17 @@
 
   .text-comment {
     @apply font-mono text-xs text-muted-foreground;
+  }
+
+  /* Co-equal row metadata (domain · date · lifetime) — one weight instead of
+     the per-page arbitrary micro-sizes. 11px floor for muted mono legibility. */
+  .text-meta {
+    @apply font-mono text-[0.6875rem] text-muted-foreground;
+  }
+
+  /* Tabular numeric data in tables / inline counts. */
+  .text-data {
+    @apply font-mono text-xs tabular-nums;
   }
 
   .stat-badge {
