@@ -120,40 +120,58 @@ export function DataTable<TData, TValue>({
                   return (
                     <th
                       key={header.id}
+                      aria-sort={
+                        !canSort
+                          ? undefined
+                          : sortDir === "asc"
+                            ? "ascending"
+                            : sortDir === "desc"
+                              ? "descending"
+                              : "none"
+                      }
                       className={cn(
                         "text-label px-4 py-2.5 align-middle",
                         ALIGN_CLASS[align],
-                        canSort && "cursor-pointer select-none hover:text-foreground",
                       )}
                       style={{
                         width:
                           header.getSize() === 150 ? undefined : header.getSize(),
                       }}
-                      onClick={
-                        canSort
-                          ? header.column.getToggleSortingHandler()
-                          : undefined
-                      }
                     >
-                      <span
-                        className={cn(
-                          "inline-flex items-center gap-1",
-                          align === "right" && "justify-end",
-                          align === "center" && "justify-center",
-                        )}
-                      >
-                        {header.isPlaceholder
-                          ? null
-                          : flexRender(
-                              header.column.columnDef.header,
-                              header.getContext(),
-                            )}
-                        {canSort && sortDir ? (
-                          <span aria-hidden>
-                            {sortDir === "asc" ? "↑" : "↓"}
-                          </span>
-                        ) : null}
-                      </span>
+                      {header.isPlaceholder ? null : canSort ? (
+                        <button
+                          type="button"
+                          onClick={header.column.getToggleSortingHandler()}
+                          className={cn(
+                            "inline-flex items-center gap-1 rounded-sm select-none transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/50",
+                            align === "right" && "w-full justify-end",
+                            align === "center" && "w-full justify-center",
+                          )}
+                        >
+                          {flexRender(
+                            header.column.columnDef.header,
+                            header.getContext(),
+                          )}
+                          {sortDir ? (
+                            <span aria-hidden>
+                              {sortDir === "asc" ? "↑" : "↓"}
+                            </span>
+                          ) : null}
+                        </button>
+                      ) : (
+                        <span
+                          className={cn(
+                            "inline-flex items-center gap-1",
+                            align === "right" && "justify-end",
+                            align === "center" && "justify-center",
+                          )}
+                        >
+                          {flexRender(
+                            header.column.columnDef.header,
+                            header.getContext(),
+                          )}
+                        </span>
+                      )}
                     </th>
                   );
                 })}
