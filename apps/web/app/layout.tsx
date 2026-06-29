@@ -33,10 +33,14 @@ export default function RootLayout({
       className={`dark ${syne.variable} ${dmMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-background text-foreground">
-        {/* Impact.com site verification — hoisted into <head> by React 19 */}
+        {/* Impact.com site verification — hoisted into <head> by React 19.
+            Impact.com requires the non-standard `value` attribute (not `content`),
+            which isn't in React's MetaHTMLAttributes, so we widen the prop type. */}
         <meta
-          name="impact-site-verification"
-          value="be22a2d9-2d96-4329-b91c-ca21e085286a"
+          {...({
+            name: "impact-site-verification",
+            value: "be22a2d9-2d96-4329-b91c-ca21e085286a",
+          } as React.MetaHTMLAttributes<HTMLMetaElement> & { value: string })}
         />
         <Providers>{children}</Providers>
       </body>
