@@ -4,11 +4,12 @@ import { useState } from "react";
 
 import { cn } from "@kit/ui/lib/utils";
 
-type Tab = "stores" | "activity" | "intelligence" | "listing" | "image-analysis" | "settings";
+type Tab = "stores" | "activity" | "funnel" | "intelligence" | "listing" | "image-analysis" | "settings";
 
 type Props = {
   activityContent: React.ReactNode;
   storesContent: React.ReactNode;
+  funnelContent: React.ReactNode;
   intelligenceContent: React.ReactNode;
   listingContent: React.ReactNode;
   imageAnalysisContent: React.ReactNode;
@@ -20,6 +21,7 @@ type Props = {
 export function ActivityStoresTabs({
   activityContent,
   storesContent,
+  funnelContent,
   intelligenceContent,
   listingContent,
   imageAnalysisContent,
@@ -32,6 +34,7 @@ export function ActivityStoresTabs({
   const content: Record<Tab, React.ReactNode> = {
     stores: storesContent,
     activity: activityContent,
+    funnel: funnelContent,
     intelligence: intelligenceContent,
     listing: listingContent,
     "image-analysis": imageAnalysisContent,
@@ -52,6 +55,11 @@ export function ActivityStoresTabs({
           onClick={() => setTab("activity")}
           label="Recent activity"
           count={eventsCount}
+        />
+        <TabButtonSimple
+          active={tab === "funnel"}
+          onClick={() => setTab("funnel")}
+          label="Funnel"
         />
         <TabButtonSimple
           active={tab === "intelligence"}

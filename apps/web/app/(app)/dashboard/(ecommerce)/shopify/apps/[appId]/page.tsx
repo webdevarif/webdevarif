@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 
 import {
   countShopifyActiveShops,
+  findLatestAppFunnelSnapshot,
   findLatestShopifyAppReport,
   findShopifyAppEmailConfig,
   findShopifyPartnerApp,
@@ -24,6 +25,7 @@ import { requireUser } from "@/lib/auth/session";
 
 import { ActivityFeed } from "./_components/activity-feed";
 import { ActivityStoresTabs } from "./_components/activity-stores-tabs";
+import { FunnelSection } from "./_components/funnel-section";
 import { InstallChart } from "./_components/install-chart";
 import { IntelligenceTab } from "./_components/intelligence-tab";
 import { ListingAuditTab } from "./_components/listing-audit-tab";
@@ -70,6 +72,7 @@ export default async function ShopifyAppDetailPage({
     emailConfig,
     latestReport,
     allReports,
+    funnel,
   ] = await Promise.all([
     getShopifyAppTotalCounts(appGid).catch(() => ({ installs: 0, uninstalls: 0 })),
     countShopifyActiveShops(appGid).catch(() => 0),
@@ -97,6 +100,7 @@ export default async function ShopifyAppDetailPage({
     findShopifyAppEmailConfig(user.id, appGid).catch(() => null),
     findLatestShopifyAppReport(appGid).catch(() => null),
     listShopifyAppReports(appGid, 100).catch(() => []),
+    findLatestAppFunnelSnapshot(appGid).catch(() => null),
   ]);
 
   const cache = app.listingCache as {
@@ -279,6 +283,13 @@ export default async function ShopifyAppDetailPage({
                   occurredAt: e.occurredAt.toISOString(),
                 };
               })}
+            />
+          }
+          funnelContent={
+            <FunnelSection
+              funnel={funnel}
+              appGid={appGid}
+              configured={!!app.funnelApiUrl}
             />
           }
           intelligenceContent={
