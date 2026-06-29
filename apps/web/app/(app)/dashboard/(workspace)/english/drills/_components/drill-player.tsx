@@ -7,7 +7,7 @@ import { MicIcon, SparklesIcon, VolumeIcon } from "@kit/ui/icons";
 import { cn } from "@kit/ui/lib/utils";
 
 import {
-  useSpeechRecognition,
+  useDictation,
   useSpeechSynthesis,
 } from "@/components/dashboard/english-tutor/use-speech";
 
@@ -67,7 +67,7 @@ export function DrillPlayer() {
     setPhase((p) => (p === "listening" ? "ready" : p));
   }, []);
 
-  const mic = useSpeechRecognition(onTranscript, onMicEnd);
+  const mic = useDictation(onTranscript, onMicEnd);
   const tts = useSpeechSynthesis();
 
   const generate = () => {
@@ -206,7 +206,7 @@ export function DrillPlayer() {
 
         {!mic.supported ? (
           <p className="mt-3 text-xs text-muted-foreground">
-            Your browser doesn't expose the speech-recognition API. Try Chrome or Edge.
+            Voice input isn't available in this browser.
           </p>
         ) : !mic.secure ? (
           <p className="mt-3 text-xs text-muted-foreground">

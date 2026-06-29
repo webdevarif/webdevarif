@@ -49,6 +49,18 @@ const EnvSchema = z.object({
     .optional()
     .transform((v) => (v && v.length > 0 ? v : undefined)),
 
+  // Groq — OpenAI-compatible API. Used for fast, free-tier Whisper
+  // speech-to-text (whisper-large-v3) powering the English drill / tutor
+  // "speak it back" feature. Far more reliable and cross-browser than the
+  // browser Web Speech API. Empty string treated as unset; /api/transcribe
+  // returns 501 with an actionable message when missing, and the client
+  // falls back to the browser recognizer — so its absence breaks nothing.
+  // Get a free key at https://console.groq.com/keys
+  GROQ_API_KEY: z
+    .string()
+    .optional()
+    .transform((v) => (v && v.length > 0 ? v : undefined)),
+
   // 32-byte symmetric key (base64) for AES-256-GCM encryption of secrets
   // at rest — currently the Shopify Partner access token. Generate with:
   //   node -e "console.log(require('crypto').randomBytes(32).toString('base64'))"
@@ -101,6 +113,7 @@ function parseEnv(): Env {
       OPENROUTER_API_KEY: undefined,
       FREELLMAPI_BASE_URL: undefined,
       FREELLMAPI_API_KEY: undefined,
+      GROQ_API_KEY: undefined,
       SHOPIFY_ENCRYPTION_KEY: undefined,
       CF_ACCOUNT_ID: undefined,
       CF_API_TOKEN: undefined,
