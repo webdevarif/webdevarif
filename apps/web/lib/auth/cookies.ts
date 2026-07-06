@@ -36,3 +36,33 @@ export async function readAuthCookie(): Promise<string | null> {
   const jar = await cookies();
   return jar.get(AUTH_COOKIE_NAME)?.value ?? null;
 }
+
+// Short-lived cookie holding the AuthPass OIDC `state` + PKCE `code_verifier`
+// between the /authpass/login redirect and the /authpass/callback request.
+const AUTHPASS_PKCE_COOKIE_NAME = "authpass-pkce";
+
+export async function setAuthpassPkceCookie(value: {
+  state: string;
+  codeVerifier: string;
+}) {
+  const jar = await cookies();
+  jar.set(AUTHPASS_PKCE_COOKIE_NAME, JSON.stringify(value), {
+    ...baseOptions(),
+    maxAge: 600, // 10 minutes — plenty for the redirect round-trip
+  });
+}
+
+export async function readAndClearAuthpassPkceCookie(): Promise<{
+  state: string;
+  codeVerifier: string;
+} | null> {
+  const jar = await cookies();
+  const raw = jar.get(AUTHPASS_PKCE_COOKIE_NAME)?.value;
+  jar.set(AUTHPASS_PKCE_COOKIE_NAME, "", { ...baseOptions(), maxAge: 0 });
+  if (!raw) return null;
+  try {
+    return JSON.parse(raw);
+  } catch {
+    return null;
+  }
+}

@@ -27,6 +27,14 @@ export async function loginUser(input: LoginInput): Promise<LoginResult> {
     throw new AuthError("INVALID_CREDENTIALS", "Invalid email or password");
   }
 
+  if (!user.passwordHash) {
+    // Account was created via AuthPass and has no local password.
+    throw new AuthError(
+      "INVALID_CREDENTIALS",
+      "This account signs in with AuthPass — use the button below",
+    );
+  }
+
   const matches = await bcrypt.compare(input.password, user.passwordHash);
   if (!matches) {
     throw new AuthError("INVALID_CREDENTIALS", "Invalid email or password");

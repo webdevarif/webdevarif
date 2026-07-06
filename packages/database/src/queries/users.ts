@@ -34,6 +34,27 @@ export async function findUserById(id: string): Promise<User | null> {
   return rows[0] ?? null;
 }
 
+export async function findUserByAuthpassSub(
+  authpassSub: string,
+): Promise<User | null> {
+  const rows = await db
+    .select()
+    .from(users)
+    .where(eq(users.authpassSub, authpassSub))
+    .limit(1);
+  return rows[0] ?? null;
+}
+
+export async function linkAuthpassSub(
+  userId: string,
+  authpassSub: string,
+): Promise<void> {
+  await db
+    .update(users)
+    .set({ authpassSub, updatedAt: new Date() })
+    .where(eq(users.id, userId));
+}
+
 /**
  * `passwordHash` must already be hashed (e.g. bcrypt) by the caller —
  * this layer is intentionally dumb about credentials.

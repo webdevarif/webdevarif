@@ -253,6 +253,13 @@
       "when": 1782715791207,
       "tag": "0035_busy_captain_britain",
       "breakpoints": true
+    },
+    {
+      "idx": 36,
+      "version": "7",
+      "when": 1783325677285,
+      "tag": "0036_add_authpass_sub",
+      "breakpoints": true
     }
   ]
 }

@@ -3,7 +3,7 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 
-import { Button } from "@kit/ui/button";
+import { Button, buttonVariants } from "@kit/ui/button";
 import { Checkbox } from "@kit/ui/checkbox";
 import {
   Form,
@@ -25,7 +25,7 @@ const defaultValues: LoginInput = {
   rememberMe: false,
 };
 
-export function LoginForm() {
+export function LoginForm({ showAuthpass }: { showAuthpass: boolean }) {
   const form = useForm({
     resolver: zodResolver(loginSchema),
     defaultValues,
@@ -105,6 +105,45 @@ export function LoginForm() {
         <Button type="submit" className="w-full" disabled={login.isPending}>
           {login.isPending ? "Signing in..." : "Sign in"}
         </Button>
+
+        {showAuthpass ? (
+          <>
+            <div className="relative py-1 text-center">
+              <span className="relative bg-card px-2 text-xs text-muted-foreground">
+                or
+              </span>
+              <div className="absolute inset-x-0 top-1/2 -z-10 border-t border-border" />
+            </div>
+
+            <a
+              href="/api/auth/authpass/login"
+              className={buttonVariants({
+                variant: "outline",
+                className: "w-full gap-2",
+              })}
+            >
+              <span className="flex size-5 items-center justify-center rounded-full bg-emerald-500">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  className="size-3 text-black"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M7 10.5V8a5 5 0 0 1 10 0v2.5M6 10.5h12a1 1 0 0 1 1 1V19a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-7.5a1 1 0 0 1 1-1Z"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </span>
+              <span>
+                Auth<span className="font-bold text-emerald-500">Pass</span>
+              </span>
+            </a>
+          </>
+        ) : null}
       </form>
     </Form>
   );

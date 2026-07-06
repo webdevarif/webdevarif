@@ -95,6 +95,22 @@ const EnvSchema = z.object({
     .string()
     .optional()
     .transform((v) => (v && v.length > 0 ? v : undefined)),
+
+  // AuthPass — "Sign in with AuthPass" OIDC login, offered alongside the
+  // existing email/password form. Register the app at
+  // https://authpass.site (Dashboard → Connected apps) to get the client
+  // id/secret; redirect URI must exactly match one saved there (scheme,
+  // host, port, path) — register both prod and localhost URIs.
+  // Optional: the button is hidden when unset.
+  AUTHPASS_CLIENT_ID: z
+    .string()
+    .optional()
+    .transform((v) => (v && v.length > 0 ? v : undefined)),
+  AUTHPASS_CLIENT_SECRET: z
+    .string()
+    .optional()
+    .transform((v) => (v && v.length > 0 ? v : undefined)),
+  AUTHPASS_ISSUER: z.url().default("https://authpass.site"),
 });
 
 export type Env = z.infer<typeof EnvSchema>;
@@ -118,6 +134,9 @@ function parseEnv(): Env {
       CF_ACCOUNT_ID: undefined,
       CF_API_TOKEN: undefined,
       CRON_SECRET: undefined,
+      AUTHPASS_CLIENT_ID: undefined,
+      AUTHPASS_CLIENT_SECRET: undefined,
+      AUTHPASS_ISSUER: "https://authpass.site",
     } as Env;
   }
 
