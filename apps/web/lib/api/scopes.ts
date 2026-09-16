@@ -73,13 +73,13 @@ export const API_SCOPES = [
     id: "clients:read",
     label: "Clients — Read",
     description:
-      "List clients, read their work logs, and see what is still unbilled.",
+      "List clients, read their tasks, and see what is ready to bill.",
   },
   {
     id: "clients:write",
     label: "Clients — Write",
     description:
-      "Create and update clients, and log priced work against them.",
+      "Create clients and tasks, and move tasks through to done.",
   },
   {
     id: "invoices:read",

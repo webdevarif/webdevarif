@@ -3,9 +3,10 @@ import { notFound } from "next/navigation";
 
 import {
   findClient,
+  listAttachmentsForTasks,
   listClientInvoices,
-  listWorkLogs,
-  sumUnbilled,
+  listTasks,
+  sumBillable,
 } from "@kit/database";
 import { Badge } from "@kit/ui/badge";
 import { buttonVariants } from "@kit/ui/button";
@@ -14,6 +15,7 @@ import { PageHeader } from "@kit/ui/page-header";
 
 import { requireUser } from "@/lib/auth/session";
 import { formatDocDate, formatMoney } from "@/lib/clients/money";
+import { isR2Configured } from "@/lib/storage/r2";
 
 import { ClientWorkspace } from "./_components/client-workspace";
 
@@ -32,14 +34,18 @@ export default async function ClientDetailPage({
   const client = await findClient(user.id, id);
   if (!client) notFound();
 
-  const [logs, unbilled, invoices] = await Promise.all([
-    listWorkLogs(user.id, { clientId: id, limit: 200 }),
-    sumUnbilled(user.id, id),
+  const [taskRows, billable, invoices] = await Promise.all([
+    listTasks(user.id, { clientId: id, limit: 200 }),
+    sumBillable(user.id, id),
     listClientInvoices(user.id, id),
   ]);
 
-  const unbilledLogs = logs.filter((l) => l.status === "unbilled");
-  const historyLogs = logs.filter((l) => l.status !== "unbilled");
+  // One query for every task's files rather than one per task.
+  const filesByTask = await listAttachmentsForTasks(taskRows.map((t) => t.id));
+  const tasks = taskRows.map((t) => ({
+    ...t,
+    attachments: filesByTask.get(t.id) ?? [],
+  }));
 
   return (
     <PageContainer>
@@ -68,15 +74,15 @@ export default async function ClientDetailPage({
             <div className="text-label">Ready to bill</div>
             <div
               className={
-                unbilled.cents > 0
+                billable.cents > 0
                   ? "num-display text-2xl font-semibold text-success"
                   : "num-display text-2xl text-muted-foreground"
               }
             >
-              {formatMoney(unbilled.cents, client.currency)}
+              {formatMoney(billable.cents, client.currency)}
             </div>
             <div className="text-comment text-xs">
-              {unbilled.count} unbilled task{unbilled.count === 1 ? "" : "s"}
+              {billable.count} finished task{billable.count === 1 ? "" : "s"}
             </div>
           </div>
         }
@@ -84,9 +90,9 @@ export default async function ClientDetailPage({
 
       <ClientWorkspace
         client={client}
-        unbilledLogs={unbilledLogs}
-        historyLogs={historyLogs}
-        unbilledCents={unbilled.cents}
+        tasks={tasks}
+        billableCents={billable.cents}
+        storageReady={isR2Configured()}
       />
 
       <section className="mt-12">

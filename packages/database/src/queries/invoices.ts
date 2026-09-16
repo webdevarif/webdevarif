@@ -14,7 +14,7 @@ import {
   type InvoicePaymentRow,
   type InvoiceRow,
 } from "../schema/invoices";
-import { workLogs, type WorkLogRow } from "../schema/work-logs";
+import { tasks, type TaskRow } from "../schema/tasks";
 
 /** URL-safe, unguessable token for the public `/i/<token>` link. */
 function newPublicToken(): string {
@@ -103,9 +103,16 @@ export async function findInvoiceByPublicToken(
 export type CreateInvoiceInput = {
   userId: string;
   clientId: string;
-  /** Explicit logs to bill. Omit to bill every unbilled log for the client. */
-  workLogIds?: string[];
+  /** Explicit tasks to bill. Omit to bill every billable task for the client. */
+  taskIds?: string[];
+  /** Flat discount, in cents. Ignored when `targetTotalCents` is given. */
   discountCents?: number;
+  /**
+   * "Charge exactly this much." The discount is derived so the total lands
+   * on this figure, which is how a round number gets quoted without doing
+   * the subtraction by hand. Takes precedence over `discountCents`.
+   */
+  targetTotalCents?: number;
   taxCents?: number;
   notes?: string | null;
   terms?: string | null;
@@ -146,18 +153,19 @@ export async function createInvoiceFromWorkLogs(
 
     // Lock the candidate logs so a concurrent invoice cannot bill them too.
     const logWhere = [
-      eq(workLogs.userId, userId),
-      eq(workLogs.clientId, clientId),
-      eq(workLogs.status, "unbilled"),
+      eq(tasks.userId, userId),
+      eq(tasks.clientId, clientId),
+      eq(tasks.status, "done"),
+      eq(tasks.billingStatus, "unbilled"),
     ];
-    if (input.workLogIds?.length) {
-      logWhere.push(inArray(workLogs.id, input.workLogIds));
+    if (input.taskIds?.length) {
+      logWhere.push(inArray(tasks.id, input.taskIds));
     }
-    const logs: WorkLogRow[] = await tx
+    const logs: TaskRow[] = await tx
       .select()
-      .from(workLogs)
+      .from(tasks)
       .where(and(...logWhere))
-      .orderBy(workLogs.workedAt)
+      .orderBy(tasks.completedAt)
       .for("update");
 
     if (logs.length === 0) return { ok: false, reason: "NO_WORK" } as const;
@@ -179,8 +187,19 @@ export async function createInvoiceFromWorkLogs(
     const number = `${settings.invoicePrefix}-${year}-${String(seq).padStart(4, "0")}`;
 
     const subtotalCents = logs.reduce((sum, l) => sum + l.amountCents, 0);
-    const discountCents = Math.max(0, input.discountCents ?? 0);
     const taxCents = Math.max(0, input.taxCents ?? 0);
+
+    // A target total is expressed as a discount so the document still shows
+    // the real line prices with a visible reduction, rather than quietly
+    // rewriting what each task cost.
+    const discountCents =
+      input.targetTotalCents != null
+        ? Math.min(
+            subtotalCents,
+            Math.max(0, subtotalCents + taxCents - input.targetTotalCents),
+          )
+        : Math.max(0, input.discountCents ?? 0);
+
     const totalCents = Math.max(0, subtotalCents - discountCents + taxCents);
 
     const dueDays = input.dueDays ?? settings.defaultDueDays;
@@ -216,9 +235,9 @@ export async function createInvoiceFromWorkLogs(
       .values(
         logs.map((l, i) => ({
           invoiceId: invoice.id,
-          workLogId: l.id,
+          taskId: l.id,
           description: l.title,
-          detail: l.notes,
+          detail: l.report,
           quantity: 1,
           unitAmountCents: l.amountCents,
           amountCents: l.amountCents,
@@ -228,15 +247,15 @@ export async function createInvoiceFromWorkLogs(
       .returning();
 
     await tx
-      .update(workLogs)
+      .update(tasks)
       .set({
-        status: "invoiced",
+        billingStatus: "invoiced",
         invoiceId: invoice.id,
         updatedAt: new Date(),
       })
       .where(
         inArray(
-          workLogs.id,
+          tasks.id,
           logs.map((l) => l.id),
         ),
       );
@@ -291,7 +310,7 @@ export type RecordPaymentInput = {
 
 /**
  * Record a payment and re-derive the status from the running total: fully
- * covered goes to `paid` (and its work logs follow), partially covered goes
+ * covered goes to `paid` (and its tasks follow), partially covered goes
  * to `partial`. The logs flip only on full payment, so `paid` in the ledger
  * always means the money actually arrived.
  */
@@ -345,9 +364,9 @@ export async function recordInvoicePayment(
 
     if (fullyPaid) {
       await tx
-        .update(workLogs)
-        .set({ status: "paid", updatedAt: new Date() })
-        .where(eq(workLogs.invoiceId, invoiceId));
+        .update(tasks)
+        .set({ billingStatus: "paid", updatedAt: new Date() })
+        .where(eq(tasks.invoiceId, invoiceId));
     }
 
     return { ok: true, invoice: updated } as const;
@@ -357,7 +376,7 @@ export async function recordInvoicePayment(
 /**
  * Void an invoice and release its work back to `unbilled` so it can be
  * re-invoiced. The invoice row and its lines are kept for the audit trail;
- * only the `work_logs.invoice_id` link is cut.
+ * only the `tasks.invoice_id` link is cut.
  */
 export async function voidInvoice(
   userId: string,
@@ -372,9 +391,13 @@ export async function voidInvoice(
     if (!row) return null;
 
     await tx
-      .update(workLogs)
-      .set({ status: "unbilled", invoiceId: null, updatedAt: new Date() })
-      .where(eq(workLogs.invoiceId, id));
+      .update(tasks)
+      .set({
+        billingStatus: "unbilled",
+        invoiceId: null,
+        updatedAt: new Date(),
+      })
+      .where(eq(tasks.invoiceId, id));
 
     return row;
   });
@@ -388,9 +411,13 @@ export async function deleteInvoice(
     // Release the work first. The FK is ON DELETE SET NULL, but the status
     // column is not, and a released log must become billable again.
     await tx
-      .update(workLogs)
-      .set({ status: "unbilled", invoiceId: null, updatedAt: new Date() })
-      .where(eq(workLogs.invoiceId, id));
+      .update(tasks)
+      .set({
+        billingStatus: "unbilled",
+        invoiceId: null,
+        updatedAt: new Date(),
+      })
+      .where(eq(tasks.invoiceId, id));
 
     const rows = await tx
       .delete(invoices)

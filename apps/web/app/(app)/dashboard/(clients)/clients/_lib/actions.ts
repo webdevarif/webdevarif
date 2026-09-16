@@ -4,26 +4,34 @@ import { revalidatePath } from "next/cache";
 
 import {
   createClient,
-  createWorkLog,
+  createTask,
   deleteClient,
   deleteInvoice,
-  deleteWorkLog,
+  deleteTask,
   findClient,
   getClientSettings,
   recordInvoicePayment,
+  setTaskStatus,
+  taskAttachmentKeys,
   updateClient,
+  updateTask,
   upsertClientSettings,
   voidInvoice,
 } from "@kit/database";
 
 import { requireUser } from "@/lib/auth/session";
-import { isWorkCategory, parseAmountToCents } from "@/lib/clients/money";
+import {
+  isTaskStatus,
+  isWorkCategory,
+  parseAmountToCents,
+} from "@/lib/clients/money";
 import { encryptSecret, isEncryptionConfigured } from "@/lib/crypto";
 import {
   issueInvoice,
   resolveBaseUrl,
   sendInvoiceEmail,
 } from "@/lib/invoice/service";
+import { deleteObjects } from "@/lib/storage/r2";
 
 /**
  * Server actions for the Client Tracker.
@@ -46,6 +54,20 @@ function str(form: FormData, key: string): string {
 function nullable(form: FormData, key: string): string | null {
   return str(form, key) || null;
 }
+
+/** Parse an optional date field. Returns undefined when blank. */
+function dateField(
+  form: FormData,
+  key: string,
+): { ok: true; date?: Date } | { ok: false } {
+  const raw = str(form, key);
+  if (!raw) return { ok: true };
+  const d = new Date(raw);
+  return Number.isNaN(d.getTime()) ? { ok: false } : { ok: true, date: d };
+}
+
+const INVOICED_MSG =
+  "This task is already on an invoice. Void that invoice first, then change it.";
 
 // ─── Clients ──────────────────────────────────────────────────────────
 
@@ -148,71 +170,150 @@ export async function deleteClientAction(
   return { ok: true as const };
 }
 
-// ─── Work logs ────────────────────────────────────────────────────────
+// ─── Tasks ────────────────────────────────────────────────────────────
 
-export async function logWorkAction(clientId: string, form: FormData) {
+/**
+ * Add a task. It starts as `requested` — the client asked for it — and only
+ * becomes billable once it is marked done.
+ */
+export async function createTaskAction(clientId: string, form: FormData) {
   const user = await requireUser();
 
   const client = await findClient(user.id, clientId);
   if (!client) return { error: "Client not found." };
 
   const title = str(form, "title");
-  if (!title) return { error: "Give the work a one-line title." };
+  if (!title) return { error: "Give the task a one-line title." };
 
   const amountCents = parseAmountToCents(str(form, "amount"));
   if (amountCents == null) {
     return { error: "Price must be a number like 50 or 49.99." };
   }
 
-  const category = str(form, "category");
-  const rawDate = str(form, "workedAt");
-  let workedAt = new Date();
-  if (rawDate) {
-    const parsed = new Date(rawDate);
-    if (Number.isNaN(parsed.getTime())) {
-      return { error: "That date is not valid." };
-    }
-    workedAt = parsed;
-  }
+  const requested = dateField(form, "requestedAt");
+  if (!requested.ok) return { error: "That requested date is not valid." };
+  const completed = dateField(form, "completedAt");
+  if (!completed.ok) return { error: "That completed date is not valid." };
 
+  const rawStatus = str(form, "status");
+  const status = isTaskStatus(rawStatus)
+    ? rawStatus
+    : completed.date
+      ? "done"
+      : "requested";
+
+  const category = str(form, "category");
   const tags = str(form, "tags")
     .split(",")
     .map((t) => t.trim())
     .filter(Boolean)
     .slice(0, 20);
 
-  const log = await createWorkLog({
+  const task = await createTask({
     userId: user.id,
     clientId,
     title,
-    notes: nullable(form, "notes"),
+    description: nullable(form, "description"),
+    report: nullable(form, "report"),
     category: isWorkCategory(category) ? category : "development",
     amountCents,
     currency: client.currency,
-    status: "unbilled",
+    status,
+    billingStatus: "unbilled",
     source: "manual",
     tags,
     externalRef: nullable(form, "externalRef"),
-    workedAt,
+    requestedAt: requested.date ?? new Date(),
+    completedAt: completed.date ?? (status === "done" ? new Date() : null),
   });
 
   revalidatePath(`${CLIENTS_PATH}/${clientId}`);
   revalidatePath(CLIENTS_PATH);
-  return { ok: true as const, log };
+  return { ok: true as const, task };
 }
 
-export async function deleteWorkLogAction(clientId: string, logId: string) {
+export async function updateTaskAction(
+  clientId: string,
+  taskId: string,
+  form: FormData,
+) {
   const user = await requireUser();
 
-  const result = await deleteWorkLog(user.id, logId);
+  const patch: Record<string, unknown> = {};
+
+  const title = str(form, "title");
+  if (title) patch.title = title;
+  if (form.has("description")) patch.description = nullable(form, "description");
+  if (form.has("report")) patch.report = nullable(form, "report");
+
+  const rawAmount = str(form, "amount");
+  if (rawAmount) {
+    const cents = parseAmountToCents(rawAmount);
+    if (cents == null) return { error: "Price must be a number like 50." };
+    patch.amountCents = cents;
+  }
+
+  const requested = dateField(form, "requestedAt");
+  if (!requested.ok) return { error: "That requested date is not valid." };
+  if (requested.date) patch.requestedAt = requested.date;
+
+  if (Object.keys(patch).length === 0) return { error: "Nothing to change." };
+
+  const result = await updateTask(user.id, taskId, patch);
   if (!result.ok) {
     return {
       error:
-        result.reason === "ALREADY_INVOICED"
-          ? "This work is already on an invoice. Void that invoice first, then delete it."
-          : "Work log not found.",
+        result.reason === "ALREADY_INVOICED" ? INVOICED_MSG : "Task not found.",
     };
   }
+
+  revalidatePath(`${CLIENTS_PATH}/${clientId}`);
+  revalidatePath(CLIENTS_PATH);
+  return { ok: true as const, task: result.row };
+}
+
+/**
+ * Move a task through the workflow. Marking it done stamps the completion
+ * date and is what makes it selectable on the next invoice.
+ */
+export async function setTaskStatusAction(
+  clientId: string,
+  taskId: string,
+  status: string,
+) {
+  const user = await requireUser();
+
+  if (!isTaskStatus(status)) return { error: `Unknown status "${status}".` };
+
+  const result = await setTaskStatus(user.id, taskId, status);
+  if (!result.ok) {
+    return {
+      error:
+        result.reason === "ALREADY_INVOICED" ? INVOICED_MSG : "Task not found.",
+    };
+  }
+
+  revalidatePath(`${CLIENTS_PATH}/${clientId}`);
+  revalidatePath(CLIENTS_PATH);
+  return { ok: true as const, task: result.row };
+}
+
+export async function deleteTaskAction(clientId: string, taskId: string) {
+  const user = await requireUser();
+
+  // Collect the storage keys before the cascade removes the rows, otherwise
+  // the objects are orphaned in the bucket with nothing pointing at them.
+  const keys = await taskAttachmentKeys(user.id, taskId);
+
+  const result = await deleteTask(user.id, taskId);
+  if (!result.ok) {
+    return {
+      error:
+        result.reason === "ALREADY_INVOICED" ? INVOICED_MSG : "Task not found.",
+    };
+  }
+
+  await deleteObjects(keys);
 
   revalidatePath(`${CLIENTS_PATH}/${clientId}`);
   revalidatePath(CLIENTS_PATH);
@@ -227,14 +328,31 @@ export async function createInvoiceAction(clientId: string, form: FormData) {
   const client = await findClient(user.id, clientId);
   if (!client) return { error: "Client not found." };
 
-  const selected = form.getAll("workLogIds").map(String).filter(Boolean);
+  const selected = form.getAll("taskIds").map(String).filter(Boolean);
 
-  const rawDiscount = str(form, "discount");
   const rawTax = str(form, "tax");
-  const discountCents = rawDiscount ? parseAmountToCents(rawDiscount) : 0;
   const taxCents = rawTax ? parseAmountToCents(rawTax) : 0;
-  if (discountCents == null || taxCents == null) {
-    return { error: "Discount and tax must be numbers like 25 or 12.50." };
+  if (taxCents == null) return { error: "Tax must be a number like 12.50." };
+
+  // Two ways to discount, mutually exclusive: name the amount you actually
+  // want to charge and let the discount fall out of it, or give the discount
+  // directly. The first is what you reach for when quoting a round number.
+  const rawCharge = str(form, "chargeAmount");
+  const rawDiscount = str(form, "discount");
+
+  let targetTotalCents: number | undefined;
+  let discountCents = 0;
+
+  if (rawCharge) {
+    const cents = parseAmountToCents(rawCharge);
+    if (cents == null) {
+      return { error: "The amount to charge must be a number like 1000." };
+    }
+    targetTotalCents = cents;
+  } else if (rawDiscount) {
+    const cents = parseAmountToCents(rawDiscount);
+    if (cents == null) return { error: "Discount must be a number like 25." };
+    discountCents = cents;
   }
 
   const rawDueDays = str(form, "dueDays");
@@ -246,8 +364,9 @@ export async function createInvoiceAction(clientId: string, form: FormData) {
   const result = await issueInvoice({
     userId: user.id,
     client,
-    workLogIds: selected.length ? selected : undefined,
+    taskIds: selected.length ? selected : undefined,
     discountCents,
+    targetTotalCents,
     taxCents,
     dueDays,
     notes: nullable(form, "notes"),
@@ -258,7 +377,7 @@ export async function createInvoiceAction(clientId: string, form: FormData) {
     return {
       error:
         result.reason === "NO_WORK"
-          ? "Nothing unbilled to invoice. Log some work first."
+          ? "Nothing to invoice. Only tasks marked done can be billed."
           : "Client not found.",
     };
   }

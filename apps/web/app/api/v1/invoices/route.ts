@@ -68,7 +68,7 @@ export async function GET(req: Request): Promise<Response> {
 
 const createSchema = z.object({
   client: z.string().trim().min(1),
-  workLogIds: z.array(z.string().uuid()).optional(),
+  taskIds: z.array(z.string().uuid()).optional(),
   discount: z.union([z.string(), z.number()]).optional(),
   tax: z.union([z.string(), z.number()]).optional(),
   dueDays: z.number().int().min(0).max(365).optional(),
@@ -116,7 +116,7 @@ export async function POST(req: Request): Promise<Response> {
   const result = await issueInvoice({
     userId: auth.key.userId,
     client,
-    workLogIds: input.workLogIds,
+    taskIds: input.taskIds,
     discountCents,
     taxCents,
     dueDays: input.dueDays,

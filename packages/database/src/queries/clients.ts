@@ -12,7 +12,7 @@ import {
   type NewClientSettingsRow,
 } from "../schema/clients";
 import { invoices } from "../schema/invoices";
-import { workLogs } from "../schema/work-logs";
+import { tasks } from "../schema/tasks";
 
 // ─── Clients ──────────────────────────────────────────────────────────
 
@@ -117,6 +117,8 @@ export async function deleteClient(
 export type ClientSummary = ClientRow & {
   unbilledCents: number;
   unbilledCount: number;
+  /** Tasks still requested or in progress - not billable yet. */
+  openCount: number;
   /** Billed but not yet paid — sum of (total - paid) on non-void invoices. */
   outstandingCents: number;
   paidCents: number;
@@ -135,14 +137,15 @@ export async function listClientSummaries(
     listClients(userId),
     db
       .select({
-        clientId: workLogs.clientId,
-        unbilledCents: sql<number>`COALESCE(SUM(${workLogs.amountCents}) FILTER (WHERE ${workLogs.status} = 'unbilled'), 0)::int`,
-        unbilledCount: sql<number>`COUNT(*) FILTER (WHERE ${workLogs.status} = 'unbilled')::int`,
-        lastWorkedAt: sql<Date | null>`MAX(${workLogs.workedAt})`,
+        clientId: tasks.clientId,
+        unbilledCents: sql<number>`COALESCE(SUM(${tasks.amountCents}) FILTER (WHERE ${tasks.status} = 'done' AND ${tasks.billingStatus} = 'unbilled'), 0)::int`,
+        unbilledCount: sql<number>`COUNT(*) FILTER (WHERE ${tasks.status} = 'done' AND ${tasks.billingStatus} = 'unbilled')::int`,
+        openCount: sql<number>`COUNT(*) FILTER (WHERE ${tasks.status} IN ('requested','in_progress'))::int`,
+        lastWorkedAt: sql<Date | null>`MAX(COALESCE(${tasks.completedAt}, ${tasks.createdAt}))`,
       })
-      .from(workLogs)
-      .where(eq(workLogs.userId, userId))
-      .groupBy(workLogs.clientId),
+      .from(tasks)
+      .where(eq(tasks.userId, userId))
+      .groupBy(tasks.clientId),
     db
       .select({
         clientId: invoices.clientId,
@@ -164,6 +167,7 @@ export async function listClientSummaries(
       ...c,
       unbilledCents: l?.unbilledCents ?? 0,
       unbilledCount: l?.unbilledCount ?? 0,
+      openCount: l?.openCount ?? 0,
       lastWorkedAt: l?.lastWorkedAt ?? null,
       outstandingCents: i?.outstandingCents ?? 0,
       paidCents: i?.paidCents ?? 0,

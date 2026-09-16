@@ -16,7 +16,7 @@ import { users } from "./users";
  * Clients — the billing root of the Client Tracker.
  *
  * A client is whoever pays the invoice. Work is logged against a client
- * (see `work_logs`), stays `unbilled` until it is pulled into an invoice,
+ * (see `tasks`), stays `unbilled` until it is pulled into an invoice,
  * and the invoice is issued in the client's own `currency`.
  *
  * Money is stored as INTEGER CENTS everywhere in this feature — never a

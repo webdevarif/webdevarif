@@ -5,18 +5,22 @@ import { z } from "zod";
 
 import {
   createClient,
-  createWorkLog,
+  createTask,
   findClientByIdOrName,
   findInvoice,
+  findTask,
   getClientSettings,
   invoiceTotals,
   listClientSummaries,
   listInvoices,
-  listWorkLogs,
+  listTaskAttachments,
+  listTasks,
   recordInvoicePayment,
   searchClientsByName,
-  sumUnbilled,
+  setTaskStatus,
+  sumBillable,
   updateClient,
+  updateTask,
   voidInvoice,
   type ApiKeyRow,
   type NewClientRow,
@@ -24,6 +28,7 @@ import {
 
 import {
   CURRENCIES,
+  TASK_STATUSES,
   WORK_CATEGORIES,
   formatDocDate,
   formatMoney,
@@ -271,10 +276,10 @@ export function buildClientTrackerServer(
   // ─── Work logs ──────────────────────────────────────────────────────
 
   server.registerTool(
-    "log_work",
+    "create_task",
     {
       description:
-        "Log one piece of completed work against a client, with its price. This is the main tool - call it after finishing a task so it can be invoiced later. The amount is a fixed price for the task, not an hourly rate.",
+        "Add a task for a client, with its fixed price. Use this when the client asks for something. A task starts as 'requested' and only becomes billable once it is 'done' — pass status 'done' (or a completedAt date) if the work is already finished.",
       inputSchema: z.object({
         client: z
           .string()
@@ -289,30 +294,43 @@ export function buildClientTrackerServer(
           .describe("One line - this becomes the invoice line description."),
         amount: z
           .union([z.string(), z.number()])
-          .describe(
-            'Fixed price in major units: 50, "50", "$50", or "49.99".',
-          ),
-        notes: z
+          .describe('Fixed price in major units: 50, "50", "$50", "49.99".'),
+        description: z
+          .string()
+          .trim()
+          .max(8000)
+          .optional()
+          .describe("What the client asked for, in their words."),
+        report: z
           .string()
           .trim()
           .max(8000)
           .optional()
           .describe(
-            "What was actually done - files changed, approach, anything worth remembering. Markdown is fine.",
+            "What you actually did - files changed, approach, anything worth showing the client later. Markdown is fine.",
           ),
         category: z.enum(WORK_CATEGORIES).optional(),
-        workedAt: z
+        status: z
+          .enum(TASK_STATUSES)
+          .optional()
+          .describe("Defaults to 'requested', or 'done' if completedAt is set."),
+        requestedAt: z
           .string()
           .trim()
           .optional()
-          .describe("ISO date the work happened. Defaults to now."),
+          .describe("ISO date the client asked. Defaults to now."),
+        completedAt: z
+          .string()
+          .trim()
+          .optional()
+          .describe("ISO date it was delivered. Setting this marks it done."),
         tags: z.array(z.string().trim().max(40)).max(20).optional(),
         externalRef: z
           .string()
           .trim()
           .max(500)
           .optional()
-          .describe("PR URL, commit sha, or task id to point back at."),
+          .describe("PR URL, commit sha, or ticket id to point back at."),
       }),
     },
     async (input) => {
@@ -329,57 +347,136 @@ export function buildClientTrackerServer(
         );
       }
 
-      let workedAt = new Date();
-      if (input.workedAt) {
-        const parsed = new Date(input.workedAt);
-        if (Number.isNaN(parsed.getTime())) {
-          return text(
-            `"${input.workedAt}" is not a date I can read. Use an ISO date like 2026-09-16.`,
-          );
-        }
-        workedAt = parsed;
-      }
+      const readDate = (v: string | undefined, label: string) => {
+        if (!v) return { ok: true as const, d: undefined };
+        const d = new Date(v);
+        return Number.isNaN(d.getTime())
+          ? {
+              ok: false as const,
+              msg: `"${v}" is not a date I can read for ${label}. Use an ISO date like 2026-09-16.`,
+            }
+          : { ok: true as const, d };
+      };
 
-      const log = await createWorkLog({
+      const req = readDate(input.requestedAt, "requestedAt");
+      if (!req.ok) return text(req.msg);
+      const done = readDate(input.completedAt, "completedAt");
+      if (!done.ok) return text(done.msg);
+
+      const status = input.status ?? (done.d ? "done" : "requested");
+
+      const task = await createTask({
         userId,
         clientId: client.id,
         title: input.title,
-        notes: input.notes ?? null,
+        description: input.description ?? null,
+        report: input.report ?? null,
         category: input.category ?? "development",
         amountCents,
         currency: client.currency,
-        status: "unbilled",
+        status,
+        billingStatus: "unbilled",
         source: "mcp",
         tags: input.tags ?? [],
         externalRef: input.externalRef ?? null,
-        workedAt,
+        requestedAt: req.d ?? new Date(),
+        completedAt: done.d ?? (status === "done" ? new Date() : null),
       });
 
-      const totals = await sumUnbilled(userId, client.id);
+      const billable = await sumBillable(userId, client.id);
       return text(
-        `Logged for ${client.name}: "${log.title}" — ${formatMoney(amountCents, client.currency)}.\n` +
-          `Unbilled total is now ${formatMoney(totals.cents, client.currency)} across ${totals.count} task(s).\n` +
-          `id: ${log.id}`,
+        `Task created for ${client.name}: "${task.title}" - ${formatMoney(amountCents, client.currency)} [${task.status}].\n` +
+          (status === "done"
+            ? `Billable total is now ${formatMoney(billable.cents, client.currency)} across ${billable.count} task(s).\n`
+            : "It is not billable until you mark it done (update_task).\n") +
+          `id: ${task.id}`,
       );
     },
   );
 
   server.registerTool(
-    "list_work_logs",
+    "update_task",
     {
       description:
-        "List logged work, newest first. Use status 'unbilled' to see exactly what the next invoice would contain.",
+        "Move a task through its workflow or edit its fields. Setting status to 'done' stamps the completion date and makes the task billable; setting it back clears that date. A task already on an invoice cannot be changed.",
+      inputSchema: z.object({
+        taskId: z.string().uuid(),
+        status: z.enum(TASK_STATUSES).optional(),
+        title: z.string().trim().min(1).max(300).optional(),
+        description: z.string().trim().max(8000).optional(),
+        report: z
+          .string()
+          .trim()
+          .max(8000)
+          .optional()
+          .describe("What you did. Worth filling in before invoicing."),
+        amount: z.union([z.string(), z.number()]).optional(),
+      }),
+    },
+    async ({ taskId, status, amount, ...fields }) => {
+      if (!has(key, "clients:write")) return denied("clients:write");
+
+      const existing = await findTask(userId, taskId);
+      if (!existing) return text("Task not found.");
+
+      const invoiced =
+        "That task is already on an invoice, so it cannot be changed. Void the invoice first with void_invoice.";
+
+      const patch: Record<string, unknown> = { ...fields };
+      if (amount != null) {
+        const cents = parseAmountToCents(amount);
+        if (cents == null) {
+          return text(`Could not read "${amount}" as an amount.`);
+        }
+        patch.amountCents = cents;
+      }
+
+      if (Object.keys(patch).length > 0) {
+        const res = await updateTask(userId, taskId, patch);
+        if (!res.ok) {
+          return text(
+            res.reason === "ALREADY_INVOICED" ? invoiced : "Task not found.",
+          );
+        }
+      }
+
+      if (status) {
+        const res = await setTaskStatus(userId, taskId, status);
+        if (!res.ok) {
+          return text(
+            res.reason === "ALREADY_INVOICED" ? invoiced : "Task not found.",
+          );
+        }
+        const billable = await sumBillable(userId, res.row.clientId);
+        return text(
+          `"${res.row.title}" is now ${res.row.status}.` +
+            (status === "done"
+              ? ` Billable total for this client is ${formatMoney(billable.cents, res.row.currency)} across ${billable.count} task(s).`
+              : ""),
+        );
+      }
+
+      return text("Task updated.");
+    },
+  );
+
+  server.registerTool(
+    "list_tasks",
+    {
+      description:
+        "List tasks. Filter by status to see what is outstanding ('requested', 'in_progress') or what is ready to bill (status 'done' with billingStatus 'unbilled').",
       inputSchema: z.object({
         client: z
           .string()
           .trim()
           .optional()
           .describe("Client name, company, or id. Omit for all clients."),
-        status: z.enum(["unbilled", "invoiced", "paid", "void"]).optional(),
+        status: z.enum(TASK_STATUSES).optional(),
+        billingStatus: z.enum(["unbilled", "invoiced", "paid"]).optional(),
         limit: z.number().int().min(1).max(200).optional(),
       }),
     },
-    async ({ client: ref, status, limit }) => {
+    async ({ client: ref, status, billingStatus, limit }) => {
       if (!has(key, "clients:read")) return denied("clients:read");
 
       let clientId: string | undefined;
@@ -391,27 +488,32 @@ export function buildClientTrackerServer(
         currency = found.client.currency;
       }
 
-      const logs = await listWorkLogs(userId, {
+      const rows = await listTasks(userId, {
         clientId,
         status,
+        billingStatus,
         limit: limit ?? 50,
       });
-      if (logs.length === 0) {
-        return text(
-          status
-            ? `No ${status} work logs${ref ? ` for ${ref}` : ""}.`
-            : `No work logged${ref ? ` for ${ref}` : ""} yet.`,
-        );
-      }
+      if (rows.length === 0) return text("No tasks match that.");
 
-      const total = logs.reduce((sum, l) => sum + l.amountCents, 0);
-      const lines = logs.map(
-        (l) =>
-          `- ${formatDocDate(l.workedAt)} · ${l.title} — ${formatMoney(l.amountCents, l.currency)} [${l.status}]\n  id: ${l.id}`,
+      const total = rows.reduce((sum, t) => sum + t.amountCents, 0);
+      const lines = await Promise.all(
+        rows.map(async (t) => {
+          const files = await listTaskAttachments(t.id);
+          const when = t.completedAt
+            ? `done ${formatDocDate(t.completedAt)}`
+            : t.requestedAt
+              ? `asked ${formatDocDate(t.requestedAt)}`
+              : formatDocDate(t.createdAt);
+          const shots = files.length
+            ? ` · ${files.length} file(s): ${files.map((f) => f.kind).join(", ")}`
+            : "";
+          return `- [${t.status}/${t.billingStatus}] ${t.title} - ${formatMoney(t.amountCents, t.currency)} · ${when}${shots}\n  id: ${t.id}`;
+        }),
       );
 
       return text(
-        `${logs.length} log(s), ${formatMoney(total, currency)} total:\n\n${lines.join("\n")}`,
+        `${rows.length} task(s), ${formatMoney(total, currency)} total:\n\n${lines.join("\n")}`,
       );
     },
   );
@@ -429,7 +531,7 @@ export function buildClientTrackerServer(
           .trim()
           .min(1)
           .describe("Client name, company, or id."),
-        workLogIds: z
+        taskIds: z
           .array(z.string().uuid())
           .optional()
           .describe("Bill only these logs. Omit to bill everything unbilled."),
@@ -469,7 +571,7 @@ export function buildClientTrackerServer(
       const result = await issueInvoice({
         userId,
         client,
-        workLogIds: input.workLogIds,
+        taskIds: input.taskIds,
         discountCents,
         taxCents,
         dueDays: input.dueDays,

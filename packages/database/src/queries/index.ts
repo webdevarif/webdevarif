@@ -29,5 +29,5 @@ export * from "./project-personas";
 export * from "./short-links";
 export * from "./focus-sessions";
 export * from "./clients";
-export * from "./work-logs";
+export * from "./tasks";
 export * from "./invoices";

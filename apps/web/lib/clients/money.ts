@@ -98,3 +98,37 @@ export type WorkCategory = (typeof WORK_CATEGORIES)[number];
 export function isWorkCategory(value: string): value is WorkCategory {
   return (WORK_CATEGORIES as readonly string[]).includes(value);
 }
+
+/**
+ * Work state, kept separate from billing state. Only a `done` task can be
+ * pulled onto an invoice.
+ */
+export const TASK_STATUSES = [
+  "requested",
+  "in_progress",
+  "done",
+  "cancelled",
+] as const;
+
+export type TaskStatus = (typeof TASK_STATUSES)[number];
+
+export function isTaskStatus(value: string): value is TaskStatus {
+  return (TASK_STATUSES as readonly string[]).includes(value);
+}
+
+/** Human label for a task status. */
+export const TASK_STATUS_LABEL: Record<TaskStatus, string> = {
+  requested: "Requested",
+  in_progress: "In progress",
+  done: "Done",
+  cancelled: "Cancelled",
+};
+
+/** What a task attachment is showing. */
+export const ATTACHMENT_KINDS = ["before", "after", "reference"] as const;
+
+export type AttachmentKind = (typeof ATTACHMENT_KINDS)[number];
+
+export function isAttachmentKind(value: string): value is AttachmentKind {
+  return (ATTACHMENT_KINDS as readonly string[]).includes(value);
+}

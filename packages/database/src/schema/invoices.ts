@@ -16,9 +16,9 @@ import { users } from "./users";
 /**
  * Invoices — a frozen snapshot of billed work.
  *
- * Creating an invoice copies each selected work log into an
+ * Creating an invoice copies each selected task into an
  * `invoice_items` row and flips the log to `status = 'invoiced'`. The copy
- * is deliberate: editing or deleting the work log afterwards must never
+ * is deliberate: editing or deleting the task afterwards must never
  * change an invoice the client has already received.
  *
  * All amounts are INTEGER CENTS. `totalCents` is stored (not derived) so
@@ -90,12 +90,12 @@ export type NewInvoiceRow = typeof invoices.$inferInsert;
 
 /**
  * One billed line. `description` / `amountCents` are a SNAPSHOT of the
- * work log at the moment of invoicing.
+ * task at the moment of invoicing.
  *
- * `workLogId` is a SOFT reference on purpose — no foreign key. Deleting a
- * work log must not cascade into, or block deletion of, an invoice the
+ * `taskId` is a SOFT reference on purpose — no foreign key. Deleting a
+ * task must not cascade into, or block deletion of, an invoice the
  * client already holds; the line stands on its own snapshot. The column
- * exists only so the UI can offer "jump to the original log" when it is
+ * exists only so the UI can offer "jump to the original task" when it is
  * still around.
  */
 export const invoiceItems = pgTable(
@@ -105,8 +105,8 @@ export const invoiceItems = pgTable(
     invoiceId: uuid("invoice_id")
       .notNull()
       .references(() => invoices.id, { onDelete: "cascade" }),
-    /** Soft ref into work_logs.id — intentionally NOT a foreign key. */
-    workLogId: uuid("work_log_id"),
+    /** Soft ref into tasks.id — intentionally NOT a foreign key. */
+    taskId: uuid("task_id"),
     description: text("description").notNull(),
     /** Longer per-line note shown under the description. */
     detail: text("detail"),
@@ -118,7 +118,7 @@ export const invoiceItems = pgTable(
   },
   (table) => [
     index("invoice_items_invoice_id_idx").on(table.invoiceId),
-    index("invoice_items_work_log_id_idx").on(table.workLogId),
+    index("invoice_items_task_id_idx").on(table.taskId),
   ],
 );
 

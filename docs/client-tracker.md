@@ -1,10 +1,10 @@
 # Client Tracker
 
-Log what you build for a client, price it, and turn it into an invoice — from
-the dashboard, from Claude over MCP, or from any HTTP client.
+Track every task a client gives you — with screenshots, before/after shots
+and a write-up of what you did — then tick the finished ones and turn them
+into an invoice. From the dashboard, from Claude over MCP, or over REST.
 
-Work is priced as a **fixed amount per task**. No hours, no rate
-multiplication: you did a thing, it costs this much.
+Each task is priced as a **fixed amount**. No hours, no rate multiplication.
 
 ---
 
@@ -16,68 +16,97 @@ multiplication: you did a thing, it costs this much.
 pnpm db:migrate
 ```
 
-This applies `0038_client_tracker`, which creates six tables: `clients`,
-`client_settings`, `work_logs`, `invoices`, `invoice_items`,
-`invoice_payments`.
+Applies `0038_client_tracker` (clients, invoices) and
+`0039_tasks_and_attachments` (tasks + their screenshots).
 
-### 2. Install the new dependency
+### 2. Install dependencies
 
 ```bash
 pnpm install
 ```
 
-Adds `@modelcontextprotocol/server` to `apps/web` — the MCP endpoint needs it.
+Adds `@modelcontextprotocol/server` (the MCP endpoint) and
+`@aws-sdk/client-s3` (Cloudflare R2).
 
 ### 3. Fill in your business details
 
-Go to **Clients → Settings** and set at least the business name and address.
-That block is printed as the "From" side of every invoice.
+**Clients → Settings** — at minimum the business name and address, which are
+printed as the "From" side of every invoice. Also worth setting: the invoice
+number prefix, the payment window, your payment details, and optionally a
+Resend or Brevo key so invoices can be emailed.
 
-While you are there, optionally set:
-
-- **Number prefix** — `INV` gives `INV-2026-0001`. Numbers are claimed
-  atomically, so two invoices can never collide.
-- **Payment window** — net-N days, used to compute each due date.
-- **How to pay** — your Wise / Payoneer / bank details, printed on every
-  invoice.
-- **Email delivery** — a Resend or Brevo API key plus a from-address, if you
-  want to send invoices from the dashboard. This is optional; without it you
-  can still download the PDF and copy the share link.
-
-> Storing an email API key requires `SHOPIFY_ENCRYPTION_KEY` in
-> `apps/web/.env` (the same envelope encryption the Shopify features use).
+> Storing an email API key needs `SHOPIFY_ENCRYPTION_KEY` in `apps/web/.env`.
 > Generate one with:
 > `node -e "console.log(require('crypto').randomBytes(32).toString('base64'))"`
+
+### 4. Cloudflare R2, for screenshots
+
+```
+R2_ACCOUNT_ID=
+R2_ACCESS_KEY_ID=
+R2_SECRET_ACCESS_KEY=
+R2_BUCKET=
+```
+
+From the Cloudflare dashboard → R2 → Manage API Tokens.
+
+**Keep the bucket private.** Attachments are served through
+`/api/attachments/<id>`, an authenticated proxy that looks the row up scoped
+to you, so a client's screenshots never become a guessable public URL.
+
+Without these four, everything else still works — only the upload control is
+disabled, and it says so.
 
 ---
 
 ## The flow
 
+A task carries two states that move independently:
+
 ```
-log work  →  unbilled  →  generate invoice  →  draft  →  send  →  paid
-                                                  │
-                                                  └─ void → work is unbilled again
+work:     requested ──► in_progress ──► done
+money:                                 unbilled ──► invoiced ──► paid
 ```
 
-1. **Log work** against a client. It lands as `unbilled`.
-2. **Generate an invoice** from whichever unbilled tasks you tick. Each one is
-   *copied* onto the invoice as a line, and the log flips to `invoiced`.
-3. The invoice starts as a **draft** — its public share link is dark until you
-   send it, so sharing a link early cannot leak an unfinished invoice.
-4. **Send** it (email) or hand over the PDF / share link yourself. Sending
-   flips it to `sent`.
-5. **Record a payment.** Paying in full marks the invoice `paid` and its work
-   logs follow.
+Only a task that is **done AND unbilled** can go on an invoice. Keeping them
+apart is what stops half-finished work being billed, and stops finished work
+being billed twice.
 
-Voiding an invoice keeps it for the audit trail but releases its work back to
-`unbilled`, so you can re-bill it.
+1. **Add a task** when the client asks. It records `requestedAt` and starts
+   as `requested`.
+2. **Start it / mark it done.** Those moves stamp `startedAt` and
+   `completedAt` for you. Re-opening a done task clears the completion date.
+3. **Attach screenshots** as you go — tagged `before`, `after` or
+   `reference` — and write up what you did in the task's report.
+4. **When it is time to get paid**, tick the finished tasks and generate an
+   invoice. Each one is *copied* onto the invoice as a line and flips to
+   `invoiced`, so it can never be picked up by a later invoice.
+5. **Send** it, then **record the payment**. Paying in full marks the invoice
+   and its tasks `paid`.
 
-### Why lines are copies, not joins
+Voiding an invoice keeps it for the audit trail but releases its tasks back
+to `unbilled` so they can be re-billed.
 
-An invoice is a frozen snapshot. Editing or deleting a work log afterwards
-must never change a document a client already has — so `invoice_items` carries
-its own description and amount, and `work_log_id` is a soft reference with no
-foreign key.
+### Discounting
+
+The invoice form has two mutually exclusive modes:
+
+- **Charge this amount** — type the figure you actually want to charge and
+  the discount is worked out for you. This is the one you reach for when
+  quoting a round number.
+- **Discount** — type the reduction directly.
+
+Either way the result is stored as a discount, so the document still shows
+the real per-task prices with a visible reduction, rather than quietly
+rewriting what each task cost.
+
+### Why invoice lines are copies, not joins
+
+An invoice is a frozen snapshot. Editing or deleting a task afterwards must
+never change a document a client already has — so `invoice_items` carries its
+own description and amount, and `task_id` is a soft reference with no foreign
+key. For the same reason, a task already on an invoice refuses to be edited
+or deleted until that invoice is voided.
 
 ---
 
@@ -90,8 +119,8 @@ public API uses). Grant the scopes you want:
 
 | Scope | Unlocks |
 | --- | --- |
-| `clients:read` | list clients, read work logs, `billing_summary` |
-| `clients:write` | create/update clients, `log_work` |
+| `clients:read` | list clients, read tasks, `billing_summary` |
+| `clients:write` | create/update clients, create and update tasks |
 | `invoices:read` | list and read invoices, get the share link |
 | `invoices:write` | generate, send, void invoices; record payments |
 
@@ -123,24 +152,25 @@ URL and `Authorization` header.
 
 > "Mark INV-2026-0004 paid, came through Wise."
 
-Work logged this way is tagged `source = "mcp"` and shows a **via claude**
+Tasks created this way are tagged `source = "mcp"` and show a **via claude**
 badge in the dashboard.
 
 ### Tools
 
 | Tool | What it does |
 | --- | --- |
-| `list_clients` | every client with unbilled / outstanding / last-worked |
+| `list_clients` | every client with billable / outstanding / last-worked |
 | `create_client` | add a client (only `name` required) |
 | `update_client` | change email, currency, default price, status, notes |
-| `log_work` | **the main one** — log a priced task |
-| `list_work_logs` | filter by client and status (`unbilled` = next invoice) |
-| `create_invoice` | bill unbilled work; returns number, total, share link, PDF URL |
+| `create_task` | **the main one** — add a priced task for a client |
+| `update_task` | move it through requested → in_progress → done, or edit it |
+| `list_tasks` | filter by work status and billing status |
+| `create_invoice` | bill the finished tasks; returns number, total, share link, PDF URL |
 | `list_invoices` | invoices with status and balance |
 | `get_invoice` | full detail — lines, payments, links |
 | `send_invoice` | email it and mark it sent |
 | `record_payment` | record money received (omit amount to settle in full) |
-| `void_invoice` | void and release its work |
+| `void_invoice` | void and release its tasks |
 | `billing_summary` | where do I stand — across every client |
 
 Amounts are given in **major units**: `120`, `"120"`, `"$120"`, `"119.99"`.
@@ -159,13 +189,13 @@ shell script, a phone Shortcut.
 
 ```bash
 # Log work
-curl -X POST https://webdevarif.com/api/v1/work-logs \
+curl -X POST https://webdevarif.com/api/v1/tasks \
   -H "Authorization: Bearer tm_your_key" \
   -H "Content-Type: application/json" \
   -d '{"client":"Tyresse","title":"Fixed PDP swatch bug","amount":120,"notes":"Liquid scoping issue"}'
 
 # See what is billable
-curl "https://webdevarif.com/api/v1/work-logs?client=Tyresse&status=unbilled" \
+curl "https://webdevarif.com/api/v1/tasks?client=Tyresse&status=unbilled" \
   -H "Authorization: Bearer tm_your_key"
 
 # Bill all of it
@@ -179,8 +209,8 @@ curl -X POST https://webdevarif.com/api/v1/invoices \
 | --- | --- | --- |
 | `/api/v1/clients` | `GET` | `clients:read` |
 | `/api/v1/clients` | `POST` | `clients:write` |
-| `/api/v1/work-logs` | `GET` | `clients:read` |
-| `/api/v1/work-logs` | `POST` | `clients:write` |
+| `/api/v1/tasks` | `GET` | `clients:read` |
+| `/api/v1/tasks` | `POST` | `clients:write` |
 | `/api/v1/invoices` | `GET` | `invoices:read` |
 | `/api/v1/invoices` | `POST` | `invoices:write` |
 
@@ -211,15 +241,18 @@ working, not two.
 
 | Path | What |
 | --- | --- |
-| `packages/database/src/schema/{clients,work-logs,invoices}.ts` | tables |
-| `packages/database/src/queries/{clients,work-logs,invoices}.ts` | queries + the invoice transaction |
+| `packages/database/src/schema/{clients,tasks,invoices}.ts` | tables |
+| `packages/database/src/queries/{clients,tasks,invoices}.ts` | queries + the invoice transaction |
 | `packages/database/drizzle/0038_client_tracker.sql` | migration |
 | `apps/web/lib/clients/money.ts` | cents parsing/formatting, categories |
 | `apps/web/lib/invoice/render.ts` | the invoice document (HTML + text) |
 | `apps/web/lib/invoice/service.ts` | issue / render / send — shared by every caller |
 | `apps/web/lib/mcp/client-tracker.ts` | the MCP tools |
 | `apps/web/app/api/mcp/route.ts` | MCP endpoint (streamable HTTP, stateless) |
-| `apps/web/app/api/v1/{clients,work-logs,invoices}/` | REST |
+| `apps/web/lib/storage/r2.ts` | Cloudflare R2 (private bucket) |
+| `apps/web/app/api/v1/{clients,tasks,invoices}/` | REST |
+| `apps/web/app/api/tasks/[id]/attachments/` | upload / remove screenshots |
+| `apps/web/app/api/attachments/[id]/` | authenticated image proxy |
 | `apps/web/app/i/[token]/` | public invoice + PDF |
 | `apps/web/app/(app)/dashboard/(clients)/clients/` | the dashboard UI |
 
@@ -239,5 +272,5 @@ by asking Claude are byte-identical, because there is only one implementation.
 - **Invoice numbers are claimed via an incrementing upsert** inside the same
   transaction that creates the invoice — two concurrent creates get different
   numbers without an advisory lock.
-- **A work log that is already invoiced cannot be edited or deleted.** Void
+- **A task that is already invoiced cannot be edited or deleted.** Void
   the invoice first. The dashboard says so instead of failing silently.

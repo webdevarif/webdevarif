@@ -82,7 +82,9 @@ function snapshotParties(
 export type IssueInvoiceInput = {
   userId: string;
   client: ClientRow;
-  workLogIds?: string[];
+  taskIds?: string[];
+  /** "Charge exactly this much" - the discount is derived from it. */
+  targetTotalCents?: number;
   discountCents?: number;
   taxCents?: number;
   notes?: string | null;
@@ -104,7 +106,8 @@ export async function issueInvoice(
   return createInvoiceFromWorkLogs({
     userId: input.userId,
     clientId: input.client.id,
-    workLogIds: input.workLogIds,
+    taskIds: input.taskIds,
+    targetTotalCents: input.targetTotalCents,
     discountCents: input.discountCents,
     taxCents: input.taxCents,
     notes: input.notes,
