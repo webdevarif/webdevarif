@@ -42,3 +42,6 @@ export * from "./project-personas";
 export * from "./short-links";
 export * from "./link-clicks";
 export * from "./focus-sessions";
+export * from "./clients";
+export * from "./invoices";
+export * from "./work-logs";

@@ -57,6 +57,42 @@ export const API_SCOPES = [
     description:
       "Competitor finder, competitor analysis, and buyer persona generator.",
   },
+  {
+    id: "focus:write",
+    label: "Focus — Write",
+    description:
+      "Sync focus/break sessions from the FocusFlow desktop app to your account.",
+  },
+  {
+    id: "focus:read",
+    label: "Focus — Read",
+    description:
+      "Read your synced focus sessions and daily focus totals.",
+  },
+  {
+    id: "clients:read",
+    label: "Clients — Read",
+    description:
+      "List clients, read their work logs, and see what is still unbilled.",
+  },
+  {
+    id: "clients:write",
+    label: "Clients — Write",
+    description:
+      "Create and update clients, and log priced work against them.",
+  },
+  {
+    id: "invoices:read",
+    label: "Invoices — Read",
+    description:
+      "List invoices, read line items, and get the public share link.",
+  },
+  {
+    id: "invoices:write",
+    label: "Invoices — Write",
+    description:
+      "Generate invoices from unbilled work, email them, and record payments.",
+  },
 ] as const satisfies readonly ApiScope[];
 
 export type Scope = (typeof API_SCOPES)[number]["id"];

@@ -8,6 +8,7 @@ import { useMemo, useState } from "react";
 import {
   BarChartIcon as BarChart3,
   BeakerIcon as Beaker,
+  BuildingIcon as Building,
   CheckIcon as Check,
   ChevronDownIcon as ChevronDown,
   CodeIcon as Code2,
@@ -23,6 +24,7 @@ import {
   NetworkIcon as Network,
   RocketIcon as Rocket,
   SearchIcon as Search,
+  SettingsIcon as Settings,
   ShoppingCartIcon as ShoppingCart,
   SmartphoneIcon as Smartphone,
   SparklesIcon as Sparkles,
@@ -69,6 +71,30 @@ const pinnedNav: NavLeaf[] = [
 ];
 
 const categories: NavCategory[] = [
+  {
+    id: "clients",
+    label: "Clients & Billing",
+    subgroups: [
+      {
+        id: "client-tracker",
+        label: "Client Tracker",
+        icon: Building,
+        items: [
+          { href: "/dashboard/clients", label: "Clients", icon: Building },
+          {
+            href: "/dashboard/clients/invoices",
+            label: "Invoices",
+            icon: FileText,
+          },
+          {
+            href: "/dashboard/clients/settings",
+            label: "Invoice Settings",
+            icon: Settings,
+          },
+        ],
+      },
+    ],
+  },
   {
     id: "projects",
     label: "Projects",
