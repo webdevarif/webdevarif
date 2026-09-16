@@ -125,12 +125,29 @@ or deleted until that invoice is voided.
 
 ---
 
-## Connecting Claude (MCP)
+## Connecting over MCP
+
+The tracker exposes a **remote MCP server**, so anything that speaks MCP —
+Claude Code, Claude Desktop, Cursor, or your own client — can add clients,
+log tasks and raise invoices without touching the dashboard.
+
+| | |
+| --- | --- |
+| **Endpoint** | `https://webdevarif.com/api/mcp` |
+| **Transport** | Streamable HTTP (stateless — no session to keep warm) |
+| **Auth** | `Authorization: Bearer tm_…` |
+| **Rate limit** | 120 requests/minute per key |
+| **Local** | `http://localhost:3000/api/mcp` against `pnpm dev` |
+
+There is no OAuth flow and no separate MCP credential: it reuses the same
+API keys as the rest of the public API.
 
 ### 1. Create an API key
 
-**Dashboard → Clients → API Keys** (the same key manager the rest of the
-public API uses). Grant the scopes you want:
+**Dashboard → Projects → API Keys** (`/dashboard/projects/settings/api-keys`)
+— one key manager for the whole public API, not a per-feature one.
+
+Grant the scopes you want:
 
 | Scope | Unlocks |
 | --- | --- |
@@ -139,22 +156,71 @@ public API uses). Grant the scopes you want:
 | `invoices:read` | list and read invoices, get the share link |
 | `invoices:write` | generate, send, void invoices; record payments |
 
-The plaintext key is shown **once**. Connecting needs at least one of the
-four; each tool re-checks the specific scope it needs, so a read-only key can
-browse but never bill.
+Connecting needs at least **one** of the four. Each tool then re-checks the
+specific scope it needs, so a `clients:read` key can browse everything and
+bill nothing.
 
-### 2. Add the server
+The plaintext key starts `tm_` and is shown **once** — the database keeps
+only a SHA-256 hash, so a lost key is replaced, never recovered.
+
+### 2. Connect
+
+**Claude Code** — `--scope user` registers it for every project on the
+machine, which is usually what you want for a personal tracker:
 
 ```bash
-claude mcp add --transport http webdevarif https://webdevarif.com/api/mcp \
+claude mcp add --transport http --scope user webdevarif \
+  https://webdevarif.com/api/mcp \
   --header "Authorization: Bearer tm_your_key_here"
 ```
 
-Locally, point it at `http://localhost:3000/api/mcp` instead.
+Check it took with `claude mcp list`, and inspect it with
+`claude mcp get webdevarif`.
 
-For Claude Desktop, add the equivalent entry to your MCP config with the same
-URL and `Authorization` header.
+**Claude Desktop, Cursor, and anything else with a JSON config** — add an
+entry under `mcpServers`:
 
+```json
+{
+  "mcpServers": {
+    "webdevarif": {
+      "type": "http",
+      "url": "https://webdevarif.com/api/mcp",
+      "headers": {
+        "Authorization": "Bearer tm_your_key_here"
+      }
+    }
+  }
+}
+```
+
+**claude.ai custom connectors** — this endpoint authenticates with a static
+bearer token rather than OAuth. If the connector UI you are using has no
+field for a custom header, it cannot authenticate here; use one of the
+config-file clients above instead.
+
+**Anything else** — it is plain JSON-RPC over HTTP POST. Nothing about it
+is client-specific beyond the header:
+
+```bash
+curl -sS https://webdevarif.com/api/mcp \
+  -H "Authorization: Bearer tm_your_key_here" \
+  -H "Content-Type: application/json" \
+  -H "Accept: application/json, text/event-stream" \
+  -d '{"jsonrpc":"2.0","id":1,"method":"tools/list"}'
+```
+
+### If it will not connect
+
+| Response | Meaning |
+| --- | --- |
+| `401` missing header | The client is not sending `Authorization` at all |
+| `401` invalid or revoked | Wrong key, or it was revoked in the dashboard |
+| `403` no tracker scopes | Real key, but none of the four scopes are granted |
+| `429` too many requests | Over 120/min; `Retry-After` says how long to wait |
+
+Every failure comes back as readable text rather than a bare status code,
+because MCP clients surface that string straight to you.
 ### 3. Use it
 
 > "Log for Tyresse: fixed the variant swatch bug on the PDP, $120. Note that

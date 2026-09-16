@@ -79,7 +79,7 @@ async function authenticate(req: Request): Promise<AuthOutcome> {
     return {
       ok: false,
       response: unauthorized(
-        "Missing 'Authorization: Bearer <key>'. Create a key in the dashboard under Clients → API Keys.",
+        "Missing 'Authorization: Bearer <key>'. Create a key in the dashboard under Projects → API Keys.",
       ),
     };
   }
