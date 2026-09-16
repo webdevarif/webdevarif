@@ -260,6 +260,20 @@
       "when": 1783325677285,
       "tag": "0036_add_authpass_sub",
       "breakpoints": true
+    },
+    {
+      "idx": 37,
+      "version": "7",
+      "when": 1785138545821,
+      "tag": "0037_rapid_doctor_octopus",
+      "breakpoints": true
+    },
+    {
+      "idx": 38,
+      "version": "7",
+      "when": 1789562588505,
+      "tag": "0038_client_tracker",
+      "breakpoints": true
     }
   ]
 }

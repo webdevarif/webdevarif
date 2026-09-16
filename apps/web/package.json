@@ -18,6 +18,7 @@
     "@kit/database": "workspace:*",
     "@kit/shared": "workspace:*",
     "@kit/ui": "workspace:*",
+    "@modelcontextprotocol/server": "^2.0.0",
     "@radix-ui/react-label": "^2.1.8",
     "@radix-ui/react-slot": "^1.2.4",
     "@sindresorhus/slugify": "^3.0.0",
