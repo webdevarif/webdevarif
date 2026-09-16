@@ -255,6 +255,95 @@
   .stat-badge {
     @apply font-mono text-xs tracking-wider text-muted-foreground;
   }
+
+  /* ──────────────────────────────────────────────────────────
+     Task notes — shared by the editor (.tiptap, while writing)
+     and the renderer (.rich-text, once saved) so what you type
+     is what you see afterwards.
+     ────────────────────────────────────────────────────────── */
+  .tiptap,
+  .rich-text {
+    @apply text-sm leading-relaxed text-foreground;
+  }
+
+  .tiptap > * + *,
+  .rich-text > * + * {
+    @apply mt-3;
+  }
+
+  .tiptap h2,
+  .rich-text h2 {
+    @apply mt-5 text-base font-semibold tracking-tight;
+  }
+
+  .tiptap h3,
+  .rich-text h3 {
+    @apply mt-4 text-sm font-semibold tracking-tight text-foreground/90;
+  }
+
+  .tiptap ul,
+  .rich-text ul {
+    @apply list-disc space-y-1 pl-5 marker:text-muted-foreground;
+  }
+
+  .tiptap ol,
+  .rich-text ol {
+    @apply list-decimal space-y-1 pl-5 marker:text-muted-foreground;
+  }
+
+  .tiptap li > p,
+  .rich-text li > p {
+    @apply my-0;
+  }
+
+  .tiptap blockquote,
+  .rich-text blockquote {
+    @apply border-l-2 border-primary/50 pl-3 text-muted-foreground italic;
+  }
+
+  .tiptap code,
+  .rich-text code {
+    @apply rounded bg-muted px-1 py-0.5 font-mono text-[0.8125em] text-primary;
+  }
+
+  .tiptap pre,
+  .rich-text pre {
+    @apply overflow-x-auto rounded-lg border border-border bg-background p-3 font-mono text-xs;
+  }
+
+  /* The wrapper already styles the block; a nested chip would double it. */
+  .tiptap pre code,
+  .rich-text pre code {
+    @apply bg-transparent p-0 text-foreground;
+  }
+
+  .tiptap a,
+  .rich-text a {
+    @apply text-info underline decoration-info/40 underline-offset-2 hover:decoration-info;
+  }
+
+  .tiptap hr,
+  .rich-text hr {
+    @apply my-4 border-border;
+  }
+
+  .tiptap img,
+  .rich-text img {
+    @apply my-3 max-h-112 w-auto max-w-full rounded-lg border border-border object-contain;
+  }
+
+  /* Selected image in the editor — shows what delete would remove. */
+  .tiptap img.ProseMirror-selectednode {
+    @apply border-primary ring-2 ring-primary/30;
+  }
+
+  /* Placeholder: the extension writes the text onto a data attribute and
+     this is what actually draws it. First line only, so a long note does
+     not show ghost text on every empty paragraph. */
+  .tiptap p.is-editor-empty:first-child::before {
+    content: attr(data-placeholder);
+    @apply pointer-events-none float-left h-0 text-muted-foreground/70;
+  }
 }
 
 /* Portfolio animations */

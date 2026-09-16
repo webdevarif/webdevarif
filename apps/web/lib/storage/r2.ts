@@ -93,6 +93,42 @@ export function buildTaskAttachmentKey(
   return `tasks/${userId}/${taskId}/${randomUUID()}.${ext}`;
 }
 
+/** Images only — the editor embeds these inline, so a PDF makes no sense. */
+export const ALLOWED_IMAGE_TYPES = ALLOWED_ATTACHMENT_TYPES.filter((t) =>
+  t.startsWith("image/"),
+);
+
+/** Where the editor's inline image lives. */
+export const EDITOR_KEY_PREFIX = "editor";
+
+/**
+ * Object key for an image dropped into a task note.
+ *
+ * Deliberately keyed by user rather than by task: the editor can be open on
+ * a task that has not been created yet, so there is no task id to key on.
+ * The user segment is what the serving route checks, so the prefix is also
+ * the access rule.
+ */
+export function buildEditorImageKey(
+  userId: string,
+  contentType: string,
+): string {
+  const ext = EXT_BY_TYPE[contentType] ?? "bin";
+  return `${EDITOR_KEY_PREFIX}/${userId}/${randomUUID()}.${ext}`;
+}
+
+/**
+ * Is this key one that `userId` is allowed to read?
+ *
+ * The whole access model for editor images is this string comparison, so it
+ * refuses traversal segments outright rather than trusting R2 to treat
+ * `..` as a literal.
+ */
+export function ownsEditorKey(userId: string, key: string): boolean {
+  if (!key || key.includes("..")) return false;
+  return key.startsWith(`${EDITOR_KEY_PREFIX}/${userId}/`);
+}
+
 export async function putObject(
   key: string,
   body: Uint8Array,

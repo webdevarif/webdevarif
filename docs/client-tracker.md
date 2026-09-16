@@ -25,8 +25,8 @@ Applies `0038_client_tracker` (clients, invoices) and
 pnpm install
 ```
 
-Adds `@modelcontextprotocol/server` (the MCP endpoint) and
-`@aws-sdk/client-s3` (Cloudflare R2).
+Adds `@modelcontextprotocol/server` (the MCP endpoint),
+`@aws-sdk/client-s3` (Cloudflare R2) and `@tiptap/*` (the note editor).
 
 ### 3. Fill in your business details
 
@@ -54,8 +54,9 @@ From the Cloudflare dashboard → R2 → Manage API Tokens.
 `/api/attachments/<id>`, an authenticated proxy that looks the row up scoped
 to you, so a client's screenshots never become a guessable public URL.
 
-Without these four, everything else still works — only the upload control is
-disabled, and it says so.
+R2 holds two kinds of image: the before/after screenshots attached to a task,
+and anything you paste into a note. Without these four keys everything else
+still works — the upload controls are disabled, and say so.
 
 ---
 
@@ -78,6 +79,20 @@ being billed twice.
    `completedAt` for you. Re-opening a done task clears the completion date.
 3. **Attach screenshots** as you go — tagged `before`, `after` or
    `reference` — and write up what you did in the task's report.
+
+### The notes
+
+"What the client asked for" and "what you did" are rich-text: headings,
+lists, quotes, code blocks, links, and images you can paste, drag in or pick
+from a file dialog. Images upload to R2 the moment they land and are served
+back through an authenticated route, so they stay as private as the
+screenshots.
+
+They are stored as ProseMirror JSON in the same `text` columns, and rendered
+by walking that JSON into React elements — never `dangerouslySetInnerHTML`.
+That is what makes it safe to paste a client's message straight in, and it
+is also why a plain-text note written over MCP still renders fine: anything
+that is not our JSON falls back to paragraphs.
 4. **When it is time to get paid**, tick the finished tasks and generate an
    invoice. Each one is *copied* onto the invoice as a line and flips to
    `invoiced`, so it can never be picked up by a later invoice.
@@ -253,6 +268,9 @@ working, not two.
 | `apps/web/app/api/v1/{clients,tasks,invoices}/` | REST |
 | `apps/web/app/api/tasks/[id]/attachments/` | upload / remove screenshots |
 | `apps/web/app/api/attachments/[id]/` | authenticated image proxy |
+| `apps/web/app/api/uploads/image/` | images pasted into a note |
+| `apps/web/components/rich-text/` | the note editor and its renderer |
+| `apps/web/lib/rich-text/doc.ts` | note storage format + link/image guards |
 | `apps/web/app/i/[token]/` | public invoice + PDF |
 | `apps/web/app/(app)/dashboard/(clients)/clients/` | the dashboard UI |
 

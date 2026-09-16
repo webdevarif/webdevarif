@@ -10,6 +10,7 @@ import {
 } from "@kit/database";
 import { Badge } from "@kit/ui/badge";
 import { buttonVariants } from "@kit/ui/button";
+import { ChevronRightIcon, InvoiceIcon } from "@kit/ui/icons";
 import { PageContainer } from "@kit/ui/page-container";
 import { PageHeader } from "@kit/ui/page-header";
 
@@ -18,6 +19,7 @@ import { formatDocDate, formatMoney } from "@/lib/clients/money";
 import { isR2Configured } from "@/lib/storage/r2";
 
 import { ClientWorkspace } from "./_components/client-workspace";
+import { EmptyState, SectionHeading } from "./_components/shared";
 
 export const metadata = {
   title: "Client · webdevarif",
@@ -47,6 +49,10 @@ export default async function ClientDetailPage({
     attachments: filesByTask.get(t.id) ?? [],
   }));
 
+  const subtitle = [client.company, client.email, client.currency]
+    .filter(Boolean)
+    .join(" · ");
+
   return (
     <PageContainer>
       <PageHeader
@@ -68,26 +74,19 @@ export default async function ClientDetailPage({
             ) : null}
           </span>
         }
-        description={`// ${[client.company, client.email, client.currency].filter(Boolean).join(" · ")}`}
+        description={`// ${subtitle}`}
         action={
-          <div className="text-right">
-            <div className="text-label">Ready to bill</div>
-            <div
-              className={
-                billable.cents > 0
-                  ? "num-display text-2xl font-semibold text-success"
-                  : "num-display text-2xl text-muted-foreground"
-              }
-            >
-              {formatMoney(billable.cents, client.currency)}
-            </div>
-            <div className="text-comment text-xs">
-              {billable.count} finished task{billable.count === 1 ? "" : "s"}
-            </div>
-          </div>
+          <Link
+            href="/dashboard/clients/settings"
+            className={buttonVariants({ variant: "outline", size: "lg" })}
+          >
+            Invoice settings
+          </Link>
         }
       />
 
+      {/* The money figures live in the workspace's own summary rail, next to
+          the tasks that produce them, rather than orphaned in the header. */}
       <ClientWorkspace
         client={client}
         tasks={tasks}
@@ -95,28 +94,33 @@ export default async function ClientDetailPage({
         storageReady={isR2Configured()}
       />
 
-      <section className="mt-12">
-        <div className="mb-4 flex items-end justify-between gap-3">
-          <div>
-            <h2 className="text-xl font-semibold">Invoices</h2>
-            <p className="text-comment mt-1">
-              {`// ${invoices.length} issued for this client`}
-            </p>
-          </div>
-          <Link
-            href="/dashboard/clients/invoices"
-            className={buttonVariants({ variant: "outline", size: "lg" })}
-          >
-            All invoices
-          </Link>
-        </div>
+      <section className="mt-10">
+        <SectionHeading
+          icon={InvoiceIcon}
+          title="Invoices"
+          note={
+            invoices.length
+              ? `${invoices.length} issued for this client`
+              : "none issued yet"
+          }
+          action={
+            invoices.length ? (
+              <Link
+                href="/dashboard/clients/invoices"
+                className="text-xs text-muted-foreground underline-offset-4 hover:text-foreground hover:underline"
+              >
+                All invoices
+              </Link>
+            ) : undefined
+          }
+        />
 
         {invoices.length === 0 ? (
-          <div className="rounded-xl border border-dashed border-border p-8 text-center">
-            <p className="text-comment">
-              {`// nothing invoiced yet — log some work, then generate one above`}
-            </p>
-          </div>
+          <EmptyState
+            icon={InvoiceIcon}
+            title="No invoices yet"
+            note="finish a task, tick it above, and generate one"
+          />
         ) : (
           <div className="space-y-2">
             {invoices.map((inv) => {
@@ -125,29 +129,33 @@ export default async function ClientDetailPage({
                 <Link
                   key={inv.id}
                   href={`/dashboard/clients/invoices/${inv.id}`}
-                  className="flex flex-wrap items-center justify-between gap-4 rounded-xl border border-border bg-card p-4 transition-colors hover:border-primary/40 hover:bg-muted/40"
+                  className="group flex flex-wrap items-center justify-between gap-4 rounded-xl border border-border bg-card px-4 py-3.5 transition-colors hover:border-primary/40"
                 >
                   <div className="min-w-0">
-                    <div className="flex items-center gap-2">
+                    <div className="flex flex-wrap items-center gap-2">
                       <span className="font-mono text-sm font-semibold">
                         {inv.number}
                       </span>
                       <StatusBadge status={inv.status} />
                     </div>
-                    <p className="text-comment mt-0.5 text-sm">
+                    <p className="text-meta mt-1">
                       issued {formatDocDate(inv.issueDate)} · due{" "}
                       {formatDocDate(inv.dueDate)}
                     </p>
                   </div>
-                  <div className="text-right">
-                    <div className="num-display font-semibold">
-                      {formatMoney(inv.totalCents, inv.currency)}
-                    </div>
-                    {balance > 0 && inv.status !== "draft" ? (
-                      <div className="text-comment text-xs">
-                        {formatMoney(balance, inv.currency)} outstanding
+
+                  <div className="flex items-center gap-3">
+                    <div className="text-right">
+                      <div className="num-display font-semibold">
+                        {formatMoney(inv.totalCents, inv.currency)}
                       </div>
-                    ) : null}
+                      {balance > 0 && inv.status !== "draft" ? (
+                        <div className="text-meta">
+                          {formatMoney(balance, inv.currency)} outstanding
+                        </div>
+                      ) : null}
+                    </div>
+                    <ChevronRightIcon className="size-4 text-muted-foreground transition-transform group-hover:translate-x-0.5" />
                   </div>
                 </Link>
               );

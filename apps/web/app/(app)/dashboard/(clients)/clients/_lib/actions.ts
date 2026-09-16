@@ -246,6 +246,23 @@ export async function updateTaskAction(
   if (form.has("description")) patch.description = nullable(form, "description");
   if (form.has("report")) patch.report = nullable(form, "report");
 
+  // Only fields the form actually sent are touched, so the edit panel can
+  // stay partial and MCP can keep patching one thing at a time.
+  const category = str(form, "category");
+  if (isWorkCategory(category)) patch.category = category;
+
+  if (form.has("tags")) {
+    patch.tags = str(form, "tags")
+      .split(",")
+      .map((t) => t.trim())
+      .filter(Boolean)
+      .slice(0, 20);
+  }
+
+  if (form.has("externalRef")) {
+    patch.externalRef = nullable(form, "externalRef");
+  }
+
   const rawAmount = str(form, "amount");
   if (rawAmount) {
     const cents = parseAmountToCents(rawAmount);

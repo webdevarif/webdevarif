@@ -72,6 +72,32 @@ import {
   Video01Icon,
   VolumeHighIcon,
   VolumeOffIcon,
+  TextBoldIcon,
+  TextItalicIcon,
+  TextStrikethroughIcon,
+  TextUnderlineIcon,
+  Heading01Icon,
+  Heading02Icon,
+  LeftToRightListBulletIcon,
+  LeftToRightListNumberIcon,
+  QuoteDownIcon,
+  SourceCodeIcon,
+  ImageAdd01Icon,
+  Image01Icon,
+  ArrowTurnBackwardIcon,
+  ArrowTurnForwardIcon,
+  MinusSignIcon,
+  PencilEdit02Icon,
+  Delete02Icon,
+  Attachment02Icon,
+  CloudUploadIcon,
+  Invoice03Icon,
+  Wallet01Icon,
+  Tag01Icon,
+  Calendar03Icon,
+  CheckmarkCircle02Icon,
+  Timer02Icon,
+  PlayIcon,
 } from "@hugeicons/core-free-icons"
 import {
   HugeiconsIcon,
@@ -174,3 +200,33 @@ export const BuildingIcon = createIcon(Building01Icon)
 export const ClockIcon = createIcon(Clock01Icon)
 export const PhoneIcon = createIcon(Call02Icon)
 export const ExternalLinkIcon = createIcon(ArrowUpRight01Icon)
+
+// ─── Text editor toolbar / client tracker ────────────────
+export const BoldIcon = createIcon(TextBoldIcon)
+export const ItalicIcon = createIcon(TextItalicIcon)
+export const StrikethroughIcon = createIcon(TextStrikethroughIcon)
+export const UnderlineIcon = createIcon(TextUnderlineIcon)
+export const HeadingOneIcon = createIcon(Heading01Icon)
+export const HeadingTwoIcon = createIcon(Heading02Icon)
+export const BulletListIcon = createIcon(LeftToRightListBulletIcon)
+export const NumberedListIcon = createIcon(LeftToRightListNumberIcon)
+export const QuoteIcon = createIcon(QuoteDownIcon)
+export const CodeBlockIcon = createIcon(SourceCodeIcon)
+export const LinkChainIcon = createIcon(Link01Icon)
+export const ImageAddIcon = createIcon(ImageAdd01Icon)
+export const ImageIcon = createIcon(Image01Icon)
+export const UndoIcon = createIcon(ArrowTurnBackwardIcon)
+export const RedoIcon = createIcon(ArrowTurnForwardIcon)
+export const DividerIcon = createIcon(MinusSignIcon)
+export const EditIcon = createIcon(PencilEdit02Icon)
+export const TrashIcon = createIcon(Delete02Icon)
+export const PaperclipIcon = createIcon(Attachment02Icon)
+export const UploadIcon = createIcon(CloudUploadIcon)
+export const InvoiceIcon = createIcon(Invoice03Icon)
+export const WalletIcon = createIcon(Wallet01Icon)
+export const TagIcon = createIcon(Tag01Icon)
+export const CalendarIcon = createIcon(Calendar03Icon)
+export const CheckCircleIcon = createIcon(CheckmarkCircle02Icon)
+export const CancelIcon = createIcon(Cancel01Icon)
+export const TimerIcon = createIcon(Timer02Icon)
+export const PlayGlyphIcon = createIcon(PlayIcon)
